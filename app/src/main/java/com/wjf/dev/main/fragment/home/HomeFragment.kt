@@ -16,12 +16,12 @@ import com.wjf.dev.main.fragment.project.ProjectViewModel
  */
 
 
-class HomeFragment : BaseMVVMFragment<FragmentHomeBinding, ProjectViewModel>() {
-    override fun initViewModel(): ProjectViewModel =
-        ViewModelProvider(this, ProjectVMFactory(
-            ProjectRepository()
+class HomeFragment : BaseMVVMFragment<FragmentHomeBinding, HomeViewModel>() {
+    override fun initViewModel(): HomeViewModel =
+        ViewModelProvider(this, HomeVMFactory(
+            HomeRepository()
         )
-        ).get(ProjectViewModel::class.java)
+        ).get(HomeViewModel::class.java)
 
     override fun initContentViewID(): Int = R.layout.fragment_home
 }

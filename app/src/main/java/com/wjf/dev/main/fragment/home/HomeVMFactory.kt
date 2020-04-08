@@ -12,7 +12,7 @@ import com.wjf.dev.main.fragment.project.ProjectRepository
  */
 
 
-class HomeVMFactory(val repository: ProjectRepository) : ViewModelProvider.NewInstanceFactory() {
+class HomeVMFactory(val repository: HomeRepository) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return HomeViewModel(repository) as T
     }

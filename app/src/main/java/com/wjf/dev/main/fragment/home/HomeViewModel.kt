@@ -11,5 +11,5 @@ import com.wjf.dev.main.fragment.project.ProjectRepository
  */
 
 
-class HomeViewModel(val repository: ProjectRepository) : ViewModel() {
+class HomeViewModel(val repository: HomeRepository) : ViewModel() {
 }
