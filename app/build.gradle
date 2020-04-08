@@ -59,8 +59,7 @@ android {
         debug {
             minifyEnabled false
             signingConfig signingConfigs.debug
-            buildConfigField "String", "ApiHost", "\"http://bsd.thymb.cn/\""
-//            buildConfigField "String", "ApiHost", "\"http://120.55.88.79:7000/\""
+            buildConfigField "String", "ApiHost", "\"http://www.wanandroid.com/\""
             buildConfigField ("String", "UMENG_APP_KEY",  '"5dc37a8d570df36b92000053"')
             buildConfigField ("String", "UMENG_CHANNEL", '"umeng"')
         }
@@ -80,8 +79,7 @@ android {
         bsd{
             dimension 'wu'
             signingConfig signingConfigs.release
-            buildConfigField "String", "ApiHost", "\"http://bsd.thymb.cn/\""
-//            buildConfigField "String", "ApiHost", "\"http://120.55.88.79:7000/\""
+            buildConfigField "String", "ApiHost", "\"https://www.wanandroid.com/\""
             manifestPlaceholders = [
                     app_icon    : "@mipmap/ic_launcher",
                     app_style   : "@style/AppTheme",
