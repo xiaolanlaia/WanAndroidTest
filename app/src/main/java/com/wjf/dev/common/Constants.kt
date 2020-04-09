@@ -14,16 +14,13 @@ internal interface Constants {
     object URL {
         // Base_Url
         const val BASE_URL = BuildConfig.ApiHost
-        //盐
-        val YAN = "tt^hz"
-        //用户相关
-        const val USER_PRE = "bsd"
-        const val USER = "$USER_PRE/api/"
 
 
+        //首页banner
+        const val GET_HOME_BANNER_DATA = "banner/json"
+        //首页文章列表
+        const val GET_HOME_ARTICLE_LIST = "article/list/0/json"
 
-        //获取验证码
-        const val PHONE_CODE = USER + "sendMsg"
 
 
 
@@ -41,12 +38,23 @@ internal interface Constants {
         const val IS_LOGIN = "is_login"
         //Token
         const val TOKEN = "token"
+        //
+        const val URL = "url"
+        const val WEBVIEW_TITLE = "webview_title"
 
 
 
 
 
 
+    }
+
+    /**
+     * 跟数据相关
+     */
+    object DATA {
+
+        const val LOGIN_FAIL = -1001
     }
 
 

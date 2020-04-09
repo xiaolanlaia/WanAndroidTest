@@ -1,8 +1,8 @@
 package com.wjf.dev.common
 
-import com.sun.dev.entity.*
+import com.sun.dev.entity.BaseBean
+import com.wjf.dev.entity.*
 import io.reactivex.Observable
-import okhttp3.RequestBody
 import retrofit2.http.*
 
 /**
@@ -10,10 +10,18 @@ import retrofit2.http.*
  */
 interface ApiService {
 
+
+
     /**
-     * 获取手机验证码
+     * banner数据
      */
-    @POST(Constants.URL.PHONE_CODE)
-    fun getPhoneCode(@Body body: RequestBody):Observable<BaseBean>
+    @GET(Constants.URL.GET_HOME_BANNER_DATA)
+    fun getHomeBannerData() : Observable<HomeBannerBean>
+
+    /**
+     * 文章列表
+     */
+    @GET(Constants.URL.GET_HOME_ARTICLE_LIST)
+    fun getHomeArticleList() : Observable<HomeArticleBean>
 
 }

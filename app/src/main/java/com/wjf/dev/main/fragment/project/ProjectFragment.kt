@@ -3,7 +3,7 @@ package com.wjf.dev.main.fragment.project
 import androidx.lifecycle.ViewModelProvider
 import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
-import com.wjf.dev.databinding.FragmentHomeBinding
+import com.wjf.dev.databinding.HomeFragmentBinding
 
 /**
  *  @author  xiaolanlaia
@@ -13,9 +13,9 @@ import com.wjf.dev.databinding.FragmentHomeBinding
  */
 
 
-class ProjectFragment : BaseMVVMFragment<FragmentHomeBinding, ProjectViewModel>() {
+class ProjectFragment : BaseMVVMFragment<HomeFragmentBinding, ProjectViewModel>() {
     override fun initViewModel(): ProjectViewModel =
         ViewModelProvider(this, ProjectVMFactory(ProjectRepository())).get(ProjectViewModel::class.java)
 
-    override fun initContentViewID(): Int = R.layout.fragment_home
+    override fun initContentViewID(): Int = R.layout.home_fragment
 }

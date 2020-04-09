@@ -1,12 +1,12 @@
 package com.wjf.dev.util
 
+import com.sun.dev.entity.BaseBean
 import com.wjf.dev.common.ApiService
 import com.wjf.dev.common.Constants
-import com.sun.dev.entity.*
+import com.wjf.dev.entity.*
 import io.reactivex.Observable
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
-import org.json.JSONObject
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -24,7 +24,7 @@ object RetrofitManager {
     var okHttp = OkHttpClient.Builder()
         .addInterceptor {
             val request = it.request().newBuilder()
-            request.addHeader("x-client-token", SharedHelper.getShared().getString("token", ""))
+//            request.addHeader("x-client-token", SharedHelper.getShared().getString("token", ""))
             val response = it.proceed(request.build())
 
             response
@@ -62,18 +62,22 @@ object RetrofitManager {
 
 
 
+
     /**
-     * 获取验证码
+     * banner数据
      */
-    fun getPhoneCode(phone: String?): Observable<BaseBean> {
-        var json = JSONObject()
-        json.apply {
-            this.put("phone", phone)
-            this.put("secret", CodeUtil.encode(phone?.substring(phone.length - 4, phone.length) + Constants.URL.YAN))
-        }
-        return apiService.getPhoneCode(getRequestBody(json.toString()))
+    fun getHomeBannerData() : Observable<HomeBannerBean>{
+
+        return apiService.getHomeBannerData()
     }
 
+    /**
+     * 文章列表
+     */
+    fun getHomeArticleList() : Observable<HomeArticleBean>{
+
+        return apiService.getHomeArticleList().doInBackground()
+    }
 
 
 

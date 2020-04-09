@@ -7,5 +7,35 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="article_checkbox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/article_bg_checkbox</item>
+    </style>
+
+    <!-- 自定义等待Dialog -->
+    <style name="AlertDialog.WaitProgress" parent="@style/Theme.AppCompat.Dialog" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <!-- 自定义ToolBar -->
+    <declare-styleable name="AppToolBar">
+        <attr name="toolbar_style" format="integer">
+            <enum name="home_page" value="0"/>
+            <enum name="title_and_back" value="1"/>
+            <enum name="only_title" value="2"/>
+            <enum name="vip_title" value="3"/>
+            <enum name="only_back" value="4"/>
+            <enum name="login_title" value="5"/>
+            <enum name="black_title" value="6"/>
+        </attr>
+        <attr name="toolbar_title" format="string"/>
+    </declare-styleable>
 
 </resources>

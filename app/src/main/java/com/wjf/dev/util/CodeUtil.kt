@@ -11,10 +11,14 @@ import androidx.lifecycle.ViewModel
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.MyApplication
 import com.wjf.dev.common.MyApplication.Companion.context
+import com.wjf.dev.login.LoginActivity
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.*
+import org.jetbrains.anko.startActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -81,14 +85,11 @@ object CodeUtil {
     /**
      * 判断是否登陆
      */
-    fun checkIsLogin(context: Context): Boolean {
-        return if (!SharedHelper.getShared().getBoolean(Constants.SP.IS_LOGIN, false)) {
-            context._toast("请先登录")
-//            context.startActivity<LoginActivity>()
-            false
-        } else {
-            true
-        }
+    fun checkIsLogin(context: Context) {
+
+        context._toast("请先登录")
+        context.startActivity<LoginActivity>()
+
     }
 }
 
@@ -124,10 +125,9 @@ fun ViewModel.toast(string: String?) {
 }
 
 
-fun isFastClick(){
 
-
-
+fun Disposable.addTo(c: CompositeDisposable){
+    c.add(this)
 }
 
 

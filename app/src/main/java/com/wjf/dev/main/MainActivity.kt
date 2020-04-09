@@ -23,7 +23,7 @@ class MainActivity : BaseActivity() {
 
         //设置底部导航选择监听
         home_nav_view.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-//        home_nav_view.selectedItemId = R.id.bottom_home
+        home_nav_view.selectedItemId = R.id.nav_home
     }
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
