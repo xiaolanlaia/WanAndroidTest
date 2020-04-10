@@ -33,7 +33,7 @@ interface ApiService {
     /**
      * 某个分类下文章
      */
-    @GET("project/list/1/json")
+    @GET("article/list/0/json")
     fun getArticleSort(@Query("cid") cid : Int) : Observable<ArticleSortBean>
 
 
