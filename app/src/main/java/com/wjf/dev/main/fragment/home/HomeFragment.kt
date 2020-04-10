@@ -1,30 +1,26 @@
 package com.wjf.dev.main.fragment.home
 
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.AdapterView
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.just.agentweb.AgentWeb
 import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
+import com.wjf.dev.main.fragment.home.adapter.ArticleAdapter
 import com.wjf.dev.databinding.HomeFragmentBinding
 import com.wjf.dev.entity.HomeArticleBean
-import com.wjf.dev.main.fragment.home.adapter.ArticleAdapter
 import com.wjf.dev.util.GlideImageLoader
 import com.wjf.dev.util.toast
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.home_fragment.*
+import kotlinx.android.synthetic.main.home_fragment_recycler_item.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.startActivity
-import org.jetbrains.anko.support.v4.toast
 
 /**
  *  @author  xiaolanlaia
@@ -85,14 +81,51 @@ class HomeFragment : BaseMVVMFragment<HomeFragmentBinding, HomeViewModel>() {
 //        homeAdapter.setOnItemChildClickListener(this)
         home_article_recycler.adapter = homeAdapter
 
+        homeAdapter.setOnItemClickListener(object: ArticleAdapter.OnItemClickListener {
+
+
+            override fun onItemClick(view: View, name: String?, id: Int?) {
+
+                Log.d("__view-id-name","${name}")
+                Log.d("__view-id-id","${id}")
 
 
 
-        vm.articleList.observe(viewLifecycleOwner, Observer {
+                when(view.id){
 
-            homeAdapter.updateList(it as MutableList<HomeArticleBean.Data.Datas>)
+                    article_chapter.id ->{
+                        view.context.startActivity<TitleWithContentActivity>(
+                            Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_ARTICLE_SORT_LIST),
+                            Pair(Constants.SP.ARTICLE_TITLE,name),
+                            Pair(Constants.SP.CID,id)
+                        )
+                    }
+                    article_author.id ->{
 
+                        view.context.startActivity<TitleWithContentActivity>(
+                            Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_USER_ARTICLE_LIST),
+                            Pair(Constants.SP.AUTHOR_NAME,name),
+                            Pair(Constants.SP.AUTHOR_ID,id)
+                        )
+                    }
+
+                }
+
+            }
+
+
+            override fun onItemClick(view: View, link: String?, title: String?) {
+
+                view.context.startActivity<TitleWithContentActivity>(
+                    Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_WEB_VIEW),
+                    Pair(Constants.SP.URL,link),
+                    Pair(Constants.SP.WEBVIEW_TITLE,title)
+                )
+            }
         })
+
+
+
 
         vm.articleList.observe(viewLifecycleOwner, Observer {
 

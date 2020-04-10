@@ -24,10 +24,13 @@ class HomeArticleBean : BaseBean() {
             val title : String? = null
             val superChapterName : String? = null
             val niceDate : String? = null
+            val link : String? = null
             val fresh : Boolean? = false
             val collect : Boolean? = false
             val top : Boolean? = false
             val id : Int? = 0
+            val userId : Int? = 0
+            val superChapterId : Int? = 0
 
         }
     }

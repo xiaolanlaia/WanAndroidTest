@@ -24,4 +24,17 @@ interface ApiService {
     @GET(Constants.URL.GET_HOME_ARTICLE_LIST)
     fun getHomeArticleList() : Observable<HomeArticleBean>
 
+    /**
+     * 作者文章列表
+     */
+    @GET("user/{AUTHOR_ID}/share_articles/1/json")
+    fun getAuthorArticleList(@Path("AUTHOR_ID") AUTHOR_ID : Int) : Observable<AuthorArticleBean>
+
+    /**
+     * 某个分类下文章
+     */
+    @GET("project/list/1/json")
+    fun getArticleSort(@Query("cid") cid : Int) : Observable<ArticleSortBean>
+
+
 }

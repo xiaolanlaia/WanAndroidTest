@@ -71,8 +71,8 @@ class AppToolBar : RelativeLayout {
     private fun showBlackColor() {
         title.visibility = View.VISIBLE
         back.visibility = View.VISIBLE
-        message.visibility = View.GONE
-        kefu.visibility = View.GONE
+        message.visibility = View.INVISIBLE
+        kefu.visibility = View.INVISIBLE
         title.setTextColor(context.getColor(R.color.color_333333))
     }
 
@@ -87,17 +87,17 @@ class AppToolBar : RelativeLayout {
         title.paint.isFakeBoldText = true
         title.text = context.getString(R.string.app_name)
         title.textColor = Color.WHITE
-        back.visibility = View.GONE
-        message.visibility = View.GONE
-        kefu.visibility = View.GONE
+        back.visibility = View.INVISIBLE
+        message.visibility = View.INVISIBLE
+        kefu.visibility = View.INVISIBLE
         backgroundColor = Color.TRANSPARENT
     }
 
     fun showBackAndTitle() {
         title.visibility = View.VISIBLE
         back.visibility = View.VISIBLE
-        kefu.visibility = View.GONE
-        message.visibility = View.GONE
+        kefu.visibility = View.INVISIBLE
+        message.visibility = View.INVISIBLE
         backgroundColor = Color.WHITE
     }
 
@@ -106,16 +106,16 @@ class AppToolBar : RelativeLayout {
         title.textColor = view.context.getColor(R.color.color_white)
         back.visibility = View.VISIBLE
         back.setImageResource(R.mipmap.back_bai)
-        kefu.visibility = View.GONE
-        message.visibility = View.GONE
+        kefu.visibility = View.INVISIBLE
+        message.visibility = View.INVISIBLE
         backgroundColor = Color.TRANSPARENT
     }
 
     fun showOnlyTitle() {
         title.visibility = View.VISIBLE
-        back.visibility = View.GONE
-        kefu.visibility = View.GONE
-        message.visibility = View.GONE
+        back.visibility = View.INVISIBLE
+        kefu.visibility = View.INVISIBLE
+        message.visibility = View.INVISIBLE
         backgroundColor = Color.WHITE
     }
 
@@ -123,17 +123,17 @@ class AppToolBar : RelativeLayout {
         title.visibility = View.VISIBLE
         title.textColor = Color.WHITE
         back.visibility = View.VISIBLE
-        kefu.visibility = View.GONE
-        message.visibility = View.GONE
+        kefu.visibility = View.INVISIBLE
+        message.visibility = View.INVISIBLE
         backgroundColor = Color.TRANSPARENT
     }
 
     fun showOnlyBack(){
 
-        title.visibility = View.GONE
+        title.visibility = View.INVISIBLE
         back.visibility = View.VISIBLE
-        kefu.visibility = View.GONE
-        message.visibility = View.GONE
+        kefu.visibility = View.INVISIBLE
+        message.visibility = View.INVISIBLE
         backgroundColor = Color.WHITE
     }
 

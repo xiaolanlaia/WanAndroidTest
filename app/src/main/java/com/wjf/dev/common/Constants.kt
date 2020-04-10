@@ -41,6 +41,10 @@ internal interface Constants {
         //
         const val URL = "url"
         const val WEBVIEW_TITLE = "webview_title"
+        const val AUTHOR_ID = "user_id"
+        const val AUTHOR_NAME = "user_name"
+        const val ARTICLE_TITLE = "article_title"
+        const val CID = "cid"
 
 
 

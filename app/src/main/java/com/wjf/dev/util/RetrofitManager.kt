@@ -76,8 +76,27 @@ object RetrofitManager {
      */
     fun getHomeArticleList() : Observable<HomeArticleBean>{
 
-        return apiService.getHomeArticleList().doInBackground()
+        return apiService.getHomeArticleList()
     }
+
+    /**
+     * 作者文章列表
+     */
+    fun getAuthorArticleList(AUTHOR_ID : Int) : Observable<AuthorArticleBean> {
+
+        return apiService.getAuthorArticleList(AUTHOR_ID)
+    }
+
+    /**
+     * 某个分类下文章
+     */
+    fun getArticleSort(cid : Int) : Observable<ArticleSortBean>{
+
+        return apiService.getArticleSort(cid)
+
+    }
+
+
 
 
 

@@ -30,4 +30,6 @@ class HomeRepository {
 
         return RetrofitManager.getHomeArticleList().doInBackground()
     }
+
+
 }
