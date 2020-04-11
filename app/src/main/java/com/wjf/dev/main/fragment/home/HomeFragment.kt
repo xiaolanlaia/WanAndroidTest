@@ -1,7 +1,6 @@
 package com.wjf.dev.main.fragment.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -10,11 +9,10 @@ import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
-import com.wjf.dev.main.fragment.home.adapter.ArticleAdapter
 import com.wjf.dev.databinding.HomeFragmentBinding
 import com.wjf.dev.entity.HomeArticleBean
+import com.wjf.dev.main.fragment.home.adapter.HomeArticleAdapter
 import com.wjf.dev.util.GlideImageLoader
-import com.wjf.dev.util.toast
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.home_fragment.*
@@ -35,6 +33,8 @@ class HomeFragment : BaseMVVMFragment<HomeFragmentBinding, HomeViewModel>() {
     val images = ArrayList<String>()
     val titles = ArrayList<String>()
     val urls = ArrayList<String>()
+
+    lateinit var homeAdapter : HomeArticleAdapter
 
     override fun initViewModel(): HomeViewModel =
         ViewModelProvider(this, HomeVMFactory(
@@ -73,23 +73,22 @@ class HomeFragment : BaseMVVMFragment<HomeFragmentBinding, HomeViewModel>() {
 
         }
 
-
+        homeAdapter = HomeArticleAdapter(R.layout.home_fragment_recycler_item)
         //设置layoutManager
         home_article_recycler.layoutManager = LinearLayoutManager(context)
-
-        val homeAdapter = ArticleAdapter()
-//        homeAdapter.setOnItemChildClickListener(this)
         home_article_recycler.adapter = homeAdapter
 
-        homeAdapter.setOnItemClickListener(object: ArticleAdapter.OnItemClickListener {
+
+        vm.articleList.observe(viewLifecycleOwner, Observer {
+            homeAdapter.addData(it as MutableList<HomeArticleBean.Data.Datas>)
+
+        })
+
+
+        homeAdapter.setOnItemClickListener(object: HomeArticleAdapter.OnItemClickListener {
 
 
             override fun onItemClick(view: View, name: String?, id: Int?) {
-
-                Log.d("__view-id-name","${name}")
-                Log.d("__view-id-id","${id}")
-
-
 
                 when(view.id){
 
@@ -124,14 +123,6 @@ class HomeFragment : BaseMVVMFragment<HomeFragmentBinding, HomeViewModel>() {
             }
         })
 
-
-
-
-        vm.articleList.observe(viewLifecycleOwner, Observer {
-
-            homeAdapter.updateList(it as MutableList<HomeArticleBean.Data.Datas>)
-
-        })
 
 
     }
