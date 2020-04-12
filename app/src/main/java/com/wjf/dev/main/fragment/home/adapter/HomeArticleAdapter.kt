@@ -13,8 +13,8 @@ import com.wjf.dev.entity.HomeArticleBean
  */
 
 
-class HomeArticleAdapter(layoutResId: Int) :
-    BaseQuickAdapter<HomeArticleBean.Data.Datas, BaseViewHolder>(layoutResId) {
+class HomeArticleAdapter :
+    BaseQuickAdapter<HomeArticleBean.Data.Datas, BaseViewHolder>(R.layout.home_fragment_recycler_item) {
 
     lateinit var view : View
     private lateinit var onItemClickListener: OnItemClickListener

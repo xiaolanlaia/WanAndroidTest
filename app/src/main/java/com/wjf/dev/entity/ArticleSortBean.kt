@@ -14,6 +14,7 @@ class ArticleSortBean : BaseBean() {
 
     val data : DataBean? = null
 
+
     class DataBean{
 
         val curPage : Int = 0

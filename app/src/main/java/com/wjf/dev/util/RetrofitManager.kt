@@ -96,6 +96,15 @@ object RetrofitManager {
 
     }
 
+    /**
+     * 获取体系列表数据
+     */
+    fun getSystemDataList() : Observable<KnowledgeBean>{
+
+        return apiService.getSystemDataList()
+    }
+
+
 
 
 

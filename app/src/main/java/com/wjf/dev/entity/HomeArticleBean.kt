@@ -17,7 +17,15 @@ class HomeArticleBean : BaseBean() {
     class Data{
 
         val curPage : Int? = 0
+
+        val offset : Int? = 0
+        val size : Int? = 0
+        val total : Int? = 0
+        val pageCount : Int? = 0
+
+        val over : Boolean? = false
         val datas : ArrayList<Datas>? = null
+
 
         class Datas{
             val shareUser : String? = null
@@ -36,33 +44,3 @@ class HomeArticleBean : BaseBean() {
     }
 
 }
-//
-//    {"data":{"curPage":2,"datas":
-//        [{"apkLink":"",
-//            "audit":1,
-//            "author":"",
-//            "canEdit":false,
-//            "chapterId":502,
-//            "chapterName":"自助",
-//            "collect":false,
-//            "courseId":13,
-//            "desc":"",
-//            "descMd":"",
-//            "envelopePic":"",
-//            "fresh":false,
-//            "id":12707,
-//            "link":"https://juejin.im/post/5e834bb5f265da480d61668d",
-//            "niceDate":"2020-04-01 08:27",
-//            "niceShareDate":"2020-04-01 08:27",
-//            "origin":"",
-//            "prefix":"",
-//            "projectLink":"",
-//            "publishTime":1585700820000,
-//            "selfVisible":0,
-//            "shareDate":1585700820000,
-//            "shareUser":"Fly_with24",
-//            "superChapterId":494,
-//            "superChapterName":"广场Tab",
-//            "tags":[],
-//            "title":"【背上Jetpack之LiveData】ViewModel 的左膀右臂 数据驱动真的香",
-//            "type":0,"userId":37531,"visible":1,"zan":0}

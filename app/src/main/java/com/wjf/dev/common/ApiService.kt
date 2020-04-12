@@ -36,5 +36,11 @@ interface ApiService {
     @GET("article/list/0/json")
     fun getArticleSort(@Query("cid") cid : Int) : Observable<ArticleSortBean>
 
+    /**
+     * 获取体系列表数据
+     */
+    @GET("tree/json")
+    fun getSystemDataList() : Observable<KnowledgeBean>
+
 
 }

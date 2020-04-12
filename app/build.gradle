@@ -165,4 +165,6 @@ dependencies {
     implementation 'com.just.agentweb:filechooser:4.0.3-beta'// (可选)
     implementation 'com.just.agentweb:download:4.0.3-beta' // (可选)
     implementation 'com.github.Justson:Downloader:v4.0.3'// (可选)
+
+    implementation 'com.hyman:flowlayout-lib:1.1.2'
 }

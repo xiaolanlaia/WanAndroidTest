@@ -73,7 +73,7 @@ class HomeFragment : BaseMVVMFragment<HomeFragmentBinding, HomeViewModel>() {
 
         }
 
-        homeAdapter = HomeArticleAdapter(R.layout.home_fragment_recycler_item)
+        homeAdapter = HomeArticleAdapter()
         //设置layoutManager
         home_article_recycler.layoutManager = LinearLayoutManager(context)
         home_article_recycler.adapter = homeAdapter
@@ -159,10 +159,7 @@ class HomeFragment : BaseMVVMFragment<HomeFragmentBinding, HomeViewModel>() {
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         when(hidden){
-
-            false ->{
-                initRequest()
-            }
+            false ->{initRequest()}
 
         }
     }
