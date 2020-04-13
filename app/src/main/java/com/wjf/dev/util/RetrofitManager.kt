@@ -104,6 +104,20 @@ object RetrofitManager {
         return apiService.getSystemDataList()
     }
 
+    /**
+     * 获取公众号列表
+     */
+    fun getOfficialAccountList() : Observable<OfficialAccountBean>{
+        return apiService.getOfficialAccountList()
+    }
+
+    /**
+     * 公众号历史数据
+     */
+    fun getHistoryData(id : Int) : Observable<OfficialAccountHistoryBean>{
+        return apiService.getHistoryData(id)
+    }
+
 
 
 

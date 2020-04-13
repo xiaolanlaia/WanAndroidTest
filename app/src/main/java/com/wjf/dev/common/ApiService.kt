@@ -42,5 +42,17 @@ interface ApiService {
     @GET("tree/json")
     fun getSystemDataList() : Observable<KnowledgeBean>
 
+    /**
+     * 获取公众号列表
+     */
+    @GET("wxarticle/chapters/json")
+    fun getOfficialAccountList() : Observable<OfficialAccountBean>
+
+    /**
+     * 公众号历史数据
+     */
+    @GET("wxarticle/list/{id}/1/json")
+    fun getHistoryData(@Path("id")id : Int) : Observable<OfficialAccountHistoryBean>
+
 
 }
