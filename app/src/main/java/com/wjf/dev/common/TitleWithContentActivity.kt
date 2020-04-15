@@ -4,6 +4,7 @@ import android.text.TextUtils
 import com.wjf.dev.R
 import com.wjf.dev.webview.WebFragment
 import com.wjf.dev.base.BaseActivity
+import com.wjf.dev.collect.CollectFragment
 import com.wjf.dev.login.fragment.LoginFragment
 import com.wjf.dev.login.fragment.LogonFragment
 import com.wjf.dev.userArticle.ArticleSortFragment
@@ -67,12 +68,16 @@ class TitleWithContentActivity : BaseActivity() {
             }
 
             TYPE_LOGIN ->{
-                    transaction.replace(R.id.info_content, LoginFragment()).commit()
+                transaction.replace(R.id.info_content, LoginFragment()).commit()
 
             }
             TYPE_LOGON ->{
-                    transaction.replace(R.id.info_content, LogonFragment()).commit()
+                transaction.replace(R.id.info_content, LogonFragment()).commit()
 
+            }
+            TYPE_COLLECT ->{
+                info_toolbar.setTitle("我的收藏")
+                transaction.replace(R.id.info_content, CollectFragment()).commit()
             }
 
         }
@@ -94,6 +99,7 @@ class TitleWithContentActivity : BaseActivity() {
         const val TYPE_ARTICLE_SORT_LIST = 2
         const val TYPE_LOGIN = 3
         const val TYPE_LOGON = 4
+        const val TYPE_COLLECT = 5
 
     }
 }

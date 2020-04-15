@@ -161,6 +161,13 @@ object RetrofitManager {
         return apiService.loginOut()
     }
 
+    /**
+     * 获取收藏列表
+     */
+    fun getCollectList() : Observable<CollectBean>{
+        return apiService.getCollectList()
+    }
+
 
 
 

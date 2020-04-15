@@ -9,7 +9,7 @@ import com.wjf.dev.main.fragment.home.HomeFragment
 import com.wjf.dev.main.fragment.knowledge.KnowledgeFragment
 import com.wjf.dev.main.fragment.navigation.NavigationFragment
 import com.wjf.dev.main.fragment.offcialAccount.OfficialAccountFragment
-import com.wjf.dev.main.fragment.project.ProjectFragment
+import com.wjf.dev.main.fragment.mine.MineFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -48,12 +48,14 @@ class MainActivity : BaseActivity() {
                 return@OnNavigationItemSelectedListener true
 
             }
-            R.id.nav_project -> {
-                mainFragmentManager!!.select(3)
-                return@OnNavigationItemSelectedListener true
-            }
+
             R.id.nav_navigation -> {
                 mainFragmentManager!!.select(4)
+                return@OnNavigationItemSelectedListener true
+            }
+
+            R.id.nav_mine -> {
+                mainFragmentManager!!.select(3)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -71,7 +73,7 @@ class MainActivity : BaseActivity() {
             fragments.add(HomeFragment())
             fragments.add(KnowledgeFragment())
             fragments.add(OfficialAccountFragment())
-            fragments.add(ProjectFragment())
+            fragments.add(MineFragment())
             fragments.add(NavigationFragment())
             fragmentManager.beginTransaction().replace(containerId,fragments[0]).commit()
         }

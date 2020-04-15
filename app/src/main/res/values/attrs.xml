@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Row UI -->
+    <declare-styleable name="AppRowLayout">
+        <attr name="row_style" format="integer">
+            <enum name="with_right_arrow" value="0"/>
+            <enum name="with_right_text" value="1"/>
+        </attr>
+        <attr name="image_left" format="reference"/>
+        <attr name="row_title_text" format="string"/>
+        <attr name="row_content_text" format="string"/>
+        <attr name="image_right" format="reference"/>
+        <attr name="row_right_text_style" format="integer">
+            <enum name="auth_no" value="0"/>
+            <enum name="auth_yes" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>

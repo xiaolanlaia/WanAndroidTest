@@ -1,4 +1,4 @@
-package com.wjf.dev.main.fragment.project
+package com.wjf.dev.main.fragment.mine
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -11,8 +11,8 @@ import androidx.lifecycle.ViewModelProvider
  */
 
 
-class ProjectVMFactory(val repository: ProjectRepository) : ViewModelProvider.NewInstanceFactory() {
+class MineVMFactory(val repository: MineRepository) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return ProjectViewModel(repository) as T
+        return MineViewModel(repository) as T
     }
 }

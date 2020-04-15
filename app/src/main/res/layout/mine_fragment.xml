@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+                name="vm"
+                type="com.wjf.dev.main.fragment.mine.MineViewModel"/>
+    </data>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_white"
+    >
+        <RelativeLayout
+                android:id="@+id/top_relative"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_200"
+
+        >
+            <ImageView
+                    android:id="@+id/mine_iv"
+                    android:background="@mipmap/icon_heard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/dp_20"
+            />
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@id/mine_iv"
+                    android:layout_alignTop="@id/mine_iv"
+                    android:layout_alignBottom="@id/mine_iv"
+                    android:layout_marginStart="@dimen/dp_20"
+            >
+
+                <TextView
+                        android:id="@+id/mine_account"
+                        android:textSize="@dimen/sp_18"
+                        tools:text="xiaolanlaia"
+                        android:text="@{vm.account}"
+                        android:onClick="@{vm.mineClickListener}"
+                        android:textColor="@color/color_black"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                />
+
+                <TextView
+                        android:id="@+id/mine_level"
+                        android:text="@{vm.level}"
+                        tools:text="lv 19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@id/mine_account"
+                        android:layout_below="@id/mine_account"
+                />
+                <TextView
+                        android:id="@+id/mine_integral"
+                        android:text="@{vm.mineIntegral}"
+                        tools:text="积分："
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/mine_level"
+                        android:layout_alignTop="@id/mine_level"
+                        android:layout_marginStart="@dimen/dp_5"
+                />
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/top_relative"
+                android:orientation="vertical"
+        >
+            <com.wjf.dev.util.widget.AppRowLayout
+                    android:id="@+id/mine_collect_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginTop="1dp"
+                    app:image_left="@mipmap/icon_collect"
+                    app:row_title_text="我的收藏"
+                    android:onClick="@{vm.mineClickListener}"
+            />
+            <com.wjf.dev.util.widget.AppRowLayout
+                    android:id="@+id/mine_integral_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginTop="1dp"
+                    app:image_left="@mipmap/icon_integral"
+                    app:row_title_text="我的积分"
+                    android:onClick="@{vm.mineClickListener}"
+            />
+            <com.wjf.dev.util.widget.AppRowLayout
+                    android:id="@+id/mine_rank_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginTop="1dp"
+                    app:image_left="@mipmap/icon_rank"
+                    app:row_title_text="积分排行榜"
+                    android:onClick="@{vm.mineClickListener}"
+            />
+            <com.wjf.dev.util.widget.AppRowLayout
+                    android:id="@+id/mine_setting_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginTop="1dp"
+                    app:image_left="@mipmap/icon_setting"
+                    app:row_title_text="设置"
+                    android:onClick="@{vm.mineClickListener}"
+            />
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+</layout>

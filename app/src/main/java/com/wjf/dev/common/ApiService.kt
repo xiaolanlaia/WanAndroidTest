@@ -91,5 +91,11 @@ interface ApiService {
     @GET("user/logout/json")
     fun loginOut() : Observable<BaseBean>
 
+    /**
+     * 获取收藏列表
+     */
+    @GET("lg/collect/list/0/json")
+    fun getCollectList() : Observable<CollectBean>
+
 
 }
