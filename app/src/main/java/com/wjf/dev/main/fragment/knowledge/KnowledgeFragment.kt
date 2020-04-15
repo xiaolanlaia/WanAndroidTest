@@ -52,14 +52,4 @@ class KnowledgeFragment : BaseMVVMFragment<KnowledgeFragmentBinding, KnowledgeVi
 
     }
 
-    override fun onHiddenChanged(hidden: Boolean) {
-        super.onHiddenChanged(hidden)
-        when(hidden){
-            false ->{
-                initData()
-
-            }
-        }
-    }
-
 }

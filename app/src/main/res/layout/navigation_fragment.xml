@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable name="vm" type="com.wjf.dev.main.fragment.navigation.NavigationViewModel"/>
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_20"
+    >
+
+        <q.rorbin.verticaltablayout.VerticalTabLayout
+                android:id="@+id/nav_tab"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="match_parent"
+                android:background="@color/color_white"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                app:indicator_corners="20dp"
+                app:indicator_gravity="fill"
+                app:tab_margin="10dp"
+                android:visibility="visible"
+                app:tab_mode="scrollable"
+                android:layout_marginBottom="?attr/actionBarSize"
+        />
+
+        <!--app:indicator_color 指示器颜色-->
+        <!--app:indicator_width 指示器宽度-->
+        <!--app:indicator_gravity 指示器位置-->
+        <!--app:indicator_corners 指示器圆角-->
+        <!--app:tab_mode Tab高度模式-->
+        <!--app:tab_height Tab高度-->
+        <!--app:tab_margin Tab间距-->
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/nav_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="?attr/actionBarSize"/>
+
+    </LinearLayout>
+</layout>

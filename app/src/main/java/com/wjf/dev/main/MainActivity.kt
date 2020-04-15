@@ -7,6 +7,7 @@ import com.wjf.dev.R
 import com.wjf.dev.base.BaseActivity
 import com.wjf.dev.main.fragment.home.HomeFragment
 import com.wjf.dev.main.fragment.knowledge.KnowledgeFragment
+import com.wjf.dev.main.fragment.navigation.NavigationFragment
 import com.wjf.dev.main.fragment.offcialAccount.OfficialAccountFragment
 import com.wjf.dev.main.fragment.project.ProjectFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -51,6 +52,10 @@ class MainActivity : BaseActivity() {
                 mainFragmentManager!!.select(3)
                 return@OnNavigationItemSelectedListener true
             }
+            R.id.nav_navigation -> {
+                mainFragmentManager!!.select(4)
+                return@OnNavigationItemSelectedListener true
+            }
         }
         false
     }
@@ -67,6 +72,7 @@ class MainActivity : BaseActivity() {
             fragments.add(KnowledgeFragment())
             fragments.add(OfficialAccountFragment())
             fragments.add(ProjectFragment())
+            fragments.add(NavigationFragment())
             fragmentManager.beginTransaction().replace(containerId,fragments[0]).commit()
         }
 

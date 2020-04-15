@@ -9,4 +9,7 @@
     <color name="color_pink">#D81B60</color>
     <color name="color_white">#ffffff</color>
     <color name="color_333333">#333333</color>
+
+    <color name="textColorPress">#616161</color>
+    <color name="textColorPrimary">#616161</color>
 </resources>

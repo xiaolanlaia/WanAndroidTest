@@ -19,4 +19,7 @@
           android:icon="@mipmap/icon_project"
           android:title="项目"/>
 
+    <item android:id="@+id/nav_navigation"
+          android:icon="@mipmap/icon_navigation"
+          android:title="导航"/>
 </menu>

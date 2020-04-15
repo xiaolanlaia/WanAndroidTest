@@ -1,5 +1,4 @@
-package com.wjf.dev.main.fragment.knowledge.adapter
-
+package com.wjf.dev.main.fragment.navigation.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,7 +9,7 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.wjf.dev.R
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
-import com.wjf.dev.entity.KnowledgeBean
+import com.wjf.dev.entity.NavArticleBean
 import com.zhy.view.flowlayout.FlowLayout
 import com.zhy.view.flowlayout.TagAdapter
 import com.zhy.view.flowlayout.TagFlowLayout
@@ -19,29 +18,27 @@ import org.jetbrains.anko.startActivity
 /**
  *  @author  xiaolanlaia
  *
- *  @create  2020/4/11 9:36
+ *  @create  2020/4/14 7:35
  *
  */
 
 
-class KnowledgeAdapter : BaseQuickAdapter<KnowledgeBean.DataBean,BaseViewHolder>(R.layout.knowledge_fragment_item){
+class NavAdapter : BaseQuickAdapter<NavArticleBean.dataBean,BaseViewHolder>(R.layout.knowledge_fragment_item) {
 
-    lateinit var view : View
-
-    override fun convert(helper: BaseViewHolder, item: KnowledgeBean.DataBean) {
+    override fun convert(helper: BaseViewHolder, item: NavArticleBean.dataBean) {
 
         helper.setText(R.id.item_title, item.name)
         val tagLayout = helper.getView<TagFlowLayout>(R.id.item_tag)
         tagLayout.adapter =
-            object : TagAdapter<KnowledgeBean.DataBean.childrenBean>(item.children){
+            object : TagAdapter<NavArticleBean.dataBean.articlesBean>(item.articles){
                 override fun getView(
                     parent: FlowLayout?,
                     position: Int,
-                    t: KnowledgeBean.DataBean.childrenBean?
+                    t: NavArticleBean.dataBean.articlesBean?
                 ): View {
                     val tagView : TextView =
                         LayoutInflater.from(mContext).inflate(R.layout.knowledge_fragment_item_item, parent,false) as TextView
-                    tagView.text = item.children!![position].name
+                    tagView.text = item.articles!![position].title
 //                    tagView.setTextColor(ColorUtil.randomColor())
                     return tagView
 
@@ -50,23 +47,13 @@ class KnowledgeAdapter : BaseQuickAdapter<KnowledgeBean.DataBean,BaseViewHolder>
             }
 
         tagLayout.setOnTagClickListener { view, position, parent ->
-            Log.d("__id","${item.children!![position].id}")
+
             view.context.startActivity<TitleWithContentActivity>(
-                Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_ARTICLE_SORT_LIST),
-                Pair(Constants.SP.ARTICLE_TITLE,item.children[position].name),
-                Pair(Constants.SP.CID,item.children[position].id)
+                Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_WEB_VIEW),
+                Pair(Constants.SP.URL, item.articles!![position].link),
+                Pair(Constants.SP.WEBVIEW_TITLE,item.articles!![position].title)
             )
             false
         }
-//        tagLayput.setOnSelectListener(TagFlowLayout.OnSelectListener {
-//                selectPosSet -> LogUtil.e("选中了tag:$selectPosSet")
-//        })
-//        adapter.setSelectedList(0)//默认选中第一个
-
-
-
-
-
     }
-
 }

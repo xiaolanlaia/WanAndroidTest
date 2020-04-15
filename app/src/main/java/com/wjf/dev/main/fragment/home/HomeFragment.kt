@@ -156,11 +156,4 @@ class HomeFragment : BaseMVVMFragment<HomeFragmentBinding, HomeViewModel>() {
         })
     }
 
-    override fun onHiddenChanged(hidden: Boolean) {
-        super.onHiddenChanged(hidden)
-        when(hidden){
-            false ->{initRequest()}
-
-        }
-    }
 }

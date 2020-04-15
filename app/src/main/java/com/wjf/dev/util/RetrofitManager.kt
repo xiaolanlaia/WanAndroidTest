@@ -118,6 +118,14 @@ object RetrofitManager {
         return apiService.getHistoryData(id)
     }
 
+    /**
+     * 导航数据
+     */
+    fun getNavigationData() : Observable<NavArticleBean>{
+
+        return apiService.getNavigationData()
+    }
+
 
 
 

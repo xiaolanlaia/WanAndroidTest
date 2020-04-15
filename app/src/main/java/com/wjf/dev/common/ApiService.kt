@@ -54,5 +54,11 @@ interface ApiService {
     @GET("wxarticle/list/{id}/1/json")
     fun getHistoryData(@Path("id")id : Int) : Observable<OfficialAccountHistoryBean>
 
+    /**
+     * 导航数据
+     */
+    @GET("navi/json")
+    fun getNavigationData() : Observable<NavArticleBean>
+
 
 }
