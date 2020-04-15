@@ -3,6 +3,7 @@ package com.wjf.dev.common
 import com.sun.dev.entity.BaseBean
 import com.wjf.dev.entity.*
 import io.reactivex.Observable
+import okhttp3.RequestBody
 import retrofit2.http.*
 
 /**
@@ -59,6 +60,36 @@ interface ApiService {
      */
     @GET("navi/json")
     fun getNavigationData() : Observable<NavArticleBean>
+
+
+    /**
+     * 获取积分
+     */
+    @GET("lg/coin/userinfo/json")
+    fun getIntegral() : Observable<IntegralBean>
+
+    /**
+     * 登录
+     */
+    @POST("user/login")
+    @FormUrlEncoded
+    fun loginIn(@Field("username")username : String,
+                @Field("password")password : String) : Observable<LoginBean>
+
+    /**
+     * 注册
+     */
+    @POST("user/register")
+    @FormUrlEncoded
+    fun loginUp(@Field("username")username : String,
+                @Field("password")password : String,
+                @Field("repassword")repassword : String) :Observable<BaseBean>
+
+    /**
+     * 退出登录
+     */
+    @GET("user/logout/json")
+    fun loginOut() : Observable<BaseBean>
 
 
 }

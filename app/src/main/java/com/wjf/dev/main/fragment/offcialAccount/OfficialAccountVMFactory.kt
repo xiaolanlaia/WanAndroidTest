@@ -2,8 +2,6 @@ package com.wjf.dev.main.fragment.offcialAccount
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.wjf.dev.main.fragment.project.ProjectRepository
-import com.wjf.dev.main.fragment.project.ProjectViewModel
 
 /**
  *  @author  xiaolanlaia

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable name="vm" type="com.wjf.dev.login.LoginViewModel"/>
+    </data>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <EditText
+                android:id="@+id/login_phone"
+                android:text="@{vm.phone}"
+                android:hint="请输入账号"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@mipmap/icon_phone"
+                android:drawablePadding="@dimen/dp_20"
+                android:layout_margin="@dimen/dp_20"
+        />
+
+        <EditText
+                android:id="@+id/login_password"
+                android:text="@{vm.password}"
+                android:hint="请输入密码"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@mipmap/icon_password"
+                android:drawablePadding="@dimen/dp_20"
+                android:layout_margin="@dimen/dp_20"
+                android:layout_below="@id/login_phone"
+
+        />
+        <EditText
+                android:id="@+id/login_repassword"
+                android:text="@{vm.repassword}"
+                android:hint="请确认密码"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@mipmap/icon_password"
+                android:drawablePadding="@dimen/dp_20"
+                android:layout_margin="@dimen/dp_20"
+                android:layout_below="@id/login_password"
+
+        />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_below="@id/login_repassword"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_20"
+        >
+
+            <TextView
+                    android:id="@+id/logon"
+                    android:text="注册并登录"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/sp_20"
+                    android:textColor="@color/color_black"
+                    android:onClick="@{vm.loginClickListener}"
+
+
+            />
+
+        </LinearLayout>
+
+
+
+
+
+    </RelativeLayout>
+</layout>

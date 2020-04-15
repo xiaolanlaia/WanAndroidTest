@@ -3,10 +3,12 @@ package com.wjf.dev.util
 import com.sun.dev.entity.BaseBean
 import com.wjf.dev.common.ApiService
 import com.wjf.dev.common.Constants
+import com.wjf.dev.common.cookie.CookieManager
 import com.wjf.dev.entity.*
 import io.reactivex.Observable
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
+import org.json.JSONObject
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -36,6 +38,7 @@ object RetrofitManager {
         .connectTimeout(10, TimeUnit.SECONDS)
         .readTimeout(15, TimeUnit.SECONDS)
         .writeTimeout(15, TimeUnit.SECONDS)
+        .cookieJar(CookieManager.getInstance())
 
     val apiService = getRetrofit().create(ApiService::class.java)
 
@@ -126,7 +129,37 @@ object RetrofitManager {
         return apiService.getNavigationData()
     }
 
+    /**
+     * 获取积分
+     */
+    fun getIntegral() : Observable<IntegralBean>{
+        return apiService.getIntegral()
 
+    }
+
+    /**
+     * 登录
+     */
+    fun loginIn(username : String,password : String) : Observable<LoginBean>{
+
+        return apiService.loginIn(username,password)
+    }
+
+    /**
+     * 注册
+     */
+    fun loginUp(username : String,password : String,repassword : String) :Observable<BaseBean>{
+
+
+        return apiService.loginUp(username,password,repassword)
+    }
+
+    /**
+     * 退出登录
+     */
+    fun loginOut() : Observable<BaseBean>{
+        return apiService.loginOut()
+    }
 
 
 

@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.wjf.dev.entity.OfficialAccountBean
 import com.wjf.dev.entity.OfficialAccountHistoryBean
-import com.wjf.dev.main.fragment.project.ProjectRepository
 import com.wjf.dev.util.addTo
 import io.reactivex.disposables.CompositeDisposable
 

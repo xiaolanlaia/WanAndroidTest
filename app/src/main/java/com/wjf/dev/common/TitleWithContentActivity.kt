@@ -4,6 +4,8 @@ import android.text.TextUtils
 import com.wjf.dev.R
 import com.wjf.dev.webview.WebFragment
 import com.wjf.dev.base.BaseActivity
+import com.wjf.dev.login.fragment.LoginFragment
+import com.wjf.dev.login.fragment.LogonFragment
 import com.wjf.dev.userArticle.ArticleSortFragment
 import com.wjf.dev.userArticle.AuthorArticleFragment
 import kotlinx.android.synthetic.main.activity_title_with_content.*
@@ -64,6 +66,15 @@ class TitleWithContentActivity : BaseActivity() {
 
             }
 
+            TYPE_LOGIN ->{
+                    transaction.replace(R.id.info_content, LoginFragment()).commit()
+
+            }
+            TYPE_LOGON ->{
+                    transaction.replace(R.id.info_content, LogonFragment()).commit()
+
+            }
+
         }
     }
 
@@ -81,6 +92,8 @@ class TitleWithContentActivity : BaseActivity() {
         const val TYPE_WEB_VIEW = 0
         const val TYPE_USER_ARTICLE_LIST = 1
         const val TYPE_ARTICLE_SORT_LIST = 2
+        const val TYPE_LOGIN = 3
+        const val TYPE_LOGON = 4
 
     }
 }

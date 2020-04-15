@@ -11,9 +11,7 @@ import com.umeng.commonsdk.UMConfigure
  *       Created by xiaolanlaia on 2019/5/6 13:43
  */
 class MyApplication : Application() {
-    //线上(请替换客户自己的AppID和secret)
-    private val LF_APP_ID = "eef48772db2a41aab9eac817a1d716f1"
-    private val LF_APP_SECRET = "8846c247c0d644faa4411e13d48b35cf"
+
     override fun onCreate() {
         super.onCreate()
         //初始化全局Context
@@ -43,11 +41,6 @@ class MyApplication : Application() {
          */
         UMConfigure.setLogEnabled(false)
 
-        /**
-         * 选用AUTO页面采集模式
-         * Android 4.0 以上推荐使用
-         */
-        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO)
 
 
     }
