@@ -102,6 +102,12 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
 
                 }
 
+                else ->{
+                    account.value = "点击登录"
+                    level.value = ""
+                    mineIntegral.value = ""
+                }
+
             }
         },{}).addTo(co)
     }
