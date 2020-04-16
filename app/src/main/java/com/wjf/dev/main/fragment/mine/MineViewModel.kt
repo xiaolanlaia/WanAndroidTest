@@ -1,15 +1,20 @@
 package com.wjf.dev.main.fragment.mine
 
+import android.app.Activity
+import android.content.Context
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.wjf.dev.R
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
+import com.wjf.dev.common.cookie.CookieManager
+import com.wjf.dev.entity.CollectBean
+import com.wjf.dev.entity.IntegralListBean
+import com.wjf.dev.entity.IntegralRankBean
 import com.wjf.dev.util.addTo
 import com.wjf.dev.util.toast
 import io.reactivex.disposables.CompositeDisposable
-import kotlinx.android.synthetic.main.mine_fragment.view.*
 import org.jetbrains.anko.startActivity
 
 /**
@@ -28,6 +33,10 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
     var level = MutableLiveData<String>()
     var mineIntegral = MutableLiveData<String>()
 
+    val collectList = MutableLiveData<List<CollectBean.dataBean.datasBean>>()
+    val integralList = MutableLiveData<List<IntegralListBean.dataBean.datasBean>>()
+    val integralRankList = MutableLiveData<List<IntegralRankBean.dataBean.datasBean>>()
+
     val mineClickListener = View.OnClickListener {
 
         when(it.id){
@@ -41,20 +50,36 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
             }
 
             R.id.mine_collect_row ->{
-                it.context.startActivity<TitleWithContentActivity>(
-                    Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_COLLECT)
-                )
 
+
+                it.context.startActivity<TitleWithContentActivity>(
+                    Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_MINE_COLLECT)
+                )
 
             }
             R.id.mine_integral_row ->{
 
+                it.context.startActivity<TitleWithContentActivity>(
+                    Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_MINE_INTEGRAL)
+                )
+
+
             }
             R.id.mine_rank_row ->{
+                it.context.startActivity<TitleWithContentActivity>(
+                    Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_MINE_INTEGRAL_RANK)
+                )
 
             }
             R.id.mine_setting_row ->{
+                it.context.startActivity<TitleWithContentActivity>(
+                    Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_MINE_INTEGRAL_SETTING)
+                )
+            }
 
+            R.id.setting_row ->{
+
+                logout(it.context)
             }
         }
 
@@ -79,5 +104,90 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
 
             }
         },{}).addTo(co)
+    }
+
+
+
+    /**
+     * 获取收藏列表
+     */
+    fun getCollectList(){
+
+        repository.getCollectList().subscribe({
+
+            when(it.errorCode){
+
+                0 ->{
+                    collectList.value = it.data!!.datas
+                }
+
+                else ->{
+                    toast(it.errorMsg)
+                }
+            }
+
+
+        },{
+
+        }).addTo(co)
+    }
+
+    /**
+     * 我的积分
+     */
+    fun getIntegralList(){
+
+        repository.getIntegralList().subscribe({
+
+            when(it.errorCode){
+
+                0 ->{
+
+                    integralList.value = it.data!!.datas
+
+                }
+            }
+        },{}).addTo(co)
+
+
+    }
+
+    /**
+     * 积分排行榜
+     */
+    fun getIntegralRank(){
+
+        repository.getIntegralRank().subscribe({
+
+            when(it.errorCode){
+
+                0 ->{
+                    integralRankList.value = it.data!!.datas
+                }
+            }
+        },{
+
+        }).addTo(co)
+    }
+
+    /**
+     * 退出登录
+     */
+    fun logout(context: Context){
+
+        repository.logout().subscribe({
+
+            when(it.errorCode){
+
+                0 ->{
+                    toast("退出成功")
+                    CookieManager.getInstance().clearAllCookie()
+                    (context as Activity).finish()
+
+                }
+            }
+        },{
+
+        }).addTo(co)
     }
 }

@@ -1,6 +1,10 @@
 package com.wjf.dev.main.fragment.mine
 
+import com.sun.dev.entity.BaseBean
+import com.wjf.dev.entity.CollectBean
 import com.wjf.dev.entity.IntegralBean
+import com.wjf.dev.entity.IntegralListBean
+import com.wjf.dev.entity.IntegralRankBean
 import com.wjf.dev.util.RetrofitManager
 import com.wjf.dev.util.doInBackground
 import io.reactivex.Observable
@@ -25,20 +29,32 @@ class MineRepository {
     /**
      * 积分列表
      */
-    fun getIntegralList(){
+    fun getIntegralList() : Observable<IntegralListBean>{
+
+        return RetrofitManager.getIntegralList().doInBackground()
 
     }
     /**
      * 积分排行榜
      */
-    fun getIntegralRank(){
+    fun getIntegralRank() : Observable<IntegralRankBean>{
+
+        return RetrofitManager.getIntegralRank().doInBackground()
 
     }
 
     /**
-     * 收藏列表
+     * 获取收藏列表
      */
-    fun getCollectList(){
+    fun getCollectList() : Observable<CollectBean>{
+        return RetrofitManager.getCollectList().doInBackground()
+    }
 
+    /**
+     * 退出登录
+     */
+    fun logout() : Observable<BaseBean>{
+
+        return RetrofitManager.logout().doInBackground()
     }
 }

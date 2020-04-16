@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+        <variable name="vm" type="com.wjf.dev.main.fragment.mine.MineViewModel"/>
+    </data>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/integral_null"
+                android:text="无"
+                android:textSize="@dimen/sp_20"
+                android:textColor="@color/color_black"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+        />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/integral_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </LinearLayout>
+</layout>

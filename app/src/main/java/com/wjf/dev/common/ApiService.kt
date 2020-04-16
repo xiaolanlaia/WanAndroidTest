@@ -69,6 +69,18 @@ interface ApiService {
     fun getIntegral() : Observable<IntegralBean>
 
     /**
+     * 积分列表
+     */
+    @GET("lg/coin/list/1/json")
+    fun getIntegralList() : Observable<IntegralListBean>
+
+    /**
+     * 积分排行榜
+     */
+    @GET("coin/rank/1/json")
+    fun getIntegralRank() : Observable<IntegralRankBean>
+
+    /**
      * 登录
      */
     @POST("user/login")
@@ -96,6 +108,12 @@ interface ApiService {
      */
     @GET("lg/collect/list/0/json")
     fun getCollectList() : Observable<CollectBean>
+
+    /**
+     * 退出登录
+     */
+    @GET("user/logout/json")
+    fun logout() : Observable<BaseBean>
 
 
 }

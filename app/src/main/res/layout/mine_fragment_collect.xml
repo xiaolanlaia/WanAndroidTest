@@ -2,12 +2,21 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
 
-        <variable name="vm" type="com.wjf.dev.collect.CollectViewModel"/>
+        <variable name="vm" type="com.wjf.dev.main.fragment.mine.MineViewModel"/>
     </data>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+        <TextView
+                android:id="@+id/collect_null"
+                android:text="无"
+                android:gravity="center"
+                android:textSize="@dimen/sp_20"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+        />
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/collect_article_recycler"
                 android:layout_width="match_parent"

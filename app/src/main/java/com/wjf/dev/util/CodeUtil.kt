@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModel
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.MyApplication
 import com.wjf.dev.common.MyApplication.Companion.context
-import com.wjf.dev.login.LoginActivity
+import com.wjf.dev.common.TitleWithContentActivity
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -88,7 +88,9 @@ object CodeUtil {
     fun checkIsLogin(context: Context) {
 
         context._toast("请先登录")
-        context.startActivity<LoginActivity>()
+        context.startActivity<TitleWithContentActivity>(
+            Pair(Constants.SP.TITLE_ACTIVITY_TYPE,TitleWithContentActivity.TYPE_LOGIN)
+        )
 
     }
 }

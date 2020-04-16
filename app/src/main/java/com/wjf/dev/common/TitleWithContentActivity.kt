@@ -4,9 +4,12 @@ import android.text.TextUtils
 import com.wjf.dev.R
 import com.wjf.dev.webview.WebFragment
 import com.wjf.dev.base.BaseActivity
-import com.wjf.dev.collect.CollectFragment
+import com.wjf.dev.main.fragment.mine.collect.CollectFragment
 import com.wjf.dev.login.fragment.LoginFragment
 import com.wjf.dev.login.fragment.LogonFragment
+import com.wjf.dev.main.fragment.mine.integral.IntegralFragment
+import com.wjf.dev.main.fragment.mine.rank.RankFragment
+import com.wjf.dev.main.fragment.mine.setting.SettingFragment
 import com.wjf.dev.userArticle.ArticleSortFragment
 import com.wjf.dev.userArticle.AuthorArticleFragment
 import kotlinx.android.synthetic.main.activity_title_with_content.*
@@ -20,20 +23,12 @@ class TitleWithContentActivity : BaseActivity() {
 
     var type = 0
 
-    var returnToMainPage = false
-    var returnToWhere = 0
-
     override fun initContentViewID(): Int = R.layout.activity_title_with_content
 
     override fun isLightStatus(): Boolean = true
 
     override fun onViewCreated() {
 
-        //设置ToolBar返回键监听
-//        info_toolbar.setBackOnclickListener(View.OnClickListener {
-//
-//
-//        })
 
         type = intent.getIntExtra(Constants.SP.TITLE_ACTIVITY_TYPE, 0)
 
@@ -75,9 +70,21 @@ class TitleWithContentActivity : BaseActivity() {
                 transaction.replace(R.id.info_content, LogonFragment()).commit()
 
             }
-            TYPE_COLLECT ->{
+            TYPE_MINE_COLLECT ->{
                 info_toolbar.setTitle("我的收藏")
                 transaction.replace(R.id.info_content, CollectFragment()).commit()
+            }
+            TYPE_MINE_INTEGRAL ->{
+                info_toolbar.setTitle("积分记录")
+                transaction.replace(R.id.info_content, IntegralFragment()).commit()
+            }
+            TYPE_MINE_INTEGRAL_RANK ->{
+                info_toolbar.setTitle("积分排行")
+                transaction.replace(R.id.info_content, RankFragment()).commit()
+            }
+            TYPE_MINE_INTEGRAL_SETTING ->{
+                info_toolbar.setTitle("设置")
+                transaction.replace(R.id.info_content, SettingFragment()).commit()
             }
 
         }
@@ -99,7 +106,10 @@ class TitleWithContentActivity : BaseActivity() {
         const val TYPE_ARTICLE_SORT_LIST = 2
         const val TYPE_LOGIN = 3
         const val TYPE_LOGON = 4
-        const val TYPE_COLLECT = 5
+        const val TYPE_MINE_COLLECT = 5
+        const val TYPE_MINE_INTEGRAL = 6
+        const val TYPE_MINE_INTEGRAL_RANK = 7
+        const val TYPE_MINE_INTEGRAL_SETTING = 8
 
     }
 }

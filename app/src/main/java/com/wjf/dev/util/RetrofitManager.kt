@@ -136,6 +136,23 @@ object RetrofitManager {
         return apiService.getIntegral()
 
     }
+    /**
+     * 积分列表
+     */
+    fun getIntegralList() : Observable<IntegralListBean>{
+
+        return apiService.getIntegralList()
+
+    }
+
+    /**
+     * 积分排行榜
+     */
+    fun getIntegralRank() : Observable<IntegralRankBean>{
+
+        return apiService.getIntegralRank()
+
+    }
 
     /**
      * 登录
@@ -166,6 +183,14 @@ object RetrofitManager {
      */
     fun getCollectList() : Observable<CollectBean>{
         return apiService.getCollectList()
+    }
+
+    /**
+     * 退出登录
+     */
+    fun logout() : Observable<BaseBean>{
+
+        return apiService.logout()
     }
 
 

@@ -1,4 +1,4 @@
-package com.wjf.dev.collect
+package com.wjf.dev.main.fragment.mine.collect
 
 import android.os.Bundle
 import android.view.View
@@ -7,13 +7,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
-import com.wjf.dev.collect.adapter.CollectAdapter
+import com.wjf.dev.main.fragment.mine.collect.adapter.CollectAdapter
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
-import com.wjf.dev.databinding.CollectFragmentBinding
+import com.wjf.dev.databinding.MineFragmentCollectBinding
 import com.wjf.dev.entity.CollectBean
-import kotlinx.android.synthetic.main.collect_fragment.*
-import kotlinx.android.synthetic.main.home_fragment_recycler_item.*
+import com.wjf.dev.main.fragment.mine.MineRepository
+import com.wjf.dev.main.fragment.mine.MineVMFactory
+import com.wjf.dev.main.fragment.mine.MineViewModel
+import kotlinx.android.synthetic.main.mine_fragment_collect.*
 import org.jetbrains.anko.startActivity
 
 /**
@@ -24,11 +26,13 @@ import org.jetbrains.anko.startActivity
  */
 
 
-class CollectFragment : BaseMVVMFragment<CollectFragmentBinding,CollectViewModel>() {
-    override fun initViewModel(): CollectViewModel =
-        ViewModelProvider(this,CollectVMFactory(CollectRepository())).get(CollectViewModel::class.java)
+class CollectFragment : BaseMVVMFragment<MineFragmentCollectBinding, MineViewModel>() {
+    override fun initViewModel(): MineViewModel =
+        ViewModelProvider(this,
+            MineVMFactory(MineRepository())
+        ).get(MineViewModel::class.java)
 
-    override fun initContentViewID(): Int = R.layout.collect_fragment
+    override fun initContentViewID(): Int = R.layout.mine_fragment_collect
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,7 +54,18 @@ class CollectFragment : BaseMVVMFragment<CollectFragmentBinding,CollectViewModel
 
 
         vm.collectList.observe(viewLifecycleOwner, Observer {
-            collAdapter.addData(it as MutableList<CollectBean.dataBean.datasBean>)
+
+            when(it.size){
+
+                0 ->{
+                    collect_null.visibility = View.VISIBLE
+                }
+
+                else ->{
+                    collAdapter.replaceData(it as MutableList<CollectBean.dataBean.datasBean>)
+
+                }
+            }
 
         })
 

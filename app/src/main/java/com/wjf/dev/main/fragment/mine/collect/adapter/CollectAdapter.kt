@@ -1,4 +1,4 @@
-package com.wjf.dev.collect.adapter
+package com.wjf.dev.main.fragment.mine.collect.adapter
 
 import android.view.View
 import android.widget.RelativeLayout
