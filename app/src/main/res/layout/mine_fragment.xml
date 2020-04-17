@@ -16,6 +16,7 @@
                 android:id="@+id/top_relative"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dp_200"
+                android:background="@color/color_blue"
 
         >
             <ImageView
