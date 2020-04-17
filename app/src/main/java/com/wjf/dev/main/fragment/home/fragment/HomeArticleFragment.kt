@@ -83,7 +83,7 @@ class HomeArticleFragment : BaseMVVMFragment<HomeFragmentArticleBinding, HomeVie
         homeAdapter.setOnItemClickListener(object: HomeArticleAdapter.OnItemClickListener {
 
 
-            override fun onItemClick(view: View, name: String?, id: Int?) {
+            override fun onItemClick(view: View, name: String?, id: Int?, link: String?, title: String?) {
 
                 when(view.id){
 
@@ -103,19 +103,18 @@ class HomeArticleFragment : BaseMVVMFragment<HomeFragmentArticleBinding, HomeVie
                         )
                     }
 
+                    article_layout.id ->{
+                        view.context.startActivity<TitleWithContentActivity>(
+                            Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_WEB_VIEW),
+                            Pair(Constants.SP.URL,link),
+                            Pair(Constants.SP.WEBVIEW_TITLE,title)
+                        )
+                    }
+
                 }
 
             }
 
-
-            override fun onItemClick(view: View, link: String?, title: String?) {
-
-                view.context.startActivity<TitleWithContentActivity>(
-                    Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_WEB_VIEW),
-                    Pair(Constants.SP.URL,link),
-                    Pair(Constants.SP.WEBVIEW_TITLE,title)
-                )
-            }
         })
     }
 

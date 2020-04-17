@@ -2,6 +2,7 @@ package com.wjf.dev.main.fragment.home.adapter
 
 import android.util.Log
 import android.view.View
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
@@ -26,8 +27,7 @@ class HomeArticleAdapter :
     }
 
     interface OnItemClickListener{
-        fun onItemClick(view: View, link : String?, title : String?)
-        fun onItemClick(view: View, name : String?, id : Int?)
+        fun onItemClick(view: View, name : String?, id : Int?, link : String?, title : String?)
     }
 
 
@@ -61,18 +61,18 @@ class HomeArticleAdapter :
             }
         }
 
-        holder.getView<TextView>(R.id.article_title).setOnClickListener {
-
-            onItemClickListener.onItemClick(it,item.link,item.title)
-        }
-
         holder.getView<TextView>(R.id.article_author).setOnClickListener {
 
-            onItemClickListener.onItemClick(it,item.shareUser,item.userId)
+            onItemClickListener.onItemClick(it,item.shareUser,item.userId,item.link,item.title)
         }
         holder.getView<TextView>(R.id.article_chapter).setOnClickListener {
 
-            onItemClickListener.onItemClick(it,item.superChapterName,item.superChapterId)
+            onItemClickListener.onItemClick(it,item.superChapterName,item.superChapterId,item.link,item.title)
+        }
+
+        holder.getView<RelativeLayout>(R.id.article_layout).setOnClickListener {
+
+            onItemClickListener.onItemClick(it,item.superChapterName,item.superChapterId,item.link,item.title)
         }
     }
 }
