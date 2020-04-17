@@ -12,4 +12,5 @@
 
     <color name="textColorPress">#616161</color>
     <color name="textColorPrimary">#616161</color>
+    <color name="gray">#dcdcdc</color>
 </resources>

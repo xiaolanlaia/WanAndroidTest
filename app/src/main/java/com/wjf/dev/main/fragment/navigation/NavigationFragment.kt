@@ -139,7 +139,6 @@ class NavigationFragment : BaseMVVMFragment<NavigationFragmentBinding,Navigation
             override fun onTabSelected(tab: TabView, position: Int) {
                 isClickTab = false
                 //点击标签，使recyclerView滑动
-                Log.d("__tab-select-position","${position}")
                 moveToPosition(linearLayoutManager!!, nav_recycler, position)
             }
 

@@ -12,18 +12,29 @@ import retrofit2.http.*
 interface ApiService {
 
 
-
     /**
      * banner数据
      */
-    @GET(Constants.URL.GET_HOME_BANNER_DATA)
+    @GET("banner/json")
     fun getHomeBannerData() : Observable<HomeBannerBean>
 
     /**
      * 文章列表
      */
-    @GET(Constants.URL.GET_HOME_ARTICLE_LIST)
+    @GET("article/list/0/json")
     fun getHomeArticleList() : Observable<HomeArticleBean>
+
+    /**
+     * 广场列表
+     */
+    @GET("user_article/list/0/json")
+    fun getSquareList() : Observable<HomeArticleBean>
+
+    /**
+     * 最新项目
+     */
+    @GET("article/listproject/0/json")
+    fun getLatestProject() : Observable<ProjectBean>
 
     /**
      * 作者文章列表

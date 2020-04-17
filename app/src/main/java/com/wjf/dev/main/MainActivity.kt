@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wjf.dev.R
 import com.wjf.dev.base.BaseActivity
-import com.wjf.dev.main.fragment.home.HomeFragment
+import com.wjf.dev.main.fragment.home.fragment.HomeFragment
 import com.wjf.dev.main.fragment.knowledge.KnowledgeFragment
 import com.wjf.dev.main.fragment.navigation.NavigationFragment
 import com.wjf.dev.main.fragment.offcialAccount.OfficialAccountFragment

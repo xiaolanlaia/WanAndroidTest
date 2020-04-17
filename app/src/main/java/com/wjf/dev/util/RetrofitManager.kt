@@ -83,6 +83,22 @@ object RetrofitManager {
     }
 
     /**
+     * 广场列表
+     */
+    fun getSquareList() : Observable<HomeArticleBean>{
+
+        return apiService.getSquareList()
+    }
+
+    /**
+     * 最新项目
+     */
+    fun getLatestProject() : Observable<ProjectBean>{
+
+        return apiService.getLatestProject()
+    }
+
+    /**
      * 作者文章列表
      */
     fun getAuthorArticleList(AUTHOR_ID : Int) : Observable<AuthorArticleBean> {

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/project_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:layout_marginBottom="@dimen/dp_4"
+        app:cardBackgroundColor="@color/color_white"
+        app:cardCornerRadius="@dimen/dp_8"
+        app:cardElevation="@dimen/dp_3">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/image_project_author_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_10"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_user_circle_solid"
+        />
+
+        <TextView
+                android:id="@+id/project_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_8"
+                android:layout_marginStart="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_4"
+                android:ellipsize="end"
+                android:lines="1"
+                android:padding="@dimen/dp_4"
+                android:text="物品(尤指整套中的一件)，"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintRight_toLeftOf="@id/project_preview"
+                app:layout_constraintTop_toBottomOf="@id/image_project_author_icon"
+                app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+        <TextView
+                android:id="@+id/project_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_8"
+                android:ellipsize="end"
+                android:lines="2"
+                android:padding="@dimen/dp_4"
+                android:text="物品(尤指整套中的一件)，"
+                android:textSize="@dimen/sp_14"
+                android:textStyle="normal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/project_title"
+                app:layout_constraintRight_toLeftOf="@id/project_preview"
+                tools:layout_editor_absoluteX="4dp"
+                tools:layout_editor_absoluteY="49dp"
+                tools:ignore="MissingConstraints" />
+
+        <ImageView
+                android:id="@+id/project_preview"
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                android:layout_margin="@dimen/dp_10"
+                android:src="@mipmap/icon_project_preview"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:layout_editor_absoluteX="283dp"
+                tools:ignore="MissingConstraints" />
+
+        <ImageView
+                android:id="@+id/project_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_8"
+                android:padding="4dp"
+                android:src="@drawable/ic_favorite_gray_24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/project_tag"
+                tools:layout_editor_absoluteY="169dp"
+                tools:ignore="MissingConstraints" />
+
+        <TextView
+                android:id="@+id/project_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_8"
+                app:layout_constraintRight_toLeftOf="@id/project_preview"
+                tools:layout_editor_absoluteY="174dp"
+                app:layout_constraintTop_toTopOf="@id/project_collect"
+                app:layout_constraintBottom_toBottomOf="@id/project_collect"
+                tools:text="2019-05-22"
+                tools:ignore="MissingConstraints" />
+
+        <TextView
+                android:id="@+id/project_tag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="okhttp"
+                android:layout_margin="@dimen/dp_8"
+                android:textColor="#00BCD4"
+                app:layout_constraintEnd_toStartOf="@id/project_date"
+                app:layout_constraintStart_toEndOf="@id/project_collect"
+                app:layout_constraintTop_toTopOf="@id/project_collect"
+                app:layout_constraintBottom_toBottomOf="@id/project_collect"
+                android:ellipsize="end"
+                android:lines="1"
+                tools:ignore="MissingConstraints" />
+
+        <TextView
+                android:id="@+id/tv_project_author_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_8"
+                android:layout_marginStart="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_4"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="author"
+                app:layout_constraintLeft_toRightOf="@id/image_project_author_icon"
+                app:layout_constraintRight_toLeftOf="@id/project_preview"
+                app:layout_constraintBottom_toTopOf="@id/project_title"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+

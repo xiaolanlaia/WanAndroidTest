@@ -15,17 +15,6 @@ internal interface Constants {
         // Base_Url
         const val BASE_URL = BuildConfig.ApiHost
 
-
-        //首页banner
-        const val GET_HOME_BANNER_DATA = "banner/json"
-        //首页文章列表
-        const val GET_HOME_ARTICLE_LIST = "article/list/0/json"
-
-
-
-
-
-
     }
 
     /**

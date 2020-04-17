@@ -50,10 +50,9 @@ class KnowledgeAdapter : BaseQuickAdapter<KnowledgeBean.DataBean,BaseViewHolder>
             }
 
         tagLayout.setOnTagClickListener { view, position, parent ->
-            Log.d("__id","${item.children!![position].id}")
             view.context.startActivity<TitleWithContentActivity>(
                 Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_ARTICLE_SORT_LIST),
-                Pair(Constants.SP.ARTICLE_TITLE,item.children[position].name),
+                Pair(Constants.SP.ARTICLE_TITLE, item.children!![position].name),
                 Pair(Constants.SP.CID,item.children[position].id)
             )
             false
@@ -61,7 +60,7 @@ class KnowledgeAdapter : BaseQuickAdapter<KnowledgeBean.DataBean,BaseViewHolder>
 //        tagLayput.setOnSelectListener(TagFlowLayout.OnSelectListener {
 //                selectPosSet -> LogUtil.e("选中了tag:$selectPosSet")
 //        })
-//        adapter.setSelectedList(0)//默认选中第一个
+//        articleLatestProjectAdapter.setSelectedList(0)//默认选中第一个
 
 
 

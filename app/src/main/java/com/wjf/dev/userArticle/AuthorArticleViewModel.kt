@@ -41,7 +41,6 @@ class AuthorArticleViewModel(val repository: AuthorArticleRepository) : ViewMode
      * 获取分类文章
      */
     fun getArticleSort(cid : Int){
-        Log.d("__cid-","${cid}")
 
         repository.getArticleSort(cid).subscribe({
 

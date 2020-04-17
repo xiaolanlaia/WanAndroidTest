@@ -1,5 +1,6 @@
 package com.wjf.dev.main.fragment.home.adapter
 
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -31,6 +32,7 @@ class HomeArticleAdapter :
 
 
     override fun convert(holder: BaseViewHolder, item: HomeArticleBean.Data.Datas) {
+
         holder
             .setText(R.id.article_title, item.title)
             .setText(R.id.article_author, item.shareUser)

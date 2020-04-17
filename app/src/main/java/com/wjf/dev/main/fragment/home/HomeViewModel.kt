@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.wjf.dev.common.Constants
 import com.wjf.dev.entity.HomeArticleBean
 import com.wjf.dev.entity.HomeBannerBean
+import com.wjf.dev.entity.ProjectBean
 import com.wjf.dev.util.CodeUtil.checkIsLogin
 import com.wjf.dev.util.addTo
 import com.wjf.dev.util.toast
@@ -26,6 +27,7 @@ class HomeViewModel(val repository: HomeRepository) : ViewModel() {
 
     val bannerData = MutableLiveData<List<HomeBannerBean.BannerData>>()
     val articleList = MutableLiveData<List<HomeArticleBean.Data.Datas>>()
+    val projectArticleList = MutableLiveData<List<ProjectBean.dataBean.datasBean>>()
 
     fun getHomeBannerData(context: Context){
 
@@ -53,6 +55,9 @@ class HomeViewModel(val repository: HomeRepository) : ViewModel() {
         }).addTo(co)
     }
 
+    /**
+     * 首页文章列表
+     */
     fun getHomeArticleList(){
 
         repository.getHomeArticleList().subscribe({
@@ -67,6 +72,46 @@ class HomeViewModel(val repository: HomeRepository) : ViewModel() {
         },{
 
         }).addTo(co)
+    }
+
+    /**
+     * 广场列表
+     */
+    fun getSquareList(){
+
+        repository.getSquareList().subscribe({
+
+            when(it.errorCode){
+
+                0 ->{
+                    articleList.value = it.data!!.datas
+                }
+
+                else ->{}
+
+            }
+
+        },{
+
+        }).addTo(co)
+    }
+
+    /**
+     * 最新项目
+     */
+    fun getLatestProject(){
+
+        repository.getLatestProject().subscribe({
+
+            when(it.errorCode){
+
+                0 ->{
+
+                    projectArticleList.value = it.data!!.datas
+                }
+            }
+
+        },{}).addTo(co)
     }
 
 

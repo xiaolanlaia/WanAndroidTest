@@ -30,6 +30,21 @@ class HomeRepository {
 
         return RetrofitManager.getHomeArticleList().doInBackground()
     }
+    /**
+     * 广场列表
+     */
+    fun getSquareList() : Observable<HomeArticleBean>{
+
+        return RetrofitManager.getSquareList().doInBackground()
+    }
+
+    /**
+     * 最新项目
+     */
+    fun getLatestProject() : Observable<ProjectBean>{
+
+        return RetrofitManager.getLatestProject().doInBackground()
+    }
 
 
 }

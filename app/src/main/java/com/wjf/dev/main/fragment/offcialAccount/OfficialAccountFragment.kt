@@ -42,7 +42,7 @@ class OfficialAccountFragment : BaseMVVMFragment<FragmentOfficialAccountBinding,
     }
 
     fun initData(){
-        vm.articleList.observe(this, Observer {
+        vm.articleList.observe(viewLifecycleOwner, Observer {
             initWeChatArticleFragment(it)
 
         })

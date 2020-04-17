@@ -58,7 +58,7 @@ class OfficialAccountArticleFragment : BaseMVVMFragment<FragmentOfficialAccountA
         //设置layoutManager
         official_account_article_recycler.layoutManager = LinearLayoutManager(context)
         official_account_article_recycler.adapter = officialAccountAdapter
-        vm.historyList.observe(this, Observer {
+        vm.historyList.observe(viewLifecycleOwner, Observer {
             officialAccountAdapter.addData(it as MutableList<OfficialAccountHistoryBean.dataBean.datasBean>)
         })
 
