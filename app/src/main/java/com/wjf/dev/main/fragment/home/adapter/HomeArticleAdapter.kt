@@ -112,11 +112,13 @@ class HomeArticleAdapter:
                     when(isCollect){
 
                         true ->{
+                            item.collect = true
                             holder.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_collect_24dp))
 
                         }
 
                         false ->{
+                            item.collect = false
                             holder.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_gray_24dp))
 
                         }

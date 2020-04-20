@@ -72,11 +72,13 @@ class ArticleLatestProjectAdapter : BaseQuickAdapter<ProjectBean.dataBean.datasB
                     when(isCollect){
 
                         true ->{
+                            item.collect = true
                             helper.setImageDrawable(R.id.project_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_collect_24dp))
 
                         }
 
                         false ->{
+                            item.collect = false
                             helper.setImageDrawable(R.id.project_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_gray_24dp))
 
                         }
