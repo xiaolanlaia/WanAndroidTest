@@ -10,20 +10,21 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/color_white"
+
     >
         <RelativeLayout
                 android:id="@+id/top_relative"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/dp_200"
-                android:background="@color/color_blue"
+                android:layout_height="@dimen/dp_150"
+                android:background="@color/color_white"
+                android:onClick="@{vm.mineClickListener}"
 
         >
             <ImageView
                     android:id="@+id/mine_iv"
-                    android:background="@mipmap/icon_heard"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_mine_heard"
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="@dimen/dp_100"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/dp_20"
             />
@@ -33,6 +34,7 @@
                     android:layout_toEndOf="@id/mine_iv"
                     android:layout_alignTop="@id/mine_iv"
                     android:layout_alignBottom="@id/mine_iv"
+                    android:gravity="center|left"
                     android:layout_marginStart="@dimen/dp_20"
             >
 
@@ -40,14 +42,14 @@
                         android:id="@+id/mine_account"
                         android:textSize="@dimen/sp_18"
                         tools:text="xiaolanlaia"
+                        android:layout_marginBottom="@dimen/dp_10"
                         android:text="@{vm.account}"
-                        android:onClick="@{vm.mineClickListener}"
                         android:textColor="@color/color_black"
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                />
+                        android:layout_alignParentStart="true" android:layout_marginStart="0dp"/>
 
                 <TextView
                         android:id="@+id/mine_level"
@@ -86,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:layout_marginTop="1dp"
-                    app:image_left="@mipmap/icon_collect"
+                    app:image_left="@mipmap/icon_collect_unlike"
                     app:row_title_text="我的收藏"
                     android:onClick="@{vm.mineClickListener}"
             />

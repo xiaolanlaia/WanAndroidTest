@@ -1,13 +1,17 @@
 package com.wjf.dev.main.fragment.home
 
 import android.content.Context
+import android.text.TextUtils
 import android.util.Log
+import android.widget.ImageView
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.wjf.dev.R
 import com.wjf.dev.common.Constants
 import com.wjf.dev.entity.HomeArticleBean
 import com.wjf.dev.entity.HomeBannerBean
 import com.wjf.dev.entity.ProjectBean
+import com.wjf.dev.main.fragment.home.fragment.HomeArticleFragment
 import com.wjf.dev.util.CodeUtil.checkIsLogin
 import com.wjf.dev.util.addTo
 import com.wjf.dev.util.toast
@@ -113,6 +117,63 @@ class HomeViewModel(val repository: HomeRepository) : ViewModel() {
 
         },{}).addTo(co)
     }
+
+
+    /**
+     * 收藏
+     */
+    fun collect(id : Int){
+
+        repository.collect(id).subscribe({
+
+            when(it.errorCode){
+
+                0 ->{
+                    setCollectState.onCollect(true)
+                }
+            }
+
+
+        },{
+
+        }).addTo(co)
+    }
+
+    /**
+     * 取消收藏
+     */
+    fun unCollect(id : Int){
+
+        repository.unCollect(id).subscribe({
+
+            when(it.errorCode){
+
+                0 ->{
+                    setCollectState.onCollect(false)
+                }
+            }
+
+
+        },{
+
+        }).addTo(co)
+    }
+
+    companion object{
+        lateinit var setCollectState : SetCollectState
+
+        fun collectListener(setCollectState: SetCollectState){
+
+            this.setCollectState = setCollectState
+        }
+
+        interface SetCollectState{
+
+            fun onCollect(isCollect : Boolean)
+        }
+    }
+
+
 
 
 

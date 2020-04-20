@@ -12,21 +12,21 @@ import com.sun.dev.entity.BaseBean
 
 class OfficialAccountBean : BaseBean(){
 
-    val data : ArrayList<dataBean>? = null
+    var data : ArrayList<dataBean>? = null
 
 
     class dataBean{
 
-        val id : Int? = 0
-        val order : Int? = 0
-        val parentChapterId : Int? = 0
-        val visible : Int? = 0
+        var id : Int? = 0
+        var order : Int? = 0
+        var parentChapterId : Int? = 0
+        var visible : Int? = 0
 
-        val name : String? = null
+        var name : String? = null
 
-        val userControlSetTop : Boolean? = false
+        var userControlSetTop : Boolean? = false
 
-        val children : ArrayList<childrenBean>? = null
+        var children : ArrayList<childrenBean>? = null
 
         class childrenBean{}
 

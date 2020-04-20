@@ -12,15 +12,15 @@ import com.sun.dev.entity.BaseBean
 
 class LoginBean : BaseBean() {
 
-    val data : DataBean? = null
+    var data : DataBean? = null
 
     class DataBean{
 
-        val admin : Boolean? = false
+        var admin : Boolean? = false
 
-        val id : Int? = 0
+        var id : Int? = 0
 
-        val username : String? = null
+        var username : String? = null
 
 
 

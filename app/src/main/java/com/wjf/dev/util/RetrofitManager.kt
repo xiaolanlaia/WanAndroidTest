@@ -99,6 +99,21 @@ object RetrofitManager {
     }
 
     /**
+     * 收藏
+     */
+    fun collect(id : Int) : Observable<BaseBean>{
+
+        return apiService.collect(id)
+    }
+    /**
+     * 取消收藏
+     */
+    fun unCollect(id : Int) : Observable<BaseBean>{
+
+        return apiService.unCollect(id)
+    }
+
+    /**
      * 作者文章列表
      */
     fun getAuthorArticleList(AUTHOR_ID : Int) : Observable<AuthorArticleBean> {

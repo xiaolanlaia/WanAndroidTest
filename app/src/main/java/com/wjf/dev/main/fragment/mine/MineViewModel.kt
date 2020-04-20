@@ -1,7 +1,9 @@
 package com.wjf.dev.main.fragment.mine
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,6 +14,8 @@ import com.wjf.dev.common.cookie.CookieManager
 import com.wjf.dev.entity.CollectBean
 import com.wjf.dev.entity.IntegralListBean
 import com.wjf.dev.entity.IntegralRankBean
+import com.wjf.dev.util.CodeUtil.checkIsLogin
+import com.wjf.dev.util.SharedHelper
 import com.wjf.dev.util.addTo
 import com.wjf.dev.util.toast
 import io.reactivex.disposables.CompositeDisposable
@@ -39,9 +43,13 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
 
     val mineClickListener = View.OnClickListener {
 
+        if (!checkIsLogin(it.context)) return@OnClickListener
+
         when(it.id){
 
-            R.id.mine_account ->{
+            R.id.top_relative ->{
+
+                if (checkIsLogin(it.context)) return@OnClickListener
 
                 it.context.startActivity<TitleWithContentActivity>(
                     Pair(Constants.SP.TITLE_ACTIVITY_TYPE,TitleWithContentActivity.TYPE_LOGIN)
@@ -79,7 +87,14 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
 
             R.id.setting_row ->{
 
-                logout(it.context)
+                AlertDialog.Builder(it.context)
+                    .setTitle("确认退出")
+                    .setMessage("手滑了一下下~")
+                    .setPositiveButton("确定") { _, _ -> logout(it.context) }
+                    .setNegativeButton("取消") { dialog, _ -> dialog.dismiss() }
+                    .show()
+
+
             }
         }
 
@@ -187,6 +202,7 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
 
                 0 ->{
                     toast("退出成功")
+                    SharedHelper.getEdit { sp -> sp.putBoolean(Constants.SP.IS_LOGIN,false) }
                     CookieManager.getInstance().clearAllCookie()
                     (context as Activity).finish()
 

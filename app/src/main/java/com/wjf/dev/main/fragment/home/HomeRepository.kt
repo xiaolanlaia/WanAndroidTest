@@ -46,5 +46,20 @@ class HomeRepository {
         return RetrofitManager.getLatestProject().doInBackground()
     }
 
+    /**
+     * 收藏
+     */
+    fun collect(id : Int) : Observable<BaseBean>{
+
+        return RetrofitManager.collect(id).doInBackground()
+    }
+    /**
+     * 取消收藏
+     */
+    fun unCollect(id : Int) : Observable<BaseBean>{
+
+        return RetrofitManager.unCollect(id).doInBackground()
+    }
+
 
 }

@@ -37,6 +37,17 @@ interface ApiService {
     fun getLatestProject() : Observable<ProjectBean>
 
     /**
+     * 收藏
+     */
+    @POST("lg/collect/{id}/json")
+    fun collect(@Path("id") id : Int) : Observable<BaseBean>
+    /**
+     * 取消收藏
+     */
+    @POST("lg/uncollect_originId/{id}/json")
+    fun unCollect(@Path("id") id : Int) : Observable<BaseBean>
+
+    /**
      * 作者文章列表
      */
     @GET("user/{AUTHOR_ID}/share_articles/1/json")

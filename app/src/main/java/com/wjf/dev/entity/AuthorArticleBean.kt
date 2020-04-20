@@ -12,45 +12,46 @@ import com.sun.dev.entity.BaseBean
 
 class AuthorArticleBean : BaseBean() {
 
-    val data : DataBean? = null
+    var data : DataBean? = null
 
 
     class DataBean{
 
-        val coinInfo : coinInfoBean? = null
-        val shareArticles : ShareArticlesBean? = null
+        var coinInfo : coinInfoBean? = null
+        var shareArticles : ShareArticlesBean? = null
 
         class coinInfoBean{
-            val coinCount : Int? = 0
-            val level : Int? = 0
-            val rank : Int? = 0
-            val userId : Int? = 0
-            val username : String? = null
+            var coinCount : Int? = 0
+            var level : Int? = 0
+            var rank : Int? = 0
+            var userId : Int? = 0
+            var username : String? = null
         }
 
         class ShareArticlesBean{
-            val curPage : Int? = 0
-            val datas : ArrayList<DatasBean>? = null
+            var curPage : Int? = 0
+            var datas : ArrayList<DatasBean>? = null
 
             class DatasBean{
-                val author : String? = null
-                val chapterName : String? = null
-                val link : String? = null
-                val niceDate : String? = null
-                val superChapterName : String? = null
-                val title : String? = null
-                val shareUser : String? = null
-                val id : Int? = 0
-                val chapterId : Int? = 0
-                val superChapterId : Int? = 0
-                val userId : Int? = 0
-                val collect : Boolean? = false
-                val fresh : Boolean? = false
-                val tags : ArrayList<TagsBean>? = null
+                var author : String? = null
+                var chapterName : String? = null
+                var link : String? = null
+                var niceDate : String? = null
+                var superChapterName : String? = null
+                var title : String? = null
+                var shareUser : String? = null
+                var origin : String? = null
+                var id : Int? = 0
+                var chapterId : Int? = 0
+                var superChapterId : Int? = 0
+                var userId : Int? = 0
+                var collect : Boolean? = false
+                var fresh : Boolean? = false
+                var tags : ArrayList<TagsBean>? = null
 
                 class TagsBean{
-                    val name : String? = null
-                    val url : String? = null
+                    var name : String? = null
+                    var url : String? = null
                 }
             }
         }

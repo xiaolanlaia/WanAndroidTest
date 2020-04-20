@@ -12,33 +12,34 @@ import com.sun.dev.entity.BaseBean
 
 class HomeArticleBean : BaseBean() {
 
-    val data : Data? = null
+    var data : Data? = null
 
     class Data{
 
-        val curPage : Int? = 0
+        var curPage : Int? = 0
 
-        val offset : Int? = 0
-        val size : Int? = 0
-        val total : Int? = 0
-        val pageCount : Int? = 0
+        var offset : Int? = 0
+        var size : Int? = 0
+        var total : Int? = 0
+        var pageCount : Int? = 0
 
-        val over : Boolean? = false
-        val datas : ArrayList<Datas>? = null
+        var over : Boolean? = false
+        var datas : ArrayList<Datas>? = null
 
 
         class Datas{
-            val shareUser : String? = null
-            val title : String? = null
-            val superChapterName : String? = null
-            val niceDate : String? = null
-            val link : String? = null
-            val fresh : Boolean? = false
-            val collect : Boolean? = false
-            val top : Boolean? = false
-            val id : Int? = 0
-            val userId : Int? = 0
-            val superChapterId : Int? = 0
+            var shareUser : String? = null
+            var title : String? = null
+            var superChapterName : String? = null
+            var niceDate : String? = null
+            var origin : String? = null
+            var link : String? = null
+            var fresh : Boolean? = false
+            var collect : Boolean? = false
+            var top : Boolean? = false
+            var id : Int? = 0
+            var userId : Int? = 0
+            var superChapterId : Int? = 0
 
         }
     }

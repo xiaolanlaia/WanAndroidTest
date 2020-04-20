@@ -12,33 +12,33 @@ import com.sun.dev.entity.BaseBean
 
 class KnowledgeBean : BaseBean(){
 
-    val data : ArrayList<DataBean>? = null
+    var data : ArrayList<DataBean>? = null
 
     class DataBean{
 
-        val children : ArrayList<childrenBean>? = null
-        val courseId : Int? = 0
-        val id : Int? = 0
-        val order : Int? = 0
-        val parentChapterId : Int? = 0
-        val visible : Int? = 0
+        var children : ArrayList<childrenBean>? = null
+        var courseId : Int? = 0
+        var id : Int? = 0
+        var order : Int? = 0
+        var parentChapterId : Int? = 0
+        var visible : Int? = 0
 
-        val name : String? = null
+        var name : String? = null
 
-        val userControlSetTop : Boolean? = false
+        var userControlSetTop : Boolean? = false
 
         class childrenBean{
 
-            val children : ArrayList<String>? = null
-            val courseId : Int? = 0
-            val id : Int? = 0
-            val order : Int? = 0
-            val parentChapterId : Int? = 0
-            val visible : Int? = 0
+            var children : ArrayList<String>? = null
+            var courseId : Int? = 0
+            var id : Int? = 0
+            var order : Int? = 0
+            var parentChapterId : Int? = 0
+            var visible : Int? = 0
 
-            val name : String? = null
+            var name : String? = null
 
-            val userControlSetTop : Boolean? = false
+            var userControlSetTop : Boolean? = false
 
         }
 

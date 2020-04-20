@@ -12,27 +12,27 @@ import com.sun.dev.entity.BaseBean
 
 class IntegralRankBean : BaseBean() {
 
-    val data : dataBean? = null
+    var data : dataBean? = null
 
     class dataBean{
-        val curPage : Int? = 0
-        val offset : Int? = 0
-        val pageCount : Int? = 0
-        val size : Int? = 0
-        val total : Int? = 0
+        var curPage : Int? = 0
+        var offset : Int? = 0
+        var pageCount : Int? = 0
+        var size : Int? = 0
+        var total : Int? = 0
 
-        val over : Boolean? = false
+        var over : Boolean? = false
 
-        val datas : ArrayList<datasBean>? = null
+        var datas : ArrayList<datasBean>? = null
 
         class datasBean{
 
-            val coinCount : Int? = 0
-            val level : Int? = 0
-            val rank : Int? = 0
-            val userId : Int? = 0
+            var coinCount : Int? = 0
+            var level : Int? = 0
+            var rank : Int? = 0
+            var userId : Int? = 0
 
-            val username : String? = null
+            var username : String? = null
         }
     }
 }

@@ -1,7 +1,9 @@
 package com.wjf.dev.main.fragment.home.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +17,7 @@ import com.wjf.dev.main.fragment.home.HomeRepository
 import com.wjf.dev.main.fragment.home.HomeVMFactory
 import com.wjf.dev.main.fragment.home.HomeViewModel
 import com.wjf.dev.main.fragment.home.adapter.HomeArticleAdapter
+import com.wjf.dev.util.toast
 import kotlinx.android.synthetic.main.home_fragment_article.*
 import kotlinx.android.synthetic.main.home_fragment_recycler_item.*
 import org.jetbrains.anko.startActivity
@@ -66,7 +69,9 @@ class HomeArticleFragment : BaseMVVMFragment<HomeFragmentArticleBinding, HomeVie
 
     }
 
+
     fun initView(){
+
 
         homeAdapter = HomeArticleAdapter()
         //设置layoutManager
@@ -75,12 +80,32 @@ class HomeArticleFragment : BaseMVVMFragment<HomeFragmentArticleBinding, HomeVie
 
 
         vm.articleList.observe(viewLifecycleOwner, Observer {
-            homeAdapter.addData(it as MutableList<HomeArticleBean.Data.Datas>)
+
+            val itemState = ArrayList<Boolean>()
+
+            homeAdapter.replaceData(it as MutableList<HomeArticleBean.Data.Datas>)
+
+
 
         })
 
 
         homeAdapter.setOnItemClickListener(object: HomeArticleAdapter.OnItemClickListener {
+            override fun onItemClick(id: Int, collect : Boolean) {
+
+                when(collect){
+
+                    true ->{
+
+                        vm.unCollect(id)
+                    }
+
+                    false ->{
+                        vm.collect(id)
+                    }
+                }
+
+            }
 
 
             override fun onItemClick(view: View, name: String?, id: Int?, link: String?, title: String?) {

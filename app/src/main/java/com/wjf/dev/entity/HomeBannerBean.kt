@@ -12,19 +12,19 @@ import com.sun.dev.entity.BaseBean
 
 class HomeBannerBean : BaseBean() {
 
-    val data : ArrayList<BannerData>? = null
+    var data : ArrayList<BannerData>? = null
 
 
     class BannerData{
 
-        val desc : String? = null
-        val id : Int? = 0
-        val imagePath : String? = null
-        val isVisible : Int? =0
-        val order : Int? = 0
-        val title : String? = null
-        val type : Int? = 0
-        val url : String? = null
+        var desc : String? = null
+        var id : Int? = 0
+        var imagePath : String? = null
+        var isVisible : Int? =0
+        var order : Int? = 0
+        var title : String? = null
+        var type : Int? = 0
+        var url : String? = null
     }
 }
 

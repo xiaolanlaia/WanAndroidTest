@@ -66,16 +66,6 @@ class OfficialAccountFragment : BaseMVVMFragment<FragmentOfficialAccountBinding,
     }
 
 
-    override fun onHiddenChanged(hidden: Boolean) {
-        super.onHiddenChanged(hidden)
-        when(hidden){
-            false ->{
-                initRequest()
-            }
-        }
-    }
-
-
     class officialAccountTabAdapter(
         fragmentManager: FragmentManager,
         val tabs: List<String>,

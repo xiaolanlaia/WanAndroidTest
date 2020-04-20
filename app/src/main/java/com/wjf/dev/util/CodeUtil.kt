@@ -85,12 +85,16 @@ object CodeUtil {
     /**
      * 判断是否登陆
      */
-    fun checkIsLogin(context: Context) {
+    fun checkIsLogin(context: Context) : Boolean{
 
-        context._toast("请先登录")
-        context.startActivity<TitleWithContentActivity>(
-            Pair(Constants.SP.TITLE_ACTIVITY_TYPE,TitleWithContentActivity.TYPE_LOGIN)
-        )
+        if (!SharedHelper.getShared().getBoolean(Constants.SP.IS_LOGIN,false)){
+            context.startActivity<TitleWithContentActivity>(
+                Pair(Constants.SP.TITLE_ACTIVITY_TYPE,TitleWithContentActivity.TYPE_LOGIN)
+            )
+            return false
+        }
+        return true
+
 
     }
 }

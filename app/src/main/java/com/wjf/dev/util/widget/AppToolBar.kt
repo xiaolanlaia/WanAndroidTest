@@ -7,12 +7,14 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.wjf.dev.R
 import com.wjf.dev.util.SizeUtil
 import org.jetbrains.anko.backgroundColor
+import org.jetbrains.anko.backgroundResource
 import org.jetbrains.anko.textColor
 
 /**
@@ -35,6 +37,8 @@ class AppToolBar : RelativeLayout {
     //status高度
     private lateinit var status: View
 
+    private lateinit var toolBackground: LinearLayout
+
     var style = 0
 
     constructor(context: Context?) : super(context)
@@ -45,6 +49,7 @@ class AppToolBar : RelativeLayout {
         back = view.findViewById(R.id.toolbar_back)
         kefu = view.findViewById(R.id.toolbar_kefu)
         message = view.findViewById(R.id.toolbar_message)
+        toolBackground = view.findViewById(R.id.toolbar_layout)
         //获取自定义属性
         val typeArray = context.obtainStyledAttributes(attrs, R.styleable.AppToolBar)
         val titleText = typeArray.getString(R.styleable.AppToolBar_toolbar_title)
@@ -139,6 +144,10 @@ class AppToolBar : RelativeLayout {
 
     fun setTitle(text: String) {
         title.text = text
+    }
+
+    fun setBackground(colorResource : Int){
+        toolBackground.backgroundColor = context.resources.getColor(colorResource,null)
     }
 
     fun getTitle() : String{

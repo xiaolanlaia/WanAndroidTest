@@ -12,32 +12,32 @@ import com.sun.dev.entity.BaseBean
 
 class CollectBean : BaseBean() {
 
-    val data : dataBean? = null
+    var data : dataBean? = null
 
     class dataBean{
 
 
-        val curPage : Int? = 0
-        val offset : Int? = 0
-        val pageCount : Int? = 0
-        val size : Int? = 0
-        val total : Int? = 0
+        var curPage : Int? = 0
+        var offset : Int? = 0
+        var pageCount : Int? = 0
+        var size : Int? = 0
+        var total : Int? = 0
 
 
-        val over : Boolean? = null
+        var over : Boolean? = null
 
-        val datas : ArrayList<datasBean>? = null
+        var datas : ArrayList<datasBean>? = null
 
         class datasBean{
 
-            val author : String? = null
-            val chapterName : String? = null
-            val link : String? = null
-            val niceDate : String? = null
-            val title : String? = null
-
-            val id : Int? = 0
-            val chapterId : Int? = 0
+            var author : String? = null
+            var chapterName : String? = null
+            var link : String? = null
+            var niceDate : String? = null
+            var title : String? = null
+            var origin : String? = null
+            var id : Int? = 0
+            var chapterId : Int? = 0
 
         }
 

@@ -12,13 +12,13 @@ import com.sun.dev.entity.BaseBean
 
 class IntegralBean : BaseBean(){
 
-    val data : dataBean? = null
+    var data : dataBean? = null
 
     class dataBean{
 
-        val coinCount :Int? = 0
-        val level :Int? = 0
-        val rank :Int? = 0
-        val username :String? = null
+        var coinCount :Int? = 0
+        var level :Int? = 0
+        var rank :Int? = 0
+        var username :String? = null
     }
 }

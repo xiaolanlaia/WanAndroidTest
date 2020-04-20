@@ -12,28 +12,28 @@ import com.sun.dev.entity.BaseBean
 
 class IntegralListBean : BaseBean(){
 
-    val data : dataBean? = null
+    var data : dataBean? = null
 
     class dataBean{
 
-        val curPage : Int? = 0
-        val offset : Int? = 0
-        val pageCount : Int? = 0
-        val size : Int? = 0
-        val total : Int? = 0
+        var curPage : Int? = 0
+        var offset : Int? = 0
+        var pageCount : Int? = 0
+        var size : Int? = 0
+        var total : Int? = 0
 
 
-        val over : Boolean? = false
+        var over : Boolean? = false
 
-        val datas : ArrayList<datasBean>? = null
+        var datas : ArrayList<datasBean>? = null
 
         class datasBean{
 
-            val coinCount : Int? = 0
-            val id : Int? = 0
+            var coinCount : Int? = 0
+            var id : Int? = 0
 
-            val desc : String? = null
-            val reason : String? = null
+            var desc : String? = null
+            var reason : String? = null
 
         }
 

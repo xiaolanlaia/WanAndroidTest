@@ -49,6 +49,22 @@ class HomeLatestProjectFragment : BaseMVVMFragment<HomeFragmentArticleBinding, H
         home_article_recycler.adapter = articleLatestProjectAdapter
 
         articleLatestProjectAdapter.setOnItemClickListener(object : ArticleLatestProjectAdapter.OnItemClickListener{
+            override fun onItemClick(id: Int, collect : Boolean) {
+
+                when(collect){
+
+                    true ->{
+
+                        vm.unCollect(id)
+                    }
+
+                    false ->{
+                        vm.collect(id)
+                    }
+                }
+
+            }
+
             override fun onItemClick(view: View, link: String?, title: String?) {
                 view.context.startActivity<TitleWithContentActivity>(
                     Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_WEB_VIEW),

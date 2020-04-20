@@ -1,13 +1,17 @@
 package com.wjf.dev.main.fragment.home.adapter
 
 import android.view.View
+import android.widget.ImageView
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.wjf.dev.R
 import com.wjf.dev.common.MyApplication.Companion.context
 import com.wjf.dev.entity.ProjectBean
+import com.wjf.dev.main.fragment.home.HomeViewModel
+import com.wjf.dev.util.CodeUtil
 
 /**
  *  @author  xiaolanlaia
@@ -28,6 +32,7 @@ class ArticleLatestProjectAdapter : BaseQuickAdapter<ProjectBean.dataBean.datasB
     }
     interface OnItemClickListener{
         fun onItemClick(view : View,link : String?,title : String?)
+        fun onItemClick(id : Int,collect : Boolean)
     }
     override fun convert(helper: BaseViewHolder, item: ProjectBean.dataBean.datasBean) {
 
@@ -40,9 +45,48 @@ class ArticleLatestProjectAdapter : BaseQuickAdapter<ProjectBean.dataBean.datasB
             .getView<CardView>(R.id.project_layout).setOnClickListener {
                 onItemClickListener.onItemClick(it,item.link,item.title)
             }
+
         Glide.with(context)
             .load(item.envelopePic)
             .into(helper.getView(R.id.project_preview))
+
+        when(item.collect){
+
+            true -> helper.setImageDrawable(R.id.project_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_collect_24dp))
+
+            false -> helper.setImageDrawable(R.id.project_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_gray_24dp))
+
+        }
+
+
+
+        helper.getView<ImageView>(R.id.project_collect).setOnClickListener {
+
+            if (!CodeUtil.checkIsLogin(it.context)) return@setOnClickListener
+
+            onItemClickListener.onItemClick(item.id!!,item.collect!!)
+
+
+            HomeViewModel.collectListener(object : HomeViewModel.Companion.SetCollectState{
+                override fun onCollect(isCollect: Boolean) {
+                    when(isCollect){
+
+                        true ->{
+                            helper.setImageDrawable(R.id.project_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_collect_24dp))
+
+                        }
+
+                        false ->{
+                            helper.setImageDrawable(R.id.project_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_gray_24dp))
+
+                        }
+
+                    }
+                }
+
+            })
+
+        }
 
 
     }

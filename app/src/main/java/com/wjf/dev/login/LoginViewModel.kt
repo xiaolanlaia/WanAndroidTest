@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModel
 import com.wjf.dev.R
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
+import com.wjf.dev.util.SharedHelper
 import com.wjf.dev.util.SimpleTextWatcher
 import com.wjf.dev.util.addTo
 import com.wjf.dev.util.toast
@@ -74,6 +75,7 @@ class LoginViewModel(val repository: LoginRepository) : ViewModel() {
 
                 0 ->{
 
+                    SharedHelper.getEdit { sp -> sp.putBoolean(Constants.SP.IS_LOGIN,true) }
                     (context as Activity).finish()
 
                 }

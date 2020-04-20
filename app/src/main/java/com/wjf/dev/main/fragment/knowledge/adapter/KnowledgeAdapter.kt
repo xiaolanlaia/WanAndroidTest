@@ -53,7 +53,7 @@ class KnowledgeAdapter : BaseQuickAdapter<KnowledgeBean.DataBean,BaseViewHolder>
             view.context.startActivity<TitleWithContentActivity>(
                 Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_ARTICLE_SORT_LIST),
                 Pair(Constants.SP.ARTICLE_TITLE, item.children!![position].name),
-                Pair(Constants.SP.CID,item.children[position].id)
+                Pair(Constants.SP.CID, item.children!![position].id)
             )
             false
         }
