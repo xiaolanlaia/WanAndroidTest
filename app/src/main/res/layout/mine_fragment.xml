@@ -88,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:layout_marginTop="1dp"
-                    app:image_left="@mipmap/icon_collect_unlike"
+                    app:image_left="@mipmap/icon_mine_heart"
                     app:row_title_text="我的收藏"
                     android:onClick="@{vm.mineClickListener}"
             />

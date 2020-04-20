@@ -58,9 +58,9 @@ class HomeArticleAdapter:
 
         when(item.collect){
 
-            true -> holder.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.mipmap.icon_collect_like))
+            true -> holder.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_collect_24dp))
 
-            false -> holder.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.mipmap.icon_collect_unlike))
+            false -> holder.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext,R.drawable.ic_favorite_gray_24dp))
 
         }
 
@@ -112,12 +112,12 @@ class HomeArticleAdapter:
                     when(isCollect){
 
                         true ->{
-                            holder.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.mipmap.icon_collect_like))
+                            holder.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_collect_24dp))
 
                         }
 
                         false ->{
-                            holder.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.mipmap.icon_collect_unlike))
+                            holder.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_gray_24dp))
 
                         }
 
