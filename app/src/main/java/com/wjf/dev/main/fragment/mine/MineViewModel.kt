@@ -217,9 +217,9 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
     /**
      * 收藏
      */
-    fun collect(id : Int){
+    fun addCollect(title : String, author : String, link : String){
 
-        repository.collect(id).subscribe({
+        repository.addCollect(title, author, link).subscribe({
 
             when(it.errorCode){
 

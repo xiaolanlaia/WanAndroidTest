@@ -1,7 +1,6 @@
 package com.wjf.dev.userArticle
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -10,10 +9,7 @@ import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
 import com.wjf.dev.common.Constants
 import com.wjf.dev.databinding.FragmentAuthorArticleBinding
-import com.wjf.dev.entity.ArticleSortBean
-import com.wjf.dev.entity.AuthorArticleBean
 import com.wjf.dev.userArticle.adapter.ArticleSortAdapter
-import com.wjf.dev.userArticle.adapter.AuthorArticleAdapter
 import kotlinx.android.synthetic.main.fragment_author_article.*
 
 /**
@@ -52,20 +48,39 @@ class ArticleSortFragment : BaseMVVMFragment<FragmentAuthorArticleBinding, Autho
         //设置layoutManager
         author_article_recycler.layoutManager = LinearLayoutManager(context)
 
-        val artileSortAdapter = ArticleSortAdapter()
-//        homeAdapter.setOnItemChildClickListener(this)
-        author_article_recycler.adapter = artileSortAdapter
-
+        val articleSortAdapter = ArticleSortAdapter()
+        author_article_recycler.adapter = articleSortAdapter
 
 
 
         vm.articleSortList.observe(viewLifecycleOwner, Observer {
 
-            artileSortAdapter.updateList(it as MutableList<ArticleSortBean.DataBean.datasBean>)
+            articleSortAdapter.replaceData(it)
 
         })
 
+
+        articleSortAdapter.setOnItemClickListener(object : ArticleSortAdapter.OnItemClickListener {
+            override fun onItemClick(id: Int, collect: Boolean) {
+
+                when (collect) {
+
+                    true -> {
+
+                        vm.unCollect(id)
+                    }
+
+                    false -> {
+                        vm.collect(id)
+                    }
+                }
+
+            }
+        })
+
     }
+
+
 
     fun initRequest(){
 

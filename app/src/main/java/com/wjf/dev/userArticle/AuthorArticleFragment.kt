@@ -26,11 +26,11 @@ class AuthorArticleFragment : BaseMVVMFragment<FragmentAuthorArticleBinding,Auth
     companion object{
 
 
-        fun newInstance(userId : Int) : AuthorArticleFragment {
+        fun newInstance(nickName : String) : AuthorArticleFragment {
 
             val fragment = AuthorArticleFragment()
             val bundle = Bundle()
-            bundle.putInt(Constants.SP.AUTHOR_ID,userId)
+            bundle.putString(Constants.SP.AUTHOR_NAME,nickName)
             fragment.arguments = bundle
             return fragment
         }
@@ -50,7 +50,6 @@ class AuthorArticleFragment : BaseMVVMFragment<FragmentAuthorArticleBinding,Auth
         author_article_recycler.layoutManager = LinearLayoutManager(context)
 
         val authorArticleAdapter = AuthorArticleAdapter()
-//        homeAdapter.setOnItemChildClickListener(this)
         author_article_recycler.adapter = authorArticleAdapter
 
 
@@ -58,15 +57,34 @@ class AuthorArticleFragment : BaseMVVMFragment<FragmentAuthorArticleBinding,Auth
 
         vm.articleList.observe(viewLifecycleOwner, Observer {
 
-            authorArticleAdapter.updateList(it as MutableList<AuthorArticleBean.DataBean.ShareArticlesBean.DatasBean>)
+            authorArticleAdapter.replaceData(it)
 
+        })
+
+        authorArticleAdapter.setOnItemClickListener(object : AuthorArticleAdapter.OnItemClickListener {
+            override fun onItemClick(id: Int, collect: Boolean) {
+
+                when (collect) {
+
+                    true -> {
+
+                        vm.unCollect(id)
+                    }
+
+                    false -> {
+                        vm.collect(id)
+                    }
+                }
+
+            }
         })
 
     }
 
     fun initRequest(){
 
-        vm.getAuthorArticleList(arguments!!.getInt(Constants.SP.AUTHOR_ID,-1))
+        vm.getAuthorFromNickName(arguments!!.getString(Constants.SP.AUTHOR_NAME,""))
+//        vm.getAuthorArticleList(arguments!!.getInt(Constants.SP.AUTHOR_ID,-1))
 
     }
 }

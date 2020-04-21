@@ -61,6 +61,12 @@ interface ApiService {
     fun getAuthorArticleList(@Path("AUTHOR_ID") AUTHOR_ID : Int) : Observable<AuthorArticleBean>
 
     /**
+     * 按作者的昵称搜索文章
+     */
+    @GET("/article/list/0/json")
+    fun getAuthorFromNickName(@Query("author")nickName : String) : Observable<NickNameBean>
+
+    /**
      * 某个分类下文章
      */
     @GET("article/list/0/json")
@@ -143,6 +149,16 @@ interface ApiService {
      */
     @GET("user/logout/json")
     fun logout() : Observable<BaseBean>
+
+
+    /**
+     * 收藏
+     */
+    @POST("/lg/collect/add/json")
+    @FormUrlEncoded
+    fun addCollect(@Field("title")title : String,
+                   @Field("author")author : String,
+                   @Field("link")link : String) : Observable<BaseBean>
 
 
 }

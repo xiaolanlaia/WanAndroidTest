@@ -49,7 +49,7 @@ class TitleWithContentActivity : BaseActivity() {
 
                     info_toolbar.setTitle(intent.getStringExtra(Constants.SP.AUTHOR_NAME))
                 }
-                transaction.replace(R.id.info_content, AuthorArticleFragment.newInstance(intent.getIntExtra(Constants.SP.AUTHOR_ID,-1))).commit()
+                transaction.replace(R.id.info_content, AuthorArticleFragment.newInstance(intent.getStringExtra(Constants.SP.AUTHOR_NAME))).commit()
 
             }
 

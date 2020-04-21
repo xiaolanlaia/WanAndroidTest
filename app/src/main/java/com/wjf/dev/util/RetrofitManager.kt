@@ -129,6 +129,14 @@ object RetrofitManager {
     }
 
     /**
+     * 按作者的昵称搜索文章
+     */
+    fun getAuthorFromNickName(nickName : String) : Observable<NickNameBean>{
+
+        return apiService.getAuthorFromNickName(nickName)
+    }
+
+    /**
      * 某个分类下文章
      */
     fun getArticleSort(cid : Int) : Observable<ArticleSortBean>{
@@ -229,6 +237,15 @@ object RetrofitManager {
     fun logout() : Observable<BaseBean>{
 
         return apiService.logout()
+    }
+
+
+    /**
+     * 收藏
+     */
+    fun addCollect(title : String, author : String, link : String) : Observable<BaseBean>{
+
+        return apiService.addCollect(title, author, link)
     }
 
 

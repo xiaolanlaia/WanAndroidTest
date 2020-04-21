@@ -59,13 +59,28 @@ class OfficialAccountArticleFragment : BaseMVVMFragment<FragmentOfficialAccountA
         official_account_article_recycler.layoutManager = LinearLayoutManager(context)
         official_account_article_recycler.adapter = officialAccountAdapter
         vm.historyList.observe(viewLifecycleOwner, Observer {
-            officialAccountAdapter.addData(it as MutableList<OfficialAccountHistoryBean.dataBean.datasBean>)
+            officialAccountAdapter.replaceData(it)
         })
 
         officialAccountAdapter.setOnItemClickListener(object: OfficialAccountAdapter.OnItemClickListener {
+            override fun onItemClick(id: Int, collect : Boolean) {
+
+                when(collect){
+
+                    true ->{
+
+                        vm.unCollect(id)
+                    }
+
+                    false ->{
+                        vm.collect(id)
+                    }
+                }
+
+            }
 
 
-                override fun onItemClick(view: View, link: String?, title: String?) {
+            override fun onItemClick(view: View, link: String?, title: String?) {
 
                     view.context.startActivity<TitleWithContentActivity>(
                         Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_WEB_VIEW),

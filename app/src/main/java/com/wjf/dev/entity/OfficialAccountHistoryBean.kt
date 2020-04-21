@@ -40,6 +40,7 @@ class OfficialAccountHistoryBean : BaseBean(){
             var superChapterName : String? = null
             var title : String? = null
             var author : String? = null
+            var shareUser : String? = null
 
             var tags : ArrayList<tagsBea>? = null
 

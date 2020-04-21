@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.wjf.dev.entity.OfficialAccountBean
 import com.wjf.dev.entity.OfficialAccountHistoryBean
+import com.wjf.dev.main.fragment.home.HomeViewModel
 import com.wjf.dev.util.addTo
 import io.reactivex.disposables.CompositeDisposable
 
@@ -57,5 +58,45 @@ class OfficialAccountViewModel(val repository: OfficialAccountRepository) : View
 
 
         },{}).addTo(co)
+    }
+
+    /**
+     * 收藏
+     */
+    fun collect(id : Int){
+
+        repository.collect(id).subscribe({
+
+            when(it.errorCode){
+
+                0 ->{
+                    HomeViewModel.setCollectState.onCollect(true)
+                }
+            }
+
+
+        },{
+
+        }).addTo(co)
+    }
+
+    /**
+     * 取消收藏
+     */
+    fun unCollect(id : Int){
+
+        repository.unCollect(id).subscribe({
+
+            when(it.errorCode){
+
+                0 ->{
+                    HomeViewModel.setCollectState.onCollect(false)
+                }
+            }
+
+
+        },{
+
+        }).addTo(co)
     }
 }

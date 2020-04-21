@@ -1,5 +1,6 @@
 package com.wjf.dev.main.fragment.offcialAccount
 
+import com.sun.dev.entity.BaseBean
 import com.wjf.dev.entity.OfficialAccountBean
 import com.wjf.dev.entity.OfficialAccountHistoryBean
 import com.wjf.dev.util.RetrofitManager
@@ -27,5 +28,19 @@ class OfficialAccountRepository {
      */
     fun getHistoryData(id : Int) : Observable<OfficialAccountHistoryBean>{
         return RetrofitManager.getHistoryData(id).doInBackground()
+    }
+    /**
+     * 收藏
+     */
+    fun collect(id : Int) : Observable<BaseBean>{
+
+        return RetrofitManager.collect(id).doInBackground()
+    }
+    /**
+     * 取消收藏
+     */
+    fun unCollect(id : Int) : Observable<BaseBean>{
+
+        return RetrofitManager.unCollect(id).doInBackground()
     }
 }

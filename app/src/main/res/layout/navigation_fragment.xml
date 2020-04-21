@@ -7,7 +7,6 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/dp_20"
     >
 
         <q.rorbin.verticaltablayout.VerticalTabLayout
@@ -16,6 +15,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/color_white"
                 android:paddingLeft="10dp"
+                android:paddingTop="@dimen/dp_10"
                 android:paddingRight="10dp"
                 app:indicator_corners="20dp"
                 app:indicator_gravity="fill"

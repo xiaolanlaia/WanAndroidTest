@@ -29,6 +29,7 @@ class ArticleSortBean : BaseBean() {
             var superChapterName : String? = null
             var niceDate : String? = null
             var shareUser : String? = null
+            var author : String? = null
             var title : String? = null
             var origin : String? = null
 

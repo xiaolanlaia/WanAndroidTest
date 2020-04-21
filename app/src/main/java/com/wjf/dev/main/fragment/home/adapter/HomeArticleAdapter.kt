@@ -27,7 +27,6 @@ import com.wjf.dev.util.CodeUtil
 class HomeArticleAdapter:
     BaseQuickAdapter<HomeArticleBean.Data.Datas, BaseViewHolder>(R.layout.home_fragment_recycler_item) {
 
-    lateinit var view : View
     private lateinit var onItemClickListener: OnItemClickListener
 
 
@@ -44,11 +43,11 @@ class HomeArticleAdapter:
     }
 
 
-    override fun convert(holder: BaseViewHolder, item: HomeArticleBean.Data.Datas) {
+    override fun convert(helper: BaseViewHolder, item: HomeArticleBean.Data.Datas) {
 
 
 
-        holder
+        helper
             .setText(R.id.article_title, item.title)
             .setText(R.id.article_author, returnAuthor(item))
             .setText(R.id.article_chapter, item.superChapterName)
@@ -58,49 +57,49 @@ class HomeArticleAdapter:
 
         when(item.collect){
 
-            true -> holder.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_collect_24dp))
+            true -> helper.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_collect_24dp))
 
-            false -> holder.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext,R.drawable.ic_favorite_gray_24dp))
+            false -> helper.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext,R.drawable.ic_favorite_gray_24dp))
 
         }
 
         when(item.top){
 
             true ->{
-                holder.setGone(R.id.article_top,true)
+                helper.setGone(R.id.article_top,true)
             }
 
             false ->{
-                holder.setGone(R.id.article_top,false)
+                helper.setGone(R.id.article_top,false)
             }
         }
 
         when(item.fresh){
 
             true ->{
-                holder.setGone(R.id.article_fresh,true)
+                helper.setGone(R.id.article_fresh,true)
             }
 
             false ->{
-                holder.setGone(R.id.article_fresh,false)
+                helper.setGone(R.id.article_fresh,false)
             }
         }
 
-        holder.getView<TextView>(R.id.article_author).setOnClickListener {
+        helper.getView<TextView>(R.id.article_author).setOnClickListener {
 
-            onItemClickListener.onItemClick(it,item.shareUser,item.userId,item.link,item.title)
+            onItemClickListener.onItemClick(it,returnAuthor(item),item.id,item.link,item.title)
         }
-        holder.getView<TextView>(R.id.article_chapter).setOnClickListener {
+        helper.getView<TextView>(R.id.article_chapter).setOnClickListener {
 
             onItemClickListener.onItemClick(it,item.superChapterName,item.superChapterId,item.link,item.title)
         }
 
-        holder.getView<RelativeLayout>(R.id.article_layout).setOnClickListener {
+        helper.getView<RelativeLayout>(R.id.article_layout).setOnClickListener {
 
             onItemClickListener.onItemClick(it,item.superChapterName,item.superChapterId,item.link,item.title)
         }
 
-        holder.getView<ImageView>(R.id.article_collect).setOnClickListener {
+        helper.getView<ImageView>(R.id.article_collect).setOnClickListener {
 
             if (!CodeUtil.checkIsLogin(it.context)) return@setOnClickListener
 
@@ -113,13 +112,13 @@ class HomeArticleAdapter:
 
                         true ->{
                             item.collect = true
-                            holder.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_collect_24dp))
+                            helper.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_collect_24dp))
 
                         }
 
                         false ->{
                             item.collect = false
-                            holder.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_gray_24dp))
+                            helper.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_gray_24dp))
 
                         }
 

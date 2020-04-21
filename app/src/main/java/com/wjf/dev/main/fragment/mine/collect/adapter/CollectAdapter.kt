@@ -1,5 +1,6 @@
 package com.wjf.dev.main.fragment.mine.collect.adapter
 
+import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
@@ -33,18 +34,24 @@ class CollectAdapter :
 
     interface OnItemClickListener{
         fun onItemClick(view: View, link : String?, title : String?)
-        fun onItemClick(id : Int, collect : Boolean)
+        fun onItemClick(id : Int, collect : Boolean,title : String, author : String, link : String)
     }
 
 
     override fun convert(helper: BaseViewHolder, item: CollectBean.dataBean.datasBean) {
         helper
             .setText(R.id.article_title, item.title)
-            .setText(R.id.article_author, item.author)
+            .setText(R.id.article_author, returnAuthor(item))
             .setText(R.id.article_chapter, item.chapterName)
             .setText(R.id.article_time, item.niceDate)
-            .getView<ImageView>(R.id.article_collect).visibility = View.INVISIBLE
 
+        when(item.collect){
+
+            true -> helper.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_collect_24dp))
+
+            false -> helper.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext,R.drawable.ic_favorite_gray_24dp))
+
+        }
         helper.setGone(R.id.article_top,false)
         helper.setGone(R.id.article_fresh,false)
 
@@ -58,11 +65,38 @@ class CollectAdapter :
 
             if (!CodeUtil.checkIsLogin(it.context)) return@setOnClickListener
 
-            onItemClickListener.onItemClick(item.id!!,item.collect!!)
+            onItemClickListener.onItemClick(item.id!!,item.collect!!,item.title!!,returnAuthor(item),item.link!!)
+
+            HomeViewModel.collectListener(object : HomeViewModel.Companion.SetCollectState{
+                override fun onCollect(isCollect: Boolean) {
+                    when(isCollect){
+
+                        true ->{
+                            item.collect = true
+                            helper.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_collect_24dp))
+
+                        }
+
+                        false ->{
+                            item.collect = false
+                            helper.setImageDrawable(R.id.article_collect, ContextCompat.getDrawable(mContext, R.drawable.ic_favorite_gray_24dp))
+
+                        }
+
+                    }
+                }
+
+            })
 
 
         }
 
+    }
+    fun returnAuthor(item: CollectBean.dataBean.datasBean) : String{
+
+        if (!TextUtils.isEmpty(item.author)) return item.author!!
+
+        return item.shareUser!!
     }
 }
 

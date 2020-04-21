@@ -1,10 +1,11 @@
 package com.wjf.dev.userArticle
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.wjf.dev.entity.ArticleSortBean
 import com.wjf.dev.entity.AuthorArticleBean
+import com.wjf.dev.entity.NickNameBean
+import com.wjf.dev.main.fragment.home.HomeViewModel.Companion.setCollectState
 import com.wjf.dev.util.addTo
 import io.reactivex.disposables.CompositeDisposable
 
@@ -20,18 +21,34 @@ class AuthorArticleViewModel(val repository: AuthorArticleRepository) : ViewMode
 
     val co = CompositeDisposable()
 
-    val articleList = MutableLiveData<List<AuthorArticleBean.DataBean.ShareArticlesBean.DatasBean>>()
+    val articleList = MutableLiveData<List<NickNameBean.dataBean.datasBean>>()
     val articleSortList = MutableLiveData<List<ArticleSortBean.DataBean.datasBean>>()
 
     /**
      * 作者文章列表
      */
-    fun getAuthorArticleList(AUTHOR_ID : Int){
-        repository.getAuthorArticleList(AUTHOR_ID).subscribe({
+//    fun getAuthorArticleList(AUTHOR_ID : Int){
+//        repository.getAuthorArticleList(AUTHOR_ID).subscribe({
+//            when(it.errorCode){
+//
+//                0 ->{
+//                    articleList.value = it.data!!.shareArticles!!.datas
+//                }
+//            }
+//        },{}).addTo(co)
+//    }
+
+    /**
+     * 按作者的昵称搜索文章
+     */
+    fun getAuthorFromNickName(nickName : String){
+
+        repository.getAuthorFromNickName(nickName).subscribe({
+
             when(it.errorCode){
 
                 0 ->{
-                    articleList.value = it.data!!.shareArticles!!.datas
+                    articleList.value = it.data!!.datas
                 }
             }
         },{}).addTo(co)
@@ -52,5 +69,45 @@ class AuthorArticleViewModel(val repository: AuthorArticleRepository) : ViewMode
             }
 
         },{}).addTo(co)
+    }
+
+    /**
+     * 收藏
+     */
+    fun collect(id : Int){
+
+        repository.collect(id).subscribe({
+
+            when(it.errorCode){
+
+                0 ->{
+                    setCollectState.onCollect(true)
+                }
+            }
+
+
+        },{
+
+        }).addTo(co)
+    }
+
+    /**
+     * 取消收藏
+     */
+    fun unCollect(id : Int){
+
+        repository.unCollect(id).subscribe({
+
+            when(it.errorCode){
+
+                0 ->{
+                    setCollectState.onCollect(false)
+                }
+            }
+
+
+        },{
+
+        }).addTo(co)
     }
 }

@@ -62,9 +62,9 @@ class MineRepository {
     /**
      * 收藏
      */
-    fun collect(id : Int) : Observable<BaseBean>{
+    fun addCollect(title : String, author : String, link : String) : Observable<BaseBean>{
 
-        return RetrofitManager.collect(id).doInBackground()
+        return RetrofitManager.addCollect(title, author, link).doInBackground()
     }
     /**
      * 取消收藏

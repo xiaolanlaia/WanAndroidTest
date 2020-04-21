@@ -5,17 +5,16 @@ import com.sun.dev.entity.BaseBean
 /**
  *  @author  xiaolanlaia
  *
- *  @create  2020/4/15 16:56
+ *  @create  2020/4/21 10:52
  *
  */
 
 
-class CollectBean : BaseBean() {
+class NickNameBean : BaseBean() {
 
     var data : dataBean? = null
 
     class dataBean{
-
 
         var curPage : Int? = 0
         var offset : Int? = 0
@@ -23,25 +22,31 @@ class CollectBean : BaseBean() {
         var size : Int? = 0
         var total : Int? = 0
 
-
-        var over : Boolean? = null
+        var over : Boolean? = false
 
         var datas : ArrayList<datasBean>? = null
 
         class datasBean{
 
             var author : String? = null
-            var shareUser : String? = null
-            var chapterName : String? = null
+            var desc : String? = null
+            var envelopePic : String? = null
             var link : String? = null
             var niceDate : String? = null
+            var shareUser : String? = null
+            var superChapterName : String? = null
             var title : String? = null
-            var origin : String? = null
+
+            var collect : Boolean = false
+            var fresh : Boolean = false
+
             var id : Int? = 0
-            var chapterId : Int? = 0
-            var collect : Boolean? = true
+            var superChapterId : Int? = 0
+
+
+
 
         }
-
     }
+
 }
