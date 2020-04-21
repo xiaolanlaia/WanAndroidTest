@@ -41,7 +41,7 @@ class CollectAdapter :
     override fun convert(helper: BaseViewHolder, item: CollectBean.dataBean.datasBean) {
         helper
             .setText(R.id.article_title, item.title)
-            .setText(R.id.article_author, returnAuthor(item))
+            .setText(R.id.article_author, item.author!!)
             .setText(R.id.article_chapter, item.chapterName)
             .setText(R.id.article_time, item.niceDate)
 
@@ -65,7 +65,7 @@ class CollectAdapter :
 
             if (!CodeUtil.checkIsLogin(it.context)) return@setOnClickListener
 
-            onItemClickListener.onItemClick(item.id!!,item.collect!!,item.title!!,returnAuthor(item),item.link!!)
+            onItemClickListener.onItemClick(item.id!!,item.collect!!,item.title!!,item.author!!,item.link!!)
 
             HomeViewModel.collectListener(object : HomeViewModel.Companion.SetCollectState{
                 override fun onCollect(isCollect: Boolean) {
@@ -91,12 +91,6 @@ class CollectAdapter :
 
         }
 
-    }
-    fun returnAuthor(item: CollectBean.dataBean.datasBean) : String{
-
-        if (!TextUtils.isEmpty(item.author)) return item.author!!
-
-        return item.shareUser!!
     }
 }
 
