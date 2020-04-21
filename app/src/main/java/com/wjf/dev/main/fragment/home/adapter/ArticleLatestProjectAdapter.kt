@@ -1,5 +1,6 @@
 package com.wjf.dev.main.fragment.home.adapter
 
+import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
@@ -39,6 +40,7 @@ class ArticleLatestProjectAdapter : BaseQuickAdapter<ProjectBean.dataBean.datasB
         helper
             .setText(R.id.project_title,item.title)
             .setText(R.id.project_content,item.desc)
+            .setText(R.id.tv_project_author_name,returnAuthor(item))
             .setText(R.id.project_date,item.niceDate)
             .setText(R.id.project_tag,item.chapterName)
             .addOnClickListener(R.id.project_layout)
@@ -91,5 +93,12 @@ class ArticleLatestProjectAdapter : BaseQuickAdapter<ProjectBean.dataBean.datasB
         }
 
 
+    }
+
+    fun returnAuthor(item: ProjectBean.dataBean.datasBean) : String{
+
+        if (!TextUtils.isEmpty(item.author)) return item.author!!
+
+        return item.shareUser!!
     }
 }

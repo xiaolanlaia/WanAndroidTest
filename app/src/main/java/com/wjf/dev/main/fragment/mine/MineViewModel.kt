@@ -14,6 +14,7 @@ import com.wjf.dev.common.cookie.CookieManager
 import com.wjf.dev.entity.CollectBean
 import com.wjf.dev.entity.IntegralListBean
 import com.wjf.dev.entity.IntegralRankBean
+import com.wjf.dev.main.fragment.home.HomeViewModel.Companion.setCollectState
 import com.wjf.dev.util.CodeUtil.checkIsLogin
 import com.wjf.dev.util.SharedHelper
 import com.wjf.dev.util.addTo
@@ -208,6 +209,46 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
 
                 }
             }
+        },{
+
+        }).addTo(co)
+    }
+
+    /**
+     * 收藏
+     */
+    fun collect(id : Int){
+
+        repository.collect(id).subscribe({
+
+            when(it.errorCode){
+
+                0 ->{
+                    setCollectState.onCollect(true)
+                }
+            }
+
+
+        },{
+
+        }).addTo(co)
+    }
+
+    /**
+     * 取消收藏
+     */
+    fun mineUnCollect(id : Int){
+
+        repository.mineUnCollect(id).subscribe({
+
+            when(it.errorCode){
+
+                0 ->{
+                    setCollectState.onCollect(false)
+                }
+            }
+
+
         },{
 
         }).addTo(co)

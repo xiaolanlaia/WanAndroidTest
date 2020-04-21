@@ -50,7 +50,7 @@ class HomeArticleAdapter:
 
         holder
             .setText(R.id.article_title, item.title)
-            .setText(R.id.article_author, item.shareUser)
+            .setText(R.id.article_author, returnAuthor(item))
             .setText(R.id.article_chapter, item.superChapterName)
             .setText(R.id.article_time, item.niceDate)
 
@@ -133,6 +133,13 @@ class HomeArticleAdapter:
 
 
 
+    }
+
+    fun returnAuthor(item: HomeArticleBean.Data.Datas) : String{
+
+        if (!TextUtils.isEmpty(item.author)) return item.author!!
+
+        return item.shareUser!!
     }
 }
 

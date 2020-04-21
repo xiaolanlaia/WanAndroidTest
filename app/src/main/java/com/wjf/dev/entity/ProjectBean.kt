@@ -29,6 +29,7 @@ class ProjectBean : BaseBean() {
 
         class datasBean{
             var author : String? = null
+            var shareUser : String? = null
             var chapterName : String? = null
             var desc : String? = null
             var envelopePic : String? = null

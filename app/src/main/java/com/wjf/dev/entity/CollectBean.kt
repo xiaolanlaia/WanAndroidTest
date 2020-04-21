@@ -38,6 +38,7 @@ class CollectBean : BaseBean() {
             var origin : String? = null
             var id : Int? = 0
             var chapterId : Int? = 0
+            var collect : Boolean? = true
 
         }
 

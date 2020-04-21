@@ -46,6 +46,13 @@ interface ApiService {
      */
     @POST("lg/uncollect_originId/{id}/json")
     fun unCollect(@Path("id") id : Int) : Observable<BaseBean>
+    /**
+     * 取消收藏
+     */
+    @POST("lg/uncollect/{id}/json")
+    @FormUrlEncoded
+    fun mineUnCollect(@Path("id") id : Int,
+                      @Field("originId")originId : Int) : Observable<BaseBean>
 
     /**
      * 作者文章列表

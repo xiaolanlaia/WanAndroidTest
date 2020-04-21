@@ -57,4 +57,20 @@ class MineRepository {
 
         return RetrofitManager.logout().doInBackground()
     }
+
+
+    /**
+     * 收藏
+     */
+    fun collect(id : Int) : Observable<BaseBean>{
+
+        return RetrofitManager.collect(id).doInBackground()
+    }
+    /**
+     * 取消收藏
+     */
+    fun mineUnCollect(id : Int) : Observable<BaseBean>{
+
+        return RetrofitManager.mineUnCollect(id).doInBackground()
+    }
 }

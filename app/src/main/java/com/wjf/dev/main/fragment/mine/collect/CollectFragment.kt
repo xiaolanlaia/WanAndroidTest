@@ -71,6 +71,24 @@ class CollectFragment : BaseMVVMFragment<MineFragmentCollectBinding, MineViewMod
 
         collAdapter.setOnItemClickListener(object: CollectAdapter.OnItemClickListener {
 
+            override fun onItemClick(id: Int, collect : Boolean) {
+
+                when(collect){
+
+                    true ->{
+
+
+
+                        vm.mineUnCollect(id)
+                    }
+
+                    false ->{
+                        vm.collect(id)
+                    }
+                }
+
+            }
+
 
             override fun onItemClick(view: View, link: String?, title: String?) {
 

@@ -112,6 +112,13 @@ object RetrofitManager {
 
         return apiService.unCollect(id)
     }
+    /**
+     * 取消收藏
+     */
+    fun mineUnCollect(id : Int) : Observable<BaseBean>{
+
+        return apiService.mineUnCollect(id, -1)
+    }
 
     /**
      * 作者文章列表

@@ -1,12 +1,16 @@
 package com.wjf.dev.main.fragment.mine.collect.adapter
 
 import android.view.View
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.wjf.dev.R
 import com.wjf.dev.entity.CollectBean
+import com.wjf.dev.main.fragment.home.HomeViewModel
+import com.wjf.dev.util.CodeUtil
 
 /**
  *  @author  xiaolanlaia
@@ -29,24 +33,34 @@ class CollectAdapter :
 
     interface OnItemClickListener{
         fun onItemClick(view: View, link : String?, title : String?)
+        fun onItemClick(id : Int, collect : Boolean)
     }
 
 
-    override fun convert(holder: BaseViewHolder, item: CollectBean.dataBean.datasBean) {
-        holder
+    override fun convert(helper: BaseViewHolder, item: CollectBean.dataBean.datasBean) {
+        helper
             .setText(R.id.article_title, item.title)
             .setText(R.id.article_author, item.author)
             .setText(R.id.article_chapter, item.chapterName)
             .setText(R.id.article_time, item.niceDate)
+            .getView<ImageView>(R.id.article_collect).visibility = View.INVISIBLE
 
-        holder.setGone(R.id.article_top,false)
-        holder.setGone(R.id.article_fresh,false)
+        helper.setGone(R.id.article_top,false)
+        helper.setGone(R.id.article_fresh,false)
 
 
-
-        holder.getView<RelativeLayout>(R.id.article_layout).setOnClickListener {
+        helper.getView<RelativeLayout>(R.id.article_layout).setOnClickListener {
 
             onItemClickListener.onItemClick(it,item.link,item.title)
+        }
+
+        helper.getView<ImageView>(R.id.article_collect).setOnClickListener {
+
+            if (!CodeUtil.checkIsLogin(it.context)) return@setOnClickListener
+
+            onItemClickListener.onItemClick(item.id!!,item.collect!!)
+
+
         }
 
     }
