@@ -1,21 +1,16 @@
 package com.wjf.dev.main.fragment.home.adapter
 
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
-import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.wjf.dev.R
 import com.wjf.dev.entity.HomeArticleBean
 import com.wjf.dev.main.fragment.home.HomeViewModel
-import com.wjf.dev.main.fragment.home.fragment.HomeArticleFragment
 import com.wjf.dev.util.CodeUtil
 
 /**
@@ -25,7 +20,7 @@ import com.wjf.dev.util.CodeUtil
 
 
 class HomeArticleAdapter:
-    BaseQuickAdapter<HomeArticleBean.Data.Datas, BaseViewHolder>(R.layout.home_fragment_recycler_item) {
+    BaseQuickAdapter<HomeArticleBean.DataBean.DatasBean, BaseViewHolder>(R.layout.home_fragment_recycler_item) {
 
     private lateinit var onItemClickListener: OnItemClickListener
 
@@ -43,7 +38,7 @@ class HomeArticleAdapter:
     }
 
 
-    override fun convert(helper: BaseViewHolder, item: HomeArticleBean.Data.Datas) {
+    override fun convert(helper: BaseViewHolder, item: HomeArticleBean.DataBean.DatasBean) {
 
 
 
@@ -134,7 +129,7 @@ class HomeArticleAdapter:
 
     }
 
-    fun returnAuthor(item: HomeArticleBean.Data.Datas) : String{
+    fun returnAuthor(item: HomeArticleBean.DataBean.DatasBean) : String{
 
         if (!TextUtils.isEmpty(item.author)) return item.author!!
 

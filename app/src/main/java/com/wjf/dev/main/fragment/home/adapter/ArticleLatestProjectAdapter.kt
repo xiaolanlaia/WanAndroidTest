@@ -10,7 +10,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.wjf.dev.R
 import com.wjf.dev.common.MyApplication.Companion.context
-import com.wjf.dev.entity.ProjectBean
+import com.wjf.dev.entity.HomeArticleBean
 import com.wjf.dev.main.fragment.home.HomeViewModel
 import com.wjf.dev.util.CodeUtil
 
@@ -22,7 +22,7 @@ import com.wjf.dev.util.CodeUtil
  */
 
 
-class ArticleLatestProjectAdapter : BaseQuickAdapter<ProjectBean.dataBean.datasBean,BaseViewHolder>(R.layout.home_fragment_latest_project) {
+class ArticleLatestProjectAdapter : BaseQuickAdapter<HomeArticleBean.DataBean.DatasBean,BaseViewHolder>(R.layout.home_fragment_latest_project) {
 
 
     private lateinit var onItemClickListener : OnItemClickListener
@@ -35,7 +35,7 @@ class ArticleLatestProjectAdapter : BaseQuickAdapter<ProjectBean.dataBean.datasB
         fun onItemClick(view : View,link : String?,title : String?)
         fun onItemClick(id : Int,collect : Boolean)
     }
-    override fun convert(helper: BaseViewHolder, item: ProjectBean.dataBean.datasBean) {
+    override fun convert(helper: BaseViewHolder, item: HomeArticleBean.DataBean.DatasBean) {
 
         helper
             .setText(R.id.project_title,item.title)
@@ -95,7 +95,7 @@ class ArticleLatestProjectAdapter : BaseQuickAdapter<ProjectBean.dataBean.datasB
 
     }
 
-    fun returnAuthor(item: ProjectBean.dataBean.datasBean) : String{
+    fun returnAuthor(item: HomeArticleBean.DataBean.DatasBean) : String{
 
         if (!TextUtils.isEmpty(item.author)) return item.author!!
 

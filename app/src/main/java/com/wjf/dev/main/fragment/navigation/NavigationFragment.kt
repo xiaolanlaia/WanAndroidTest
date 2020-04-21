@@ -1,27 +1,22 @@
 package com.wjf.dev.main.fragment.navigation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
 import com.wjf.dev.databinding.NavigationFragmentBinding
-import com.wjf.dev.entity.NavArticleBean
 import com.wjf.dev.main.fragment.navigation.adapter.NavAdapter
 import kotlinx.android.synthetic.main.navigation_fragment.*
 import q.rorbin.verticaltablayout.VerticalTabLayout
 import q.rorbin.verticaltablayout.adapter.TabAdapter
 import q.rorbin.verticaltablayout.widget.ITabView
 import q.rorbin.verticaltablayout.widget.TabView
-import java.util.ArrayList
 
 /**
  *  @author  xiaolanlaia
@@ -68,7 +63,7 @@ class NavigationFragment : BaseMVVMFragment<NavigationFragmentBinding,Navigation
         nav_recycler.adapter = navAdapter
 
         vm.dataList.observe(viewLifecycleOwner, Observer {
-            navAdapter.replaceData(it as MutableList<NavArticleBean.dataBean>)
+            navAdapter.replaceData(it)
             VerticalTabLayoutWithRecyclerView()
             nav_tab.setTabAdapter(object : TabAdapter{
                 override fun getIcon(position: Int): ITabView.TabIcon? {

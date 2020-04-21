@@ -7,9 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
-import com.wjf.dev.databinding.MineFragmentBinding
 import com.wjf.dev.databinding.MineFragmentIntegralBinding
-import com.wjf.dev.entity.IntegralListBean
 import com.wjf.dev.main.fragment.mine.MineRepository
 import com.wjf.dev.main.fragment.mine.MineVMFactory
 import com.wjf.dev.main.fragment.mine.MineViewModel
@@ -57,7 +55,7 @@ class IntegralFragment : BaseMVVMFragment<MineFragmentIntegralBinding,MineViewMo
                     integral_null.visibility = View.VISIBLE
                 }
                 else ->{
-                    integralAdapter.replaceData(it as List<IntegralListBean.dataBean.datasBean>)
+                    integralAdapter.replaceData(it)
 
                 }
             }

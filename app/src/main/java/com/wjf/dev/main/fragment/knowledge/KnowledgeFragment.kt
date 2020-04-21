@@ -4,13 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
-import com.wjf.dev.databinding.HomeFragmentBinding
 import com.wjf.dev.databinding.KnowledgeFragmentBinding
-import com.wjf.dev.entity.KnowledgeBean
 import com.wjf.dev.main.fragment.knowledge.adapter.KnowledgeAdapter
 import kotlinx.android.synthetic.main.knowledge_fragment.*
 
@@ -47,7 +44,7 @@ class KnowledgeFragment : BaseMVVMFragment<KnowledgeFragmentBinding, KnowledgeVi
         knowledge_recycler.adapter = knowledgeAdapter
 
         vm.dataList.observe(this, Observer {
-            knowledgeAdapter.replaceData(it as MutableList<KnowledgeBean.DataBean>)
+            knowledgeAdapter.replaceData(it)
         })
 
     }

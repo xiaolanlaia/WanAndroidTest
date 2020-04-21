@@ -1,7 +1,7 @@
 package com.wjf.dev.main.fragment.mine
 
-import com.sun.dev.entity.BaseBean
-import com.wjf.dev.entity.CollectBean
+import com.wjf.dev.entity.BaseBean
+import com.wjf.dev.entity.HomeArticleBean
 import com.wjf.dev.entity.IntegralBean
 import com.wjf.dev.entity.IntegralListBean
 import com.wjf.dev.entity.IntegralRankBean
@@ -46,7 +46,7 @@ class MineRepository {
     /**
      * 获取收藏列表
      */
-    fun getCollectList() : Observable<CollectBean>{
+    fun getCollectList() : Observable<HomeArticleBean>{
         return RetrofitManager.getCollectList().doInBackground()
     }
 

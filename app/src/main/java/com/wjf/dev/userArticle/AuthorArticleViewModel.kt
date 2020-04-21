@@ -2,9 +2,7 @@ package com.wjf.dev.userArticle
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.wjf.dev.entity.ArticleSortBean
-import com.wjf.dev.entity.AuthorArticleBean
-import com.wjf.dev.entity.NickNameBean
+import com.wjf.dev.entity.HomeArticleBean
 import com.wjf.dev.main.fragment.home.HomeViewModel.Companion.setCollectState
 import com.wjf.dev.util.addTo
 import io.reactivex.disposables.CompositeDisposable
@@ -21,8 +19,8 @@ class AuthorArticleViewModel(val repository: AuthorArticleRepository) : ViewMode
 
     val co = CompositeDisposable()
 
-    val articleList = MutableLiveData<List<NickNameBean.dataBean.datasBean>>()
-    val articleSortList = MutableLiveData<List<ArticleSortBean.DataBean.datasBean>>()
+    val articleList = MutableLiveData<List<HomeArticleBean.DataBean.DatasBean>>()
+    val articleSortList = MutableLiveData<List<HomeArticleBean.DataBean.DatasBean>>()
 
     /**
      * 作者文章列表

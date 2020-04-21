@@ -1,6 +1,6 @@
 package com.wjf.dev.main.fragment.home
 
-import com.sun.dev.entity.BaseBean
+import com.wjf.dev.entity.BaseBean
 import com.wjf.dev.entity.*
 import com.wjf.dev.util.RetrofitManager
 import com.wjf.dev.util.doInBackground
@@ -41,7 +41,7 @@ class HomeRepository {
     /**
      * 最新项目
      */
-    fun getLatestProject() : Observable<ProjectBean>{
+    fun getLatestProject() : Observable<HomeArticleBean>{
 
         return RetrofitManager.getLatestProject().doInBackground()
     }

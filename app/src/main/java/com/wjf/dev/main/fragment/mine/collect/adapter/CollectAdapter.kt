@@ -1,15 +1,13 @@
 package com.wjf.dev.main.fragment.mine.collect.adapter
 
-import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.wjf.dev.R
-import com.wjf.dev.entity.CollectBean
+import com.wjf.dev.entity.HomeArticleBean
 import com.wjf.dev.main.fragment.home.HomeViewModel
 import com.wjf.dev.util.CodeUtil
 
@@ -22,7 +20,7 @@ import com.wjf.dev.util.CodeUtil
 
 
 class CollectAdapter :
-    BaseQuickAdapter<CollectBean.dataBean.datasBean, BaseViewHolder>(R.layout.home_fragment_recycler_item) {
+    BaseQuickAdapter<HomeArticleBean.DataBean.DatasBean, BaseViewHolder>(R.layout.home_fragment_recycler_item) {
 
     lateinit var view : View
     private lateinit var onItemClickListener: OnItemClickListener
@@ -38,7 +36,7 @@ class CollectAdapter :
     }
 
 
-    override fun convert(helper: BaseViewHolder, item: CollectBean.dataBean.datasBean) {
+    override fun convert(helper: BaseViewHolder, item: HomeArticleBean.DataBean.DatasBean) {
         helper
             .setText(R.id.article_title, item.title)
             .setText(R.id.article_author, item.author!!)

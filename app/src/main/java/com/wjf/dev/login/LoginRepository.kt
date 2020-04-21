@@ -1,6 +1,6 @@
 package com.wjf.dev.login
 
-import com.sun.dev.entity.BaseBean
+import com.wjf.dev.entity.BaseBean
 import com.wjf.dev.entity.LoginBean
 import com.wjf.dev.util.RetrofitManager
 import com.wjf.dev.util.doInBackground

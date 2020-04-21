@@ -3,7 +3,6 @@ package com.wjf.dev.main.fragment.knowledge
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.wjf.dev.entity.KnowledgeBean
-import com.wjf.dev.main.fragment.knowledge.KnowledgeRepository
 import com.wjf.dev.util.addTo
 import io.reactivex.disposables.CompositeDisposable
 

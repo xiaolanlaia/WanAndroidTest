@@ -1,6 +1,6 @@
 package com.wjf.dev.util
 
-import com.sun.dev.entity.BaseBean
+import com.wjf.dev.entity.BaseBean
 import com.wjf.dev.common.ApiService
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.cookie.CookieManager
@@ -8,7 +8,6 @@ import com.wjf.dev.entity.*
 import io.reactivex.Observable
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
-import org.json.JSONObject
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -93,7 +92,7 @@ object RetrofitManager {
     /**
      * 最新项目
      */
-    fun getLatestProject() : Observable<ProjectBean>{
+    fun getLatestProject() : Observable<HomeArticleBean>{
 
         return apiService.getLatestProject()
     }
@@ -123,7 +122,7 @@ object RetrofitManager {
     /**
      * 作者文章列表
      */
-    fun getAuthorArticleList(AUTHOR_ID : Int) : Observable<AuthorArticleBean> {
+    fun getAuthorArticleList(AUTHOR_ID : Int) : Observable<HomeArticleBean> {
 
         return apiService.getAuthorArticleList(AUTHOR_ID)
     }
@@ -131,7 +130,7 @@ object RetrofitManager {
     /**
      * 按作者的昵称搜索文章
      */
-    fun getAuthorFromNickName(nickName : String) : Observable<NickNameBean>{
+    fun getAuthorFromNickName(nickName : String) : Observable<HomeArticleBean>{
 
         return apiService.getAuthorFromNickName(nickName)
     }
@@ -139,7 +138,7 @@ object RetrofitManager {
     /**
      * 某个分类下文章
      */
-    fun getArticleSort(cid : Int) : Observable<ArticleSortBean>{
+    fun getArticleSort(cid : Int) : Observable<HomeArticleBean>{
 
         return apiService.getArticleSort(cid)
 
@@ -163,7 +162,7 @@ object RetrofitManager {
     /**
      * 公众号历史数据
      */
-    fun getHistoryData(id : Int) : Observable<OfficialAccountHistoryBean>{
+    fun getHistoryData(id : Int) : Observable<HomeArticleBean>{
         return apiService.getHistoryData(id)
     }
 
@@ -227,7 +226,7 @@ object RetrofitManager {
     /**
      * 获取收藏列表
      */
-    fun getCollectList() : Observable<CollectBean>{
+    fun getCollectList() : Observable<HomeArticleBean>{
         return apiService.getCollectList()
     }
 

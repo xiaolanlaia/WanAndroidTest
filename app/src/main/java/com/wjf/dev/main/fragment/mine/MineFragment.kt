@@ -1,7 +1,6 @@
 package com.wjf.dev.main.fragment.mine
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.wjf.dev.R

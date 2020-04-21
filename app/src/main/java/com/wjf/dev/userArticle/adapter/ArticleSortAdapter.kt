@@ -1,9 +1,6 @@
 package com.wjf.dev.userArticle.adapter
 
 import android.text.TextUtils
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import androidx.core.content.ContextCompat
@@ -12,10 +9,9 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.wjf.dev.R
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
-import com.wjf.dev.entity.ArticleSortBean
+import com.wjf.dev.entity.HomeArticleBean
 import com.wjf.dev.main.fragment.home.HomeViewModel
 import com.wjf.dev.util.CodeUtil
-import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
 
 /**
@@ -26,7 +22,7 @@ import org.jetbrains.anko.startActivity
  */
 
 
-class ArticleSortAdapter : BaseQuickAdapter<ArticleSortBean.DataBean.datasBean, BaseViewHolder>(R.layout.home_fragment_recycler_item) {
+class ArticleSortAdapter : BaseQuickAdapter<HomeArticleBean.DataBean.DatasBean, BaseViewHolder>(R.layout.home_fragment_recycler_item) {
 
     private lateinit var onItemClickListener: OnItemClickListener
 
@@ -38,7 +34,7 @@ class ArticleSortAdapter : BaseQuickAdapter<ArticleSortBean.DataBean.datasBean, 
         fun onItemClick(id : Int,collect : Boolean)
     }
 
-    override fun convert(helper: BaseViewHolder, item: ArticleSortBean.DataBean.datasBean) {
+    override fun convert(helper: BaseViewHolder, item: HomeArticleBean.DataBean.DatasBean) {
         helper.setText(R.id.article_title,item.title)
         helper.setText(R.id.article_author,returnAuthor(item))
         helper.setText(R.id.article_chapter,item.superChapterName)
@@ -117,7 +113,7 @@ class ArticleSortAdapter : BaseQuickAdapter<ArticleSortBean.DataBean.datasBean, 
 
     }
 
-    fun returnAuthor(item: ArticleSortBean.DataBean.datasBean) : String{
+    fun returnAuthor(item: HomeArticleBean.DataBean.DatasBean) : String{
 
         if (!TextUtils.isEmpty(item.author)) return item.author!!
 

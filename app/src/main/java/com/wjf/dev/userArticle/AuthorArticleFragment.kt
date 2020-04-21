@@ -9,7 +9,6 @@ import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
 import com.wjf.dev.common.Constants
 import com.wjf.dev.databinding.FragmentAuthorArticleBinding
-import com.wjf.dev.entity.AuthorArticleBean
 import com.wjf.dev.userArticle.adapter.AuthorArticleAdapter
 import kotlinx.android.synthetic.main.fragment_author_article.*
 

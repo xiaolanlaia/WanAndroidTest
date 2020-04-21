@@ -2,8 +2,6 @@ package com.wjf.dev.webview
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.text.Html
-import android.text.TextUtils
 import android.view.View
 import android.webkit.*
 import android.widget.TextView

@@ -1,7 +1,5 @@
 package com.wjf.dev.entity
 
-import com.sun.dev.entity.BaseBean
-
 /**
  *  @author  xiaolanlaia
  *

@@ -1,9 +1,8 @@
 package com.wjf.dev.common
 
-import com.sun.dev.entity.BaseBean
+import com.wjf.dev.entity.BaseBean
 import com.wjf.dev.entity.*
 import io.reactivex.Observable
-import okhttp3.RequestBody
 import retrofit2.http.*
 
 /**
@@ -34,7 +33,7 @@ interface ApiService {
      * 最新项目
      */
     @GET("article/listproject/0/json")
-    fun getLatestProject() : Observable<ProjectBean>
+    fun getLatestProject() : Observable<HomeArticleBean>
 
     /**
      * 收藏
@@ -58,19 +57,19 @@ interface ApiService {
      * 作者文章列表
      */
     @GET("user/{AUTHOR_ID}/share_articles/1/json")
-    fun getAuthorArticleList(@Path("AUTHOR_ID") AUTHOR_ID : Int) : Observable<AuthorArticleBean>
+    fun getAuthorArticleList(@Path("AUTHOR_ID") AUTHOR_ID : Int) : Observable<HomeArticleBean>
 
     /**
      * 按作者的昵称搜索文章
      */
     @GET("/article/list/0/json")
-    fun getAuthorFromNickName(@Query("author")nickName : String) : Observable<NickNameBean>
+    fun getAuthorFromNickName(@Query("author")nickName : String) : Observable<HomeArticleBean>
 
     /**
      * 某个分类下文章
      */
     @GET("article/list/0/json")
-    fun getArticleSort(@Query("cid") cid : Int) : Observable<ArticleSortBean>
+    fun getArticleSort(@Query("cid") cid : Int) : Observable<HomeArticleBean>
 
     /**
      * 获取体系列表数据
@@ -88,7 +87,7 @@ interface ApiService {
      * 公众号历史数据
      */
     @GET("wxarticle/list/{id}/1/json")
-    fun getHistoryData(@Path("id")id : Int) : Observable<OfficialAccountHistoryBean>
+    fun getHistoryData(@Path("id")id : Int) : Observable<HomeArticleBean>
 
     /**
      * 导航数据
@@ -142,7 +141,7 @@ interface ApiService {
      * 获取收藏列表
      */
     @GET("lg/collect/list/0/json")
-    fun getCollectList() : Observable<CollectBean>
+    fun getCollectList() : Observable<HomeArticleBean>
 
     /**
      * 退出登录

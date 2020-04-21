@@ -1,6 +1,6 @@
 package com.wjf.dev.main.fragment.knowledge
 
-import com.wjf.dev.entity.ArticleSortBean
+import com.wjf.dev.entity.HomeArticleBean
 import com.wjf.dev.entity.KnowledgeBean
 import com.wjf.dev.util.RetrofitManager
 import com.wjf.dev.util.doInBackground
@@ -27,7 +27,7 @@ class KnowledgeRepository {
     /**
      * 某个分类下文章
      */
-    fun getArticleSort(cid : Int) : Observable<ArticleSortBean>{
+    fun getArticleSort(cid : Int) : Observable<HomeArticleBean>{
 
         return RetrofitManager.getArticleSort(cid).doInBackground()
 

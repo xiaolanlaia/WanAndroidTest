@@ -1,8 +1,8 @@
 package com.wjf.dev.main.fragment.offcialAccount
 
-import com.sun.dev.entity.BaseBean
+import com.wjf.dev.entity.BaseBean
+import com.wjf.dev.entity.HomeArticleBean
 import com.wjf.dev.entity.OfficialAccountBean
-import com.wjf.dev.entity.OfficialAccountHistoryBean
 import com.wjf.dev.util.RetrofitManager
 import com.wjf.dev.util.doInBackground
 import io.reactivex.Observable
@@ -26,7 +26,7 @@ class OfficialAccountRepository {
     /**
      * 公众号历史数据
      */
-    fun getHistoryData(id : Int) : Observable<OfficialAccountHistoryBean>{
+    fun getHistoryData(id : Int) : Observable<HomeArticleBean>{
         return RetrofitManager.getHistoryData(id).doInBackground()
     }
     /**

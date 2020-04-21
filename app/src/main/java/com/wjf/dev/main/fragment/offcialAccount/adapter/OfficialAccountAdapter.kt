@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.wjf.dev.R
-import com.wjf.dev.entity.OfficialAccountHistoryBean
+import com.wjf.dev.entity.HomeArticleBean
 import com.wjf.dev.main.fragment.home.HomeViewModel
 import com.wjf.dev.util.CodeUtil
 
@@ -21,7 +21,7 @@ import com.wjf.dev.util.CodeUtil
 
 
 class OfficialAccountAdapter :
-BaseQuickAdapter<OfficialAccountHistoryBean.dataBean.datasBean, BaseViewHolder>(R.layout.home_fragment_recycler_item) {
+BaseQuickAdapter<HomeArticleBean.DataBean.DatasBean, BaseViewHolder>(R.layout.home_fragment_recycler_item) {
 
     lateinit var view : View
     private lateinit var onItemClickListener: OnItemClickListener
@@ -37,7 +37,7 @@ BaseQuickAdapter<OfficialAccountHistoryBean.dataBean.datasBean, BaseViewHolder>(
     }
 
 
-    override fun convert(holder: BaseViewHolder, item: OfficialAccountHistoryBean.dataBean.datasBean) {
+    override fun convert(holder: BaseViewHolder, item: HomeArticleBean.DataBean.DatasBean) {
         holder
             .setText(R.id.article_title, item.title)
             .setText(R.id.article_author, returnAuthor(item))
@@ -100,7 +100,7 @@ BaseQuickAdapter<OfficialAccountHistoryBean.dataBean.datasBean, BaseViewHolder>(
         }
 
     }
-    fun returnAuthor(item: OfficialAccountHistoryBean.dataBean.datasBean) : String{
+    fun returnAuthor(item: HomeArticleBean.DataBean.DatasBean) : String{
 
         if (!TextUtils.isEmpty(item.author)) return item.author!!
 

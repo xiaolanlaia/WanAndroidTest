@@ -3,7 +3,6 @@ package com.wjf.dev.main.fragment.mine
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,7 +10,7 @@ import com.wjf.dev.R
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
 import com.wjf.dev.common.cookie.CookieManager
-import com.wjf.dev.entity.CollectBean
+import com.wjf.dev.entity.HomeArticleBean
 import com.wjf.dev.entity.IntegralListBean
 import com.wjf.dev.entity.IntegralRankBean
 import com.wjf.dev.main.fragment.home.HomeViewModel.Companion.setCollectState
@@ -38,7 +37,7 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
     var level = MutableLiveData<String>()
     var mineIntegral = MutableLiveData<String>()
 
-    val collectList = MutableLiveData<List<CollectBean.dataBean.datasBean>>()
+    val collectList = MutableLiveData<List<HomeArticleBean.DataBean.DatasBean>>()
     val integralList = MutableLiveData<List<IntegralListBean.dataBean.datasBean>>()
     val integralRankList = MutableLiveData<List<IntegralRankBean.dataBean.datasBean>>()
 

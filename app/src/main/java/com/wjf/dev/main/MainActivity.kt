@@ -10,10 +10,7 @@ import com.wjf.dev.main.fragment.knowledge.KnowledgeFragment
 import com.wjf.dev.main.fragment.navigation.NavigationFragment
 import com.wjf.dev.main.fragment.offcialAccount.OfficialAccountFragment
 import com.wjf.dev.main.fragment.mine.MineFragment
-import com.wjf.dev.util.fitTransparentStatus
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.include_toolbar.view.*
-import org.jetbrains.anko.backgroundResource
 
 class MainActivity : BaseActivity() {
     override fun initContentViewID(): Int = R.layout.activity_main

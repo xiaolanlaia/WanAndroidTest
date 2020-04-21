@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
 import com.wjf.dev.databinding.FragmentOfficialAccountBinding
-import com.wjf.dev.databinding.HomeFragmentBinding
 import com.wjf.dev.entity.OfficialAccountBean
 import kotlinx.android.synthetic.main.fragment_official_account.*
 

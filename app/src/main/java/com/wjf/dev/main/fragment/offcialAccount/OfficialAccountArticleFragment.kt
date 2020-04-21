@@ -2,7 +2,6 @@ package com.wjf.dev.main.fragment.offcialAccount
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,11 +10,8 @@ import com.wjf.dev.base.BaseMVVMFragment
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
 import com.wjf.dev.databinding.FragmentOfficialAccountArticleBinding
-import com.wjf.dev.entity.OfficialAccountHistoryBean
-import com.wjf.dev.main.fragment.home.adapter.HomeArticleAdapter
 import com.wjf.dev.main.fragment.offcialAccount.adapter.OfficialAccountAdapter
 import kotlinx.android.synthetic.main.fragment_official_account_article.*
-import kotlinx.android.synthetic.main.home_fragment_recycler_item.*
 import org.jetbrains.anko.startActivity
 
 /**

@@ -1,7 +1,5 @@
 package com.wjf.dev.entity
 
-import com.sun.dev.entity.BaseBean
-
 /**
  *  @author  xiaolanlaia
  *
@@ -12,9 +10,9 @@ import com.sun.dev.entity.BaseBean
 
 class HomeArticleBean : BaseBean() {
 
-    var data : Data? = null
+    var data : DataBean? = null
 
-    class Data{
+    class DataBean{
 
         var curPage : Int? = 0
 
@@ -24,16 +22,19 @@ class HomeArticleBean : BaseBean() {
         var pageCount : Int? = 0
 
         var over : Boolean? = false
-        var datas : ArrayList<Datas>? = null
+        var datas : ArrayList<DatasBean>? = null
 
 
-        class Datas{
+        class DatasBean{
             var shareUser : String? = null
             var author : String? = null
             var title : String? = null
             var superChapterName : String? = null
+            var chapterName : String? = null
             var niceDate : String? = null
+            var envelopePic : String? = null
             var origin : String? = null
+            var desc : String? = null
             var link : String? = null
             var fresh : Boolean? = false
             var collect : Boolean? = false

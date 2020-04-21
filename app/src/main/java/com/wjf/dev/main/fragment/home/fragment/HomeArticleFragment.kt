@@ -1,9 +1,7 @@
 package com.wjf.dev.main.fragment.home.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,12 +10,10 @@ import com.wjf.dev.base.BaseMVVMFragment
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
 import com.wjf.dev.databinding.HomeFragmentArticleBinding
-import com.wjf.dev.entity.HomeArticleBean
 import com.wjf.dev.main.fragment.home.HomeRepository
 import com.wjf.dev.main.fragment.home.HomeVMFactory
 import com.wjf.dev.main.fragment.home.HomeViewModel
 import com.wjf.dev.main.fragment.home.adapter.HomeArticleAdapter
-import com.wjf.dev.util.toast
 import kotlinx.android.synthetic.main.home_fragment_article.*
 import kotlinx.android.synthetic.main.home_fragment_recycler_item.*
 import org.jetbrains.anko.startActivity
@@ -81,9 +77,7 @@ class HomeArticleFragment : BaseMVVMFragment<HomeFragmentArticleBinding, HomeVie
 
         vm.articleList.observe(viewLifecycleOwner, Observer {
 
-            val itemState = ArrayList<Boolean>()
-
-            homeAdapter.replaceData(it as MutableList<HomeArticleBean.Data.Datas>)
+            homeAdapter.replaceData(it)
 
 
 

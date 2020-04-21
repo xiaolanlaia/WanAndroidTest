@@ -11,7 +11,6 @@ import com.wjf.dev.main.fragment.mine.collect.adapter.CollectAdapter
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
 import com.wjf.dev.databinding.MineFragmentCollectBinding
-import com.wjf.dev.entity.CollectBean
 import com.wjf.dev.main.fragment.mine.MineRepository
 import com.wjf.dev.main.fragment.mine.MineVMFactory
 import com.wjf.dev.main.fragment.mine.MineViewModel
@@ -62,7 +61,7 @@ class CollectFragment : BaseMVVMFragment<MineFragmentCollectBinding, MineViewMod
                 }
 
                 else ->{
-                    collAdapter.replaceData(it as MutableList<CollectBean.dataBean.datasBean>)
+                    collAdapter.replaceData(it)
 
                 }
             }

@@ -1,4 +1,4 @@
-package com.sun.dev.entity
+package com.wjf.dev.entity
 
 /**
  *       Created by xiaolanlaia on 2019/5/6 17:44
