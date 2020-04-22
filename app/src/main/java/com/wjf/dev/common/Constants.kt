@@ -35,6 +35,10 @@ internal interface Constants {
         const val ARTICLE_TITLE = "article_title"
         const val CID = "cid"
 
+        const val MINE_NAME = "mine_name"
+        const val MINE_LEVEL = "mine_level"
+        const val MINE_INTEGRAL = "mine_integral"
+
 
 
 

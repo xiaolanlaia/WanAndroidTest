@@ -37,6 +37,13 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
     var level = MutableLiveData<String>()
     var mineIntegral = MutableLiveData<String>()
 
+
+    init {
+        account.value = SharedHelper.getShared().getString(Constants.SP.MINE_NAME,"点击登录")
+        level.value = SharedHelper.getShared().getString(Constants.SP.MINE_LEVEL,"")
+        mineIntegral.value = SharedHelper.getShared().getString(Constants.SP.MINE_INTEGRAL,"")
+    }
+
     val collectList = MutableLiveData<List<ArticleBean.DataBean.DatasBean>>()
     val integralList = MutableLiveData<List<IntegralListBean.dataBean.datasBean>>()
     val integralRankList = MutableLiveData<List<IntegralRankBean.dataBean.datasBean>>()
@@ -111,6 +118,9 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
 
                 0 ->{
 
+                    SharedHelper.getEdit { sp -> sp.putString(Constants.SP.MINE_NAME,it.data!!.username) }
+                    SharedHelper.getEdit { sp -> sp.putString(Constants.SP.MINE_LEVEL,"lv ${it.data!!.level}") }
+                    SharedHelper.getEdit { sp -> sp.putString(Constants.SP.MINE_INTEGRAL,"积分：${it.data!!.coinCount}") }
                     account.value = it.data!!.username
                     level.value = "lv ${it.data!!.level}"
                     mineIntegral.value = "积分：${it.data!!.coinCount}"
@@ -126,6 +136,7 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
             }
         },{}).addTo(co)
     }
+
 
 
 
@@ -202,6 +213,7 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
 
                 0 ->{
                     toast("退出成功")
+                    deleteData()
                     SharedHelper.getEdit { sp -> sp.putBoolean(Constants.SP.IS_LOGIN,false) }
                     CookieManager.getInstance().clearAllCookie()
                     (context as Activity).finish()
@@ -211,6 +223,17 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
         },{
 
         }).addTo(co)
+    }
+
+
+    fun deleteData(){
+        SharedHelper.getEdit { sp -> sp.putString(Constants.SP.MINE_NAME,"点击登录") }
+        SharedHelper.getEdit { sp -> sp.putString(Constants.SP.MINE_LEVEL,"") }
+        SharedHelper.getEdit { sp -> sp.putString(Constants.SP.MINE_INTEGRAL,"") }
+
+        account.value = "点击登录"
+        level.value = ""
+        mineIntegral.value = ""
     }
 
     /**
