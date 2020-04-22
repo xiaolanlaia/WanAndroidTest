@@ -9,12 +9,12 @@ import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
-import com.wjf.dev.databinding.HomeFragmentArticleBinding
+import com.wjf.dev.databinding.HomeFragmentArticleSecondBinding
 import com.wjf.dev.main.fragment.home.HomeRepository
 import com.wjf.dev.main.fragment.home.HomeVMFactory
 import com.wjf.dev.main.fragment.home.HomeViewModel
 import com.wjf.dev.main.fragment.home.adapter.ArticleLatestProjectAdapter
-import kotlinx.android.synthetic.main.home_fragment_article.*
+import kotlinx.android.synthetic.main.home_fragment_article_second.*
 import org.jetbrains.anko.startActivity
 
 /**
@@ -25,7 +25,7 @@ import org.jetbrains.anko.startActivity
  */
 
 
-class HomeLatestProjectFragment : BaseMVVMFragment<HomeFragmentArticleBinding, HomeViewModel>() {
+class HomeLatestProjectFragment : BaseMVVMFragment<HomeFragmentArticleSecondBinding, HomeViewModel>() {
 
     val articleLatestProjectAdapter = ArticleLatestProjectAdapter()
     override fun initViewModel(): HomeViewModel =
@@ -33,7 +33,7 @@ class HomeLatestProjectFragment : BaseMVVMFragment<HomeFragmentArticleBinding, H
             HomeVMFactory(HomeRepository())
         ).get(HomeViewModel::class.java)
 
-    override fun initContentViewID(): Int = R.layout.home_fragment_article
+    override fun initContentViewID(): Int = R.layout.home_fragment_article_second
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

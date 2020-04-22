@@ -31,9 +31,7 @@ import org.jetbrains.anko.support.v4.startActivity
 
 class HomeFragment : BaseMVVMFragment<HomeFragmentBinding, HomeViewModel>() {
 
-    val images = ArrayList<String>()
-    val titles = ArrayList<String>()
-    val urls = ArrayList<String>()
+
 
     override fun initViewModel(): HomeViewModel =
         ViewModelProvider(this, HomeVMFactory(
@@ -49,28 +47,12 @@ class HomeFragment : BaseMVVMFragment<HomeFragmentBinding, HomeViewModel>() {
 
         initView()
         initRequest()
-        setData()
-
-
 
     }
 
     fun initView(){
 
-        home_banner.setImageLoader(GlideImageLoader())
-        home_banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE)
-        home_banner.setDelayTime(2000)
-        home_banner.setBannerAnimation(Transformer.DepthPage)
 
-        home_banner.setOnBannerListener { position ->
-
-            startActivity<TitleWithContentActivity>(
-                Pair(Constants.SP.TITLE_ACTIVITY_TYPE,TitleWithContentActivity.TYPE_WEB_VIEW),
-                Pair(Constants.SP.URL,urls[position]),
-                Pair(Constants.SP.WEBVIEW_TITLE,titles[position])
-            )
-
-        }
 
         home_viewpager.adapter =
             HomePageAdapter(childFragmentManager)
@@ -83,30 +65,11 @@ class HomeFragment : BaseMVVMFragment<HomeFragmentBinding, HomeViewModel>() {
 
     fun initRequest(){
 
-        vm.getHomeBannerData(context!!)
+
 
     }
 
 
-    fun setData(){
-        vm.bannerData.observe(viewLifecycleOwner, Observer {
-
-            images.clear()
-            titles.clear()
-            urls.clear()
-
-            it.forEach {
-                images.add(it.imagePath!!)
-                titles.add(it.title!!)
-                urls.add(it.url!!)
-            }
-            home_banner.setImages(images)
-            home_banner.setBannerTitles(titles)
-            home_banner.start()
-
-
-        })
-    }
 
     class HomePageAdapter(fm : FragmentManager) : FragmentPagerAdapter(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT){
 
@@ -120,8 +83,8 @@ class HomeFragment : BaseMVVMFragment<HomeFragmentBinding, HomeViewModel>() {
             titles.add("广场")
             titles.add("项目")
 
-            fragments.add(HomeArticleFragment.newInstance(HomeArticleFragment.TYPE_ZERO))
-            fragments.add(HomeArticleFragment.newInstance(HomeArticleFragment.TYPE_ONE))
+            fragments.add(HomeArticleFragment())
+            fragments.add(HomeSecondFragment())
             fragments.add(HomeLatestProjectFragment())
         }
 

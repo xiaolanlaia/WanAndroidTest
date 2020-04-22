@@ -9,40 +9,33 @@ import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
-import com.wjf.dev.databinding.HomeFragmentArticleBinding
+import com.wjf.dev.databinding.HomeFragmentArticleSecondBinding
 import com.wjf.dev.main.fragment.home.HomeRepository
 import com.wjf.dev.main.fragment.home.HomeVMFactory
 import com.wjf.dev.main.fragment.home.HomeViewModel
-import com.wjf.dev.main.fragment.home.adapter.HomeArticleAdapter
-import com.wjf.dev.util.GlideImageLoader
-import com.youth.banner.BannerConfig
-import com.youth.banner.Transformer
-import kotlinx.android.synthetic.main.home_fragment_article.*
+import com.wjf.dev.main.fragment.home.adapter.HomeSecondAdapter
+import kotlinx.android.synthetic.main.home_fragment_article_second.*
 import kotlinx.android.synthetic.main.home_fragment_recycler_item.*
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.support.v4.startActivity
 
 /**
  *  @author  xiaolanlaia
  *
- *  @create  2020/4/17 9:28
+ *  @create  2020/4/21 16:53
  *
  */
 
 
-class HomeArticleFragment : BaseMVVMFragment<HomeFragmentArticleBinding, HomeViewModel>(){
+class HomeSecondFragment : BaseMVVMFragment<HomeFragmentArticleSecondBinding, HomeViewModel>(){
 
-    lateinit var homeAdapter : HomeArticleAdapter
-    val images = ArrayList<String>()
-    val titles = ArrayList<String>()
-    val urls = ArrayList<String>()
+    lateinit var homeSecondAdapter : HomeSecondAdapter
 
     override fun initViewModel(): HomeViewModel =
         ViewModelProvider(this,
             HomeVMFactory(HomeRepository())
         ).get(HomeViewModel::class.java)
 
-    override fun initContentViewID(): Int = R.layout.home_fragment_article
+    override fun initContentViewID(): Int = R.layout.home_fragment_article_second
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,62 +44,29 @@ class HomeArticleFragment : BaseMVVMFragment<HomeFragmentArticleBinding, HomeVie
 
         initView()
         initRequest()
-        setData()
 
     }
 
 
-    fun setData(){
-        vm.bannerData.observe(viewLifecycleOwner, Observer {
-
-            images.clear()
-            titles.clear()
-            urls.clear()
-
-            it.forEach {
-                images.add(it.imagePath!!)
-                titles.add(it.title!!)
-                urls.add(it.url!!)
-            }
-            home_banner.setImages(images)
-            home_banner.setBannerTitles(titles)
-            home_banner.start()
-
-
-        })
-    }
     fun initView(){
-        home_banner.setImageLoader(GlideImageLoader())
-        home_banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE)
-        home_banner.setDelayTime(2000)
-        home_banner.setBannerAnimation(Transformer.DepthPage)
 
-        home_banner.setOnBannerListener { position ->
 
-            startActivity<TitleWithContentActivity>(
-                Pair(Constants.SP.TITLE_ACTIVITY_TYPE,TitleWithContentActivity.TYPE_WEB_VIEW),
-                Pair(Constants.SP.URL,urls[position]),
-                Pair(Constants.SP.WEBVIEW_TITLE,titles[position])
-            )
-
-        }
-
-        homeAdapter = HomeArticleAdapter()
+        homeSecondAdapter = HomeSecondAdapter()
         //设置layoutManager
         home_article_recycler.layoutManager = LinearLayoutManager(context)
-        home_article_recycler.adapter = homeAdapter
+        home_article_recycler.adapter = homeSecondAdapter
 
 
         vm.articleList.observe(viewLifecycleOwner, Observer {
 
-            homeAdapter.replaceData(it)
+            homeSecondAdapter.replaceData(it)
 
 
 
         })
 
 
-        homeAdapter.setOnItemClickListener(object: HomeArticleAdapter.OnItemClickListener {
+        homeSecondAdapter.setOnItemClickListener(object: HomeSecondAdapter.OnItemClickListener {
             override fun onItemClick(id: Int, collect : Boolean) {
 
                 when(collect){
@@ -160,8 +120,8 @@ class HomeArticleFragment : BaseMVVMFragment<HomeFragmentArticleBinding, HomeVie
     }
 
     fun initRequest(){
-        vm.getHomeBannerData(context!!)
-        vm.getHomeArticleList()
+
+        vm.getSquareList()
 
     }
 
