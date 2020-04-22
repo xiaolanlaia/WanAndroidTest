@@ -58,13 +58,13 @@ class MainActivity : BaseActivity() {
 
             R.id.nav_navigation -> {
                 setTitleText("导航")
-                mainFragmentManager!!.select(4)
+                mainFragmentManager!!.select(3)
                 return@OnNavigationItemSelectedListener true
             }
 
             R.id.nav_mine -> {
                 setTitleText("我的")
-                mainFragmentManager!!.select(3)
+                mainFragmentManager!!.select(4)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -87,8 +87,8 @@ class MainActivity : BaseActivity() {
             fragments.add(HomeFragment())
             fragments.add(KnowledgeFragment())
             fragments.add(OfficialAccountFragment())
-            fragments.add(MineFragment())
             fragments.add(NavigationFragment())
+            fragments.add(MineFragment())
             fragmentManager.beginTransaction().replace(containerId,fragments[0]).commit()
         }
 
