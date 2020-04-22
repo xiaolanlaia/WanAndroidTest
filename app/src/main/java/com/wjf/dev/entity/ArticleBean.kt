@@ -8,7 +8,7 @@ package com.wjf.dev.entity
  */
 
 
-class HomeArticleBean : BaseBean() {
+class ArticleBean : BaseBean() {
 
     var data : DataBean? = null
 

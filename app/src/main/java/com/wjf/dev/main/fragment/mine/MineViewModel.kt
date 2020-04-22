@@ -10,7 +10,7 @@ import com.wjf.dev.R
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
 import com.wjf.dev.common.cookie.CookieManager
-import com.wjf.dev.entity.HomeArticleBean
+import com.wjf.dev.entity.ArticleBean
 import com.wjf.dev.entity.IntegralListBean
 import com.wjf.dev.entity.IntegralRankBean
 import com.wjf.dev.main.fragment.home.HomeViewModel.Companion.setCollectState
@@ -37,7 +37,7 @@ class MineViewModel(val repository: MineRepository) : ViewModel() {
     var level = MutableLiveData<String>()
     var mineIntegral = MutableLiveData<String>()
 
-    val collectList = MutableLiveData<List<HomeArticleBean.DataBean.DatasBean>>()
+    val collectList = MutableLiveData<List<ArticleBean.DataBean.DatasBean>>()
     val integralList = MutableLiveData<List<IntegralListBean.dataBean.datasBean>>()
     val integralRankList = MutableLiveData<List<IntegralRankBean.dataBean.datasBean>>()
 

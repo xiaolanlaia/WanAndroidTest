@@ -9,7 +9,7 @@ import androidx.core.content.ContextCompat
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.wjf.dev.R
-import com.wjf.dev.entity.HomeArticleBean
+import com.wjf.dev.entity.ArticleBean
 import com.wjf.dev.main.fragment.home.HomeViewModel
 import com.wjf.dev.util.CodeUtil
 
@@ -20,7 +20,7 @@ import com.wjf.dev.util.CodeUtil
 
 
 class HomeArticleAdapter:
-    BaseQuickAdapter<HomeArticleBean.DataBean.DatasBean, BaseViewHolder>(R.layout.home_fragment_recycler_item) {
+    BaseQuickAdapter<ArticleBean.DataBean.DatasBean, BaseViewHolder>(R.layout.home_fragment_recycler_item) {
 
     private lateinit var onItemClickListener: OnItemClickListener
 
@@ -38,7 +38,7 @@ class HomeArticleAdapter:
     }
 
 
-    override fun convert(helper: BaseViewHolder, item: HomeArticleBean.DataBean.DatasBean) {
+    override fun convert(helper: BaseViewHolder, item: ArticleBean.DataBean.DatasBean) {
 
 
 
@@ -129,7 +129,7 @@ class HomeArticleAdapter:
 
     }
 
-    fun returnAuthor(item: HomeArticleBean.DataBean.DatasBean) : String{
+    fun returnAuthor(item: ArticleBean.DataBean.DatasBean) : String{
 
         if (!TextUtils.isEmpty(item.author)) return item.author!!
 

@@ -7,10 +7,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
-import com.wjf.dev.main.fragment.mine.collect.adapter.CollectAdapter
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
 import com.wjf.dev.databinding.MineFragmentCollectBinding
+import com.wjf.dev.main.fragment.home.adapter.HomeArticleAdapter
 import com.wjf.dev.main.fragment.mine.MineRepository
 import com.wjf.dev.main.fragment.mine.MineVMFactory
 import com.wjf.dev.main.fragment.mine.MineViewModel
@@ -46,10 +46,10 @@ class CollectFragment : BaseMVVMFragment<MineFragmentCollectBinding, MineViewMod
     fun initData(){
 
 
-        val collAdapter = CollectAdapter()
+        val homeArticleAdapter = HomeArticleAdapter()
         //设置layoutManager
         collect_article_recycler.layoutManager = LinearLayoutManager(context)
-        collect_article_recycler.adapter = collAdapter
+        collect_article_recycler.adapter = homeArticleAdapter
 
 
         vm.collectList.observe(viewLifecycleOwner, Observer {
@@ -61,33 +61,34 @@ class CollectFragment : BaseMVVMFragment<MineFragmentCollectBinding, MineViewMod
                 }
 
                 else ->{
-                    collAdapter.replaceData(it)
+                    homeArticleAdapter.replaceData(it)
 
                 }
             }
 
         })
 
-        collAdapter.setOnItemClickListener(object: CollectAdapter.OnItemClickListener {
+        homeArticleAdapter.setOnItemClickListener(object: HomeArticleAdapter.OnItemClickListener {
 
-            override fun onItemClick(id: Int, collect : Boolean,title : String, author : String, link : String) {
 
-                when(collect){
+            override fun onItemClick(id: Int, collect: Boolean) {
 
-                    true ->{
-                        
+                when (collect) {
+
+                    true -> {
+
                         vm.mineUnCollect(id)
                     }
 
-                    false ->{
-                        vm.addCollect(title, author, link)
+                    false -> {
                     }
                 }
 
             }
 
 
-            override fun onItemClick(view: View, link: String?, title: String?) {
+
+            override fun onItemClick(view: View, name: String?, id: Int?, link: String?, title: String?) {
 
                 view.context.startActivity<TitleWithContentActivity>(
                     Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_WEB_VIEW),

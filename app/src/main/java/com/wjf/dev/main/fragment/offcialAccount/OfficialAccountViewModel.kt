@@ -2,7 +2,7 @@ package com.wjf.dev.main.fragment.offcialAccount
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.wjf.dev.entity.HomeArticleBean
+import com.wjf.dev.entity.ArticleBean
 import com.wjf.dev.entity.OfficialAccountBean
 import com.wjf.dev.main.fragment.home.HomeViewModel
 import com.wjf.dev.util.addTo
@@ -20,7 +20,7 @@ class OfficialAccountViewModel(val repository: OfficialAccountRepository) : View
 
     val co = CompositeDisposable()
     val articleList = MutableLiveData<List<OfficialAccountBean.dataBean>>()
-    val historyList = MutableLiveData<List<HomeArticleBean.DataBean.DatasBean>>()
+    val historyList = MutableLiveData<List<ArticleBean.DataBean.DatasBean>>()
 
     /**
      * 获取公众号列表

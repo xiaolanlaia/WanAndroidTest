@@ -1,7 +1,7 @@
 package com.wjf.dev.userArticle
 
 import com.wjf.dev.entity.BaseBean
-import com.wjf.dev.entity.HomeArticleBean
+import com.wjf.dev.entity.ArticleBean
 import com.wjf.dev.util.RetrofitManager
 import com.wjf.dev.util.doInBackground
 import io.reactivex.Observable
@@ -19,7 +19,7 @@ class AuthorArticleRepository {
     /**
      * 作者文章列表
      */
-    fun getAuthorArticleList(AUTHOR_ID : Int) : Observable<HomeArticleBean> {
+    fun getAuthorArticleList(AUTHOR_ID : Int) : Observable<ArticleBean> {
 
         return RetrofitManager.getAuthorArticleList(AUTHOR_ID).doInBackground()
     }
@@ -27,7 +27,7 @@ class AuthorArticleRepository {
     /**
      * 按作者的昵称搜索文章
      */
-    fun getAuthorFromNickName(nickName : String) : Observable<HomeArticleBean>{
+    fun getAuthorFromNickName(nickName : String) : Observable<ArticleBean>{
 
         return RetrofitManager.getAuthorFromNickName(nickName).doInBackground()
     }
@@ -35,7 +35,7 @@ class AuthorArticleRepository {
     /**
      * 某个分类下文章
      */
-    fun getArticleSort(cid : Int) : Observable<HomeArticleBean>{
+    fun getArticleSort(cid : Int) : Observable<ArticleBean>{
 
         return RetrofitManager.getArticleSort(cid).doInBackground()
 

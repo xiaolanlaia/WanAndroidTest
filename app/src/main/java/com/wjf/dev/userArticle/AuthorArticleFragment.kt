@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
 import com.wjf.dev.common.Constants
+import com.wjf.dev.common.TitleWithContentActivity
 import com.wjf.dev.databinding.FragmentAuthorArticleBinding
-import com.wjf.dev.userArticle.adapter.AuthorArticleAdapter
+import com.wjf.dev.main.fragment.home.adapter.HomeArticleAdapter
 import kotlinx.android.synthetic.main.fragment_author_article.*
+import org.jetbrains.anko.startActivity
 
 /**
  *  @author  xiaolanlaia
@@ -48,19 +50,19 @@ class AuthorArticleFragment : BaseMVVMFragment<FragmentAuthorArticleBinding,Auth
         //设置layoutManager
         author_article_recycler.layoutManager = LinearLayoutManager(context)
 
-        val authorArticleAdapter = AuthorArticleAdapter()
-        author_article_recycler.adapter = authorArticleAdapter
+        val homeArticleAdapter = HomeArticleAdapter()
+        author_article_recycler.adapter = homeArticleAdapter
 
 
 
 
         vm.articleList.observe(viewLifecycleOwner, Observer {
 
-            authorArticleAdapter.replaceData(it)
+            homeArticleAdapter.replaceData(it)
 
         })
 
-        authorArticleAdapter.setOnItemClickListener(object : AuthorArticleAdapter.OnItemClickListener {
+        homeArticleAdapter.setOnItemClickListener(object : HomeArticleAdapter.OnItemClickListener {
             override fun onItemClick(id: Int, collect: Boolean) {
 
                 when (collect) {
@@ -74,6 +76,15 @@ class AuthorArticleFragment : BaseMVVMFragment<FragmentAuthorArticleBinding,Auth
                         vm.collect(id)
                     }
                 }
+
+            }
+
+            override fun onItemClick(view: View, name: String?, id: Int?, link: String?, title: String?) {
+                view.context.startActivity<TitleWithContentActivity>(
+                    Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_WEB_VIEW),
+                    Pair(Constants.SP.URL,link),
+                    Pair(Constants.SP.WEBVIEW_TITLE,title)
+                )
 
             }
         })

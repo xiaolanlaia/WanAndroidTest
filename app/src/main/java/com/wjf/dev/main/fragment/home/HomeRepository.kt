@@ -26,14 +26,14 @@ class HomeRepository {
     /**
      * 文章列表
      */
-    fun getHomeArticleList() : Observable<HomeArticleBean>{
+    fun getHomeArticleList() : Observable<ArticleBean>{
 
         return RetrofitManager.getHomeArticleList().doInBackground()
     }
     /**
      * 广场列表
      */
-    fun getSquareList() : Observable<HomeArticleBean>{
+    fun getSquareList() : Observable<ArticleBean>{
 
         return RetrofitManager.getSquareList().doInBackground()
     }
@@ -41,7 +41,7 @@ class HomeRepository {
     /**
      * 最新项目
      */
-    fun getLatestProject() : Observable<HomeArticleBean>{
+    fun getLatestProject() : Observable<ArticleBean>{
 
         return RetrofitManager.getLatestProject().doInBackground()
     }

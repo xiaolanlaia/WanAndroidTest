@@ -13,7 +13,7 @@ import com.wjf.dev.databinding.HomeFragmentArticleSecondBinding
 import com.wjf.dev.main.fragment.home.HomeRepository
 import com.wjf.dev.main.fragment.home.HomeVMFactory
 import com.wjf.dev.main.fragment.home.HomeViewModel
-import com.wjf.dev.main.fragment.home.adapter.HomeSecondAdapter
+import com.wjf.dev.main.fragment.home.adapter.HomeArticleAdapter
 import kotlinx.android.synthetic.main.home_fragment_article_second.*
 import kotlinx.android.synthetic.main.home_fragment_recycler_item.*
 import org.jetbrains.anko.startActivity
@@ -28,7 +28,7 @@ import org.jetbrains.anko.startActivity
 
 class HomeSecondFragment : BaseMVVMFragment<HomeFragmentArticleSecondBinding, HomeViewModel>(){
 
-    lateinit var homeSecondAdapter : HomeSecondAdapter
+    lateinit var homeArticleAdapter : HomeArticleAdapter
 
     override fun initViewModel(): HomeViewModel =
         ViewModelProvider(this,
@@ -51,22 +51,22 @@ class HomeSecondFragment : BaseMVVMFragment<HomeFragmentArticleSecondBinding, Ho
     fun initView(){
 
 
-        homeSecondAdapter = HomeSecondAdapter()
+        homeArticleAdapter = HomeArticleAdapter()
         //设置layoutManager
         home_article_recycler.layoutManager = LinearLayoutManager(context)
-        home_article_recycler.adapter = homeSecondAdapter
+        home_article_recycler.adapter = homeArticleAdapter
 
 
         vm.articleList.observe(viewLifecycleOwner, Observer {
 
-            homeSecondAdapter.replaceData(it)
+            homeArticleAdapter.replaceData(it)
 
 
 
         })
 
 
-        homeSecondAdapter.setOnItemClickListener(object: HomeSecondAdapter.OnItemClickListener {
+        homeArticleAdapter.setOnItemClickListener(object: HomeArticleAdapter.OnItemClickListener {
             override fun onItemClick(id: Int, collect : Boolean) {
 
                 when(collect){

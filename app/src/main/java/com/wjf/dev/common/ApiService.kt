@@ -21,19 +21,19 @@ interface ApiService {
      * 文章列表
      */
     @GET("article/list/0/json")
-    fun getHomeArticleList() : Observable<HomeArticleBean>
+    fun getHomeArticleList() : Observable<ArticleBean>
 
     /**
      * 广场列表
      */
     @GET("user_article/list/0/json")
-    fun getSquareList() : Observable<HomeArticleBean>
+    fun getSquareList() : Observable<ArticleBean>
 
     /**
      * 最新项目
      */
     @GET("article/listproject/0/json")
-    fun getLatestProject() : Observable<HomeArticleBean>
+    fun getLatestProject() : Observable<ArticleBean>
 
     /**
      * 收藏
@@ -57,19 +57,19 @@ interface ApiService {
      * 作者文章列表
      */
     @GET("user/{AUTHOR_ID}/share_articles/1/json")
-    fun getAuthorArticleList(@Path("AUTHOR_ID") AUTHOR_ID : Int) : Observable<HomeArticleBean>
+    fun getAuthorArticleList(@Path("AUTHOR_ID") AUTHOR_ID : Int) : Observable<ArticleBean>
 
     /**
      * 按作者的昵称搜索文章
      */
     @GET("/article/list/0/json")
-    fun getAuthorFromNickName(@Query("author")nickName : String) : Observable<HomeArticleBean>
+    fun getAuthorFromNickName(@Query("author")nickName : String) : Observable<ArticleBean>
 
     /**
      * 某个分类下文章
      */
     @GET("article/list/0/json")
-    fun getArticleSort(@Query("cid") cid : Int) : Observable<HomeArticleBean>
+    fun getArticleSort(@Query("cid") cid : Int) : Observable<ArticleBean>
 
     /**
      * 获取体系列表数据
@@ -87,7 +87,7 @@ interface ApiService {
      * 公众号历史数据
      */
     @GET("wxarticle/list/{id}/1/json")
-    fun getHistoryData(@Path("id")id : Int) : Observable<HomeArticleBean>
+    fun getHistoryData(@Path("id")id : Int) : Observable<ArticleBean>
 
     /**
      * 导航数据
@@ -141,7 +141,7 @@ interface ApiService {
      * 获取收藏列表
      */
     @GET("lg/collect/list/0/json")
-    fun getCollectList() : Observable<HomeArticleBean>
+    fun getCollectList() : Observable<ArticleBean>
 
     /**
      * 退出登录

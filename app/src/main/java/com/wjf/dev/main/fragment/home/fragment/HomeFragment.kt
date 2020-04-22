@@ -5,21 +5,14 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
-import com.wjf.dev.common.Constants
-import com.wjf.dev.common.TitleWithContentActivity
 import com.wjf.dev.databinding.HomeFragmentBinding
 import com.wjf.dev.main.fragment.home.HomeRepository
 import com.wjf.dev.main.fragment.home.HomeVMFactory
 import com.wjf.dev.main.fragment.home.HomeViewModel
-import com.wjf.dev.util.GlideImageLoader
-import com.youth.banner.BannerConfig
-import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.home_fragment.*
-import org.jetbrains.anko.support.v4.startActivity
 
 /**
  *  @author  xiaolanlaia

@@ -10,7 +10,7 @@ import com.wjf.dev.base.BaseMVVMFragment
 import com.wjf.dev.common.Constants
 import com.wjf.dev.common.TitleWithContentActivity
 import com.wjf.dev.databinding.FragmentOfficialAccountArticleBinding
-import com.wjf.dev.main.fragment.offcialAccount.adapter.OfficialAccountAdapter
+import com.wjf.dev.main.fragment.home.adapter.HomeArticleAdapter
 import kotlinx.android.synthetic.main.fragment_official_account_article.*
 import org.jetbrains.anko.startActivity
 
@@ -23,7 +23,7 @@ import org.jetbrains.anko.startActivity
 
 
 class OfficialAccountArticleFragment : BaseMVVMFragment<FragmentOfficialAccountArticleBinding,OfficialAccountViewModel>() {
-    lateinit var officialAccountAdapter: OfficialAccountAdapter
+    lateinit var homeArticleAdapter: HomeArticleAdapter
 
     companion object {
         fun newInstance(id : Int) : OfficialAccountArticleFragment {
@@ -50,15 +50,15 @@ class OfficialAccountArticleFragment : BaseMVVMFragment<FragmentOfficialAccountA
     }
 
     fun initData(){
-        officialAccountAdapter = OfficialAccountAdapter()
+        homeArticleAdapter = HomeArticleAdapter()
         //设置layoutManager
         official_account_article_recycler.layoutManager = LinearLayoutManager(context)
-        official_account_article_recycler.adapter = officialAccountAdapter
+        official_account_article_recycler.adapter = homeArticleAdapter
         vm.historyList.observe(viewLifecycleOwner, Observer {
-            officialAccountAdapter.replaceData(it)
+            homeArticleAdapter.replaceData(it)
         })
 
-        officialAccountAdapter.setOnItemClickListener(object: OfficialAccountAdapter.OnItemClickListener {
+        homeArticleAdapter.setOnItemClickListener(object: HomeArticleAdapter.OnItemClickListener {
             override fun onItemClick(id: Int, collect : Boolean) {
 
                 when(collect){
@@ -76,7 +76,7 @@ class OfficialAccountArticleFragment : BaseMVVMFragment<FragmentOfficialAccountA
             }
 
 
-            override fun onItemClick(view: View, link: String?, title: String?) {
+            override fun onItemClick(view: View, name: String?, id: Int?, link: String?, title: String?) {
 
                     view.context.startActivity<TitleWithContentActivity>(
                         Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_WEB_VIEW),

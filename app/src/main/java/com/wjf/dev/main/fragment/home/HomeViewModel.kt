@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.wjf.dev.common.Constants
-import com.wjf.dev.entity.HomeArticleBean
+import com.wjf.dev.entity.ArticleBean
 import com.wjf.dev.entity.HomeBannerBean
 import com.wjf.dev.util.CodeUtil.checkIsLogin
 import com.wjf.dev.util.addTo
@@ -24,8 +24,8 @@ class HomeViewModel(val repository: HomeRepository) : ViewModel() {
     val co = CompositeDisposable()
 
     val bannerData = MutableLiveData<List<HomeBannerBean.BannerData>>()
-    val articleList = MutableLiveData<List<HomeArticleBean.DataBean.DatasBean>>()
-    val projectArticleList = MutableLiveData<List<HomeArticleBean.DataBean.DatasBean>>()
+    val articleList = MutableLiveData<List<ArticleBean.DataBean.DatasBean>>()
+    val projectArticleList = MutableLiveData<List<ArticleBean.DataBean.DatasBean>>()
 
     fun getHomeBannerData(context: Context){
 

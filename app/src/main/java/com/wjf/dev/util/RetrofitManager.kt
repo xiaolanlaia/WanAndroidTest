@@ -76,7 +76,7 @@ object RetrofitManager {
     /**
      * 文章列表
      */
-    fun getHomeArticleList() : Observable<HomeArticleBean>{
+    fun getHomeArticleList() : Observable<ArticleBean>{
 
         return apiService.getHomeArticleList()
     }
@@ -84,7 +84,7 @@ object RetrofitManager {
     /**
      * 广场列表
      */
-    fun getSquareList() : Observable<HomeArticleBean>{
+    fun getSquareList() : Observable<ArticleBean>{
 
         return apiService.getSquareList()
     }
@@ -92,7 +92,7 @@ object RetrofitManager {
     /**
      * 最新项目
      */
-    fun getLatestProject() : Observable<HomeArticleBean>{
+    fun getLatestProject() : Observable<ArticleBean>{
 
         return apiService.getLatestProject()
     }
@@ -122,7 +122,7 @@ object RetrofitManager {
     /**
      * 作者文章列表
      */
-    fun getAuthorArticleList(AUTHOR_ID : Int) : Observable<HomeArticleBean> {
+    fun getAuthorArticleList(AUTHOR_ID : Int) : Observable<ArticleBean> {
 
         return apiService.getAuthorArticleList(AUTHOR_ID)
     }
@@ -130,7 +130,7 @@ object RetrofitManager {
     /**
      * 按作者的昵称搜索文章
      */
-    fun getAuthorFromNickName(nickName : String) : Observable<HomeArticleBean>{
+    fun getAuthorFromNickName(nickName : String) : Observable<ArticleBean>{
 
         return apiService.getAuthorFromNickName(nickName)
     }
@@ -138,7 +138,7 @@ object RetrofitManager {
     /**
      * 某个分类下文章
      */
-    fun getArticleSort(cid : Int) : Observable<HomeArticleBean>{
+    fun getArticleSort(cid : Int) : Observable<ArticleBean>{
 
         return apiService.getArticleSort(cid)
 
@@ -162,7 +162,7 @@ object RetrofitManager {
     /**
      * 公众号历史数据
      */
-    fun getHistoryData(id : Int) : Observable<HomeArticleBean>{
+    fun getHistoryData(id : Int) : Observable<ArticleBean>{
         return apiService.getHistoryData(id)
     }
 
@@ -226,7 +226,7 @@ object RetrofitManager {
     /**
      * 获取收藏列表
      */
-    fun getCollectList() : Observable<HomeArticleBean>{
+    fun getCollectList() : Observable<ArticleBean>{
         return apiService.getCollectList()
     }
 
