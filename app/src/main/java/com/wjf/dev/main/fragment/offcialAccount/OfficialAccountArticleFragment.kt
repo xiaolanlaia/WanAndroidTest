@@ -23,7 +23,6 @@ import org.jetbrains.anko.startActivity
 
 
 class OfficialAccountArticleFragment : BaseMVVMFragment<FragmentOfficialAccountArticleBinding,OfficialAccountViewModel>() {
-    lateinit var homeArticleAdapter: HomeArticleAdapter
 
     companion object {
         fun newInstance(id : Int) : OfficialAccountArticleFragment {
@@ -50,7 +49,7 @@ class OfficialAccountArticleFragment : BaseMVVMFragment<FragmentOfficialAccountA
     }
 
     fun initData(){
-        homeArticleAdapter = HomeArticleAdapter()
+        val homeArticleAdapter = HomeArticleAdapter(R.layout.home_fragment_recycler_item)
         //设置layoutManager
         official_account_article_recycler.layoutManager = LinearLayoutManager(context)
         official_account_article_recycler.adapter = homeArticleAdapter

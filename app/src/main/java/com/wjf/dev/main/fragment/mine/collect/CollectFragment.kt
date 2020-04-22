@@ -46,7 +46,7 @@ class CollectFragment : BaseMVVMFragment<MineFragmentCollectBinding, MineViewMod
     fun initData(){
 
 
-        val homeArticleAdapter = HomeArticleAdapter()
+        val homeArticleAdapter = HomeArticleAdapter(R.layout.home_fragment_recycler_item)
         //设置layoutManager
         collect_article_recycler.layoutManager = LinearLayoutManager(context)
         collect_article_recycler.adapter = homeArticleAdapter

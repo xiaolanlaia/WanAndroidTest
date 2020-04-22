@@ -32,7 +32,6 @@ import org.jetbrains.anko.support.v4.startActivity
 
 class HomeArticleFragment : BaseMVVMFragment<HomeFragmentArticleBinding, HomeViewModel>(){
 
-    lateinit var homeAdapter : HomeArticleAdapter
     val images = ArrayList<String>()
     val titles = ArrayList<String>()
     val urls = ArrayList<String>()
@@ -51,12 +50,14 @@ class HomeArticleFragment : BaseMVVMFragment<HomeFragmentArticleBinding, HomeVie
 
         initView()
         initRequest()
-        setData()
 
     }
 
-
-    fun setData(){
+    fun initView(){
+        home_banner.setImageLoader(GlideImageLoader())
+        home_banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE)
+        home_banner.setDelayTime(2000)
+        home_banner.setBannerAnimation(Transformer.DepthPage)
         vm.bannerData.observe(viewLifecycleOwner, Observer {
 
             images.clear()
@@ -74,12 +75,6 @@ class HomeArticleFragment : BaseMVVMFragment<HomeFragmentArticleBinding, HomeVie
 
 
         })
-    }
-    fun initView(){
-        home_banner.setImageLoader(GlideImageLoader())
-        home_banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE)
-        home_banner.setDelayTime(2000)
-        home_banner.setBannerAnimation(Transformer.DepthPage)
 
         home_banner.setOnBannerListener { position ->
 
@@ -91,7 +86,7 @@ class HomeArticleFragment : BaseMVVMFragment<HomeFragmentArticleBinding, HomeVie
 
         }
 
-        homeAdapter = HomeArticleAdapter()
+        val homeAdapter = HomeArticleAdapter(R.layout.home_fragment_recycler_item)
         //设置layoutManager
         home_article_recycler.layoutManager = LinearLayoutManager(context)
         home_article_recycler.adapter = homeAdapter

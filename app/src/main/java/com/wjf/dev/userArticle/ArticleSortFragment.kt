@@ -51,7 +51,7 @@ class ArticleSortFragment : BaseMVVMFragment<FragmentAuthorArticleBinding, Autho
         //设置layoutManager
         author_article_recycler.layoutManager = LinearLayoutManager(context)
 
-        val homeArticleAdapter = HomeArticleAdapter()
+        val homeArticleAdapter = HomeArticleAdapter(R.layout.home_fragment_recycler_item)
         author_article_recycler.adapter = homeArticleAdapter
 
 

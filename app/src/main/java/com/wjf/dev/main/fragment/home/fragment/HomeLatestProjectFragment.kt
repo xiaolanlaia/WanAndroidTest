@@ -27,7 +27,7 @@ import org.jetbrains.anko.startActivity
 
 class HomeLatestProjectFragment : BaseMVVMFragment<HomeFragmentArticleSecondBinding, HomeViewModel>() {
 
-    val articleLatestProjectAdapter = ArticleLatestProjectAdapter()
+
     override fun initViewModel(): HomeViewModel =
         ViewModelProvider(this,
             HomeVMFactory(HomeRepository())
@@ -38,16 +38,22 @@ class HomeLatestProjectFragment : BaseMVVMFragment<HomeFragmentArticleSecondBind
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindView.vm = vm
+
         initView()
-        initData()
         initRequest()
+
     }
 
     fun initView(){
 
+        val articleLatestProjectAdapter = ArticleLatestProjectAdapter(R.layout.home_fragment_latest_project)
         home_article_recycler.layoutManager = LinearLayoutManager(context)
         home_article_recycler.adapter = articleLatestProjectAdapter
 
+        vm.projectArticleList.observe(viewLifecycleOwner, Observer {
+            articleLatestProjectAdapter.replaceData(it)
+
+        })
         articleLatestProjectAdapter.setOnItemClickListener(object : ArticleLatestProjectAdapter.OnItemClickListener{
             override fun onItemClick(id: Int, collect : Boolean) {
 
@@ -70,18 +76,11 @@ class HomeLatestProjectFragment : BaseMVVMFragment<HomeFragmentArticleSecondBind
                     Pair(Constants.SP.TITLE_ACTIVITY_TYPE, TitleWithContentActivity.TYPE_WEB_VIEW),
                     Pair(Constants.SP.URL,link),
                     Pair(Constants.SP.WEBVIEW_TITLE,title)
-                )            }
+                )
+            }
 
         })
 
-    }
-
-    fun initData(){
-
-        vm.projectArticleList.observe(viewLifecycleOwner, Observer {
-            articleLatestProjectAdapter.replaceData(it)
-
-        })
     }
 
     fun initRequest(){

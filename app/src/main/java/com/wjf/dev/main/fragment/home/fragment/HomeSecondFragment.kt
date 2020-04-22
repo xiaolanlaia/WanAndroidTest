@@ -28,8 +28,6 @@ import org.jetbrains.anko.startActivity
 
 class HomeSecondFragment : BaseMVVMFragment<HomeFragmentArticleSecondBinding, HomeViewModel>(){
 
-    lateinit var homeArticleAdapter : HomeArticleAdapter
-
     override fun initViewModel(): HomeViewModel =
         ViewModelProvider(this,
             HomeVMFactory(HomeRepository())
@@ -51,7 +49,7 @@ class HomeSecondFragment : BaseMVVMFragment<HomeFragmentArticleSecondBinding, Ho
     fun initView(){
 
 
-        homeArticleAdapter = HomeArticleAdapter()
+        val homeArticleAdapter = HomeArticleAdapter(R.layout.home_fragment_recycler_item)
         //设置layoutManager
         home_article_recycler.layoutManager = LinearLayoutManager(context)
         home_article_recycler.adapter = homeArticleAdapter

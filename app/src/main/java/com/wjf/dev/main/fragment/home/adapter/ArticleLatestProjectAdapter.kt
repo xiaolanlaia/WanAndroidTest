@@ -22,7 +22,7 @@ import com.wjf.dev.util.CodeUtil
  */
 
 
-class ArticleLatestProjectAdapter : BaseQuickAdapter<ArticleBean.DataBean.DatasBean,BaseViewHolder>(R.layout.home_fragment_latest_project) {
+class ArticleLatestProjectAdapter(layoutId : Int) : BaseQuickAdapter<ArticleBean.DataBean.DatasBean,BaseViewHolder>(layoutId) {
 
 
     private lateinit var onItemClickListener : OnItemClickListener

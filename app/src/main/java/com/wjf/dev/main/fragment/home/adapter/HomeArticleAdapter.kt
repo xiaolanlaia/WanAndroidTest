@@ -19,13 +19,10 @@ import com.wjf.dev.util.CodeUtil
  */
 
 
-class HomeArticleAdapter:
-    BaseQuickAdapter<ArticleBean.DataBean.DatasBean, BaseViewHolder>(R.layout.home_fragment_recycler_item) {
+class HomeArticleAdapter(layoutId : Int):
+    BaseQuickAdapter<ArticleBean.DataBean.DatasBean, BaseViewHolder>(layoutId) {
 
     private lateinit var onItemClickListener: OnItemClickListener
-
-
-
 
 
     fun setOnItemClickListener(listener: OnItemClickListener) {
