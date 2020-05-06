@@ -13,6 +13,7 @@ import com.wjf.dev.common.MyApplication.Companion.context
 import com.wjf.dev.entity.ArticleBean
 import com.wjf.dev.main.fragment.home.HomeViewModel
 import com.wjf.dev.util.CodeUtil
+import com.wjf.dev.util.GlideUtils
 
 /**
  *  @author  xiaolanlaia
@@ -48,9 +49,7 @@ class ArticleLatestProjectAdapter(layoutId : Int) : BaseQuickAdapter<ArticleBean
                 onItemClickListener.onItemClick(it,item.link,item.title)
             }
 
-        Glide.with(context)
-            .load(item.envelopePic)
-            .into(helper.getView(R.id.project_preview))
+        GlideUtils.showBannerImage(mContext, helper.getView(R.id.project_preview), item.envelopePic)
 
         when(item.collect){
 

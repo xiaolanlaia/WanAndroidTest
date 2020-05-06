@@ -47,6 +47,7 @@ class HomeLatestProjectFragment : BaseMVVMFragment<HomeFragmentArticleSecondBind
     fun initView(){
 
         val articleLatestProjectAdapter = ArticleLatestProjectAdapter(R.layout.home_fragment_latest_project)
+        home_article_recycler.setHasFixedSize(true)
         home_article_recycler.layoutManager = LinearLayoutManager(context)
         home_article_recycler.adapter = articleLatestProjectAdapter
 

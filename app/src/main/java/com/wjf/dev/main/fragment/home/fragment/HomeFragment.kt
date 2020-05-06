@@ -5,6 +5,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.fragment.app.FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
+import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.lifecycle.ViewModelProvider
 import com.wjf.dev.R
 import com.wjf.dev.base.BaseMVVMFragment
@@ -39,7 +41,6 @@ class HomeFragment : BaseMVVMFragment<HomeFragmentBinding, HomeViewModel>() {
         bindView.vm = vm
 
         initView()
-        initRequest()
 
     }
 
@@ -47,24 +48,14 @@ class HomeFragment : BaseMVVMFragment<HomeFragmentBinding, HomeViewModel>() {
 
 
 
-        home_viewpager.adapter =
-            HomePageAdapter(childFragmentManager)
+        home_viewpager.adapter = HomePageAdapter(childFragmentManager)
         home_tab.setupWithViewPager(home_viewpager)
 
 
     }
 
 
-
-    fun initRequest(){
-
-
-
-    }
-
-
-
-    class HomePageAdapter(fm : FragmentManager) : FragmentPagerAdapter(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT){
+    class HomePageAdapter(fm : FragmentManager) : FragmentStatePagerAdapter(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT){
 
 
         private val fragments = mutableListOf<Fragment>()
