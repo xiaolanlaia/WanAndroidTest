@@ -126,11 +126,11 @@ class HomeArticleAdapter(layoutId : Int):
 
     }
 
-    fun returnAuthor(item: ArticleBean.DataBean.DatasBean) : String{
+    fun returnAuthor(item: ArticleBean.DataBean.DatasBean) : String?{
 
-        if (!TextUtils.isEmpty(item.author)) return item.author!!
+        if (!TextUtils.isEmpty(item.author)) return item.author
 
-        return item.shareUser!!
+        return item.shareUser
     }
 }
 
