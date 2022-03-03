@@ -38,25 +38,25 @@ class TitleWithContentActivity : BaseActivity() {
             TYPE_WEB_VIEW -> {
                 if (!TextUtils.isEmpty(intent.getStringExtra(Constants.SP.WEBVIEW_TITLE))){
 
-                    info_toolbar.setTitle(intent.getStringExtra(Constants.SP.WEBVIEW_TITLE))
+                    info_toolbar.setTitle(intent.getStringExtra(Constants.SP.WEBVIEW_TITLE)!!)
                 }
-                transaction.replace(R.id.info_content, WebFragment.newInstance(url)).commit()
+                transaction.replace(R.id.info_content, WebFragment.newInstance(url!!)).commit()
             }
 
             TYPE_USER_ARTICLE_LIST ->{
 
                 if (!TextUtils.isEmpty(intent.getStringExtra(Constants.SP.AUTHOR_NAME))){
 
-                    info_toolbar.setTitle(intent.getStringExtra(Constants.SP.AUTHOR_NAME))
+                    info_toolbar.setTitle(intent.getStringExtra(Constants.SP.AUTHOR_NAME)!!)
                 }
-                transaction.replace(R.id.info_content, AuthorArticleFragment.newInstance(intent.getStringExtra(Constants.SP.AUTHOR_NAME))).commit()
+                transaction.replace(R.id.info_content, AuthorArticleFragment.newInstance(intent.getStringExtra(Constants.SP.AUTHOR_NAME)!!)).commit()
 
             }
 
             TYPE_ARTICLE_SORT_LIST ->{
                 if (!TextUtils.isEmpty(intent.getStringExtra(Constants.SP.ARTICLE_TITLE))){
 
-                    info_toolbar.setTitle(intent.getStringExtra(Constants.SP.ARTICLE_TITLE))
+                    info_toolbar.setTitle(intent.getStringExtra(Constants.SP.ARTICLE_TITLE)!!)
                 }
                 transaction.replace(R.id.info_content, ArticleSortFragment.newInstance(intent.getIntExtra(Constants.SP.CID,-1))).commit()
 

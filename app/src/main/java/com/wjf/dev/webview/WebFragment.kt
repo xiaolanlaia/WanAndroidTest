@@ -101,6 +101,6 @@ class WebFragment : BaseFragment(){
                 return false
             }
         }
-        web_view.loadUrl(url)
+        web_view.loadUrl(url!!)
     }
 }
